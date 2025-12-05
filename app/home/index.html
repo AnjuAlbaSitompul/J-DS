@@ -1,1085 +1,1646 @@
 <!-- Hero -->
-    <section class="vs-hero overflow-hidden z-index-common parallax-wrap">
-      <div class="vs-hero__ele1">
-        <img class="parallax-element" src="assets/img/hero/h1-ele-1-1.svg" alt="ele">
+ <style>
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+ </style>
+<section class="vs-hero overflow-hidden z-index-common parallax-wrap">
+  <div class="vs-hero__ele1"></div>
+  <div class="swiper vs-hero__active--zoom">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="container container--custom">
+          <div class="d-flex bg-dark video-container">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
-      <div class="swiper vs-hero__active--zoom">
+    </div>
+  </div>
+  <div
+    class="vs-balls vs-balls--screen"
+    data-balls-bottom="-6px"
+    data-balls-color="#f6f1e4"
+  ></div>
+</section>
+<!-- Hero End -->
+<!-- Vs Service Area -->
+<section
+  class="vs-service--area animation-active z-index-common space overflow-hidden"
+  data-bg-src="assets/img/service/service-bg.png"
+>
+  <img
+    src="assets/img/elements/service-ele-1.svg"
+    alt="elements1"
+    class="vs-service--ele1 wow animate__fadeInLeft"
+    data-wow-delay="0.25s"
+  />
+  <img
+    src="assets/img/elements/service-ele-2.svg"
+    alt="elements1"
+    class="vs-service--ele2 wow animate__fadeInRight"
+    data-wow-delay="0.45s"
+  />
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub">Mari Belajar</span>
+            <h2 class="vs-title__main">Belajar <span>Yang Benar Dan Salah</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-index-common">
+      <div
+        class="row justify-content-center swiper vs-carousel vs-carousel--service z-index-common pl-0"
+        data-xl="3"
+        data-loop="true"
+        data-autoplay-delay="6000"
+        data-nav-next=".nav-next-2"
+        data-nav-prev=".nav-prev-1"
+      >
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="vs-hero__bg vs-hero__bg--zoom" data-bg-src="assets/img/hero/banner-1-1.jpg"></div>
-            <div class="container container--custom">
-              <div class="vs-hero__content">
-                <div class="vs-hero__shape">
-                  <div class="vs-hero__shape--bg vs-hero__anim" data-bg-src="assets/img/hero/hero-shape-1.svg"></div>
-                  <span class="vs-hero__title--sub vs-hero__anim">
-                  <img src="assets/img/icons/hero-star-icon.svg" alt="hero star icon">
-                  fun happens!
-                </span>
-                  <h1 class="vs-hero__title--main vs-hero__anim">
-                    The kids Center <span>Education</span>
-                  </h1>
-                  <p class="vs-hero__desc vs-hero__anim">
-                    work and play come together ?
-                  </p>
-                  <a href="contact.html" class="vs-btn vs-hero__btn vs-hero__anim"><span
-                    class="vs-btn__border"></span>know more</a>
-                  <img class="vs-hero__character vs-hero__anim" src="assets/img/hero/hero-character-1.png" alt="Hero Character">
+          <div class="col-lg-4 col-md-6 swiper-slide">
+            <div
+              class="vs-service wow animate__fadeInUp"
+              data-wow-delay="0.25s"
+            >
+              <div class="vs-service__figure">
+                <a href="/games/true-false" class="vs-service__image--link nav-link">
+                  <img
+                    class="vs-service__image"
+                    src="assets/img/service/s-1-2.jpg"
+                    alt="vs service image"
+                  />
+                </a>
+              </div>
+              <div class="vs-service__content">
+                <div class="vs-service__header">
+                  <span class="vs-service__icon">
+                    <h3><i class="bi bi-controller"></i></h3>
+                  </span>
                 </div>
+                <a
+                  class="vs-service__heading--link nav-link"
+                  href="/games/true-false"
+                >
+                  <h3 class="vs-service__heading">Belajar Dan Bermain</h3>
+                </a>
+                <a href="/games/true-false" class="vs-service__link nav-link">
+                  <svg
+                    width="22"
+                    height="21"
+                    viewBox="0 0 22 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="vs-hero__bg vs-hero__bg--zoom" data-bg-src="assets/img/hero/banner-1-2.jpg"></div>
-            <div class="container container--custom">
-              <div class="vs-hero__content">
-                <div class="vs-hero__shape">
-                  <div class="vs-hero__shape--bg vs-hero__anim" data-bg-src="assets/img/hero/hero-shape-1.svg"></div>
-                  <span class="vs-hero__title--sub vs-hero__anim">
-                  <img src="assets/img/icons/hero-star-icon.svg" alt="hero star icon">
-                  fun happens!
-                </span>
-                  <h1 class="vs-hero__title--main vs-hero__anim">
-                    The kids Center <span>Education</span>
-                  </h1>
-                  <p class="vs-hero__desc vs-hero__anim">
-                    work and play come together ?
-                  </p>
-                  <a href="contact.html" class="vs-btn vs-hero__btn vs-hero__anim"><span
-                    class="vs-btn__border"></span>know more</a>
-                  <img class="vs-hero__character vs-hero__anim" src="assets/img/hero/hero-character-1.png" alt="Hero Character">
+          <div class="col-lg-4 col-md-6 swiper-slide">
+            <div
+              class="vs-service wow animate__fadeInUp"
+              data-wow-delay="0.35s"
+            >
+              <div class="vs-service__figure">
+                <a href="service-details.html" class="vs-service__image--link">
+                  <img
+                    class="vs-service__image"
+                    src="assets/img/service/s-1-2.jpg"
+                    alt="vs service image"
+                  />
+                </a>
+              </div>
+              <div class="vs-service__content">
+                <div class="vs-service__header">
+                  <span class="vs-service__icon">
+                    <img
+                      src="assets/img/icons/service-icon-1-2.svg"
+                      alt="service icon"
+                    />
+                  </span>
                 </div>
+                <a
+                  class="vs-service__heading--link"
+                  href="service-details.html"
+                >
+                  <h3 class="vs-service__heading">Dengar Dan Kenali</h3>
+                </a>
+                <a href="service-details.html" class="vs-service__link">
+                  <svg
+                    width="22"
+                    height="21"
+                    viewBox="0 0 22 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 swiper-slide">
+            <div
+              class="vs-service wow animate__fadeInUp"
+              data-wow-delay="0.45s"
+            >
+              <div class="vs-service__figure">
+                <a href="service-details.html" class="vs-service__image--link">
+                  <img
+                    class="vs-service__image"
+                    src="assets/img/service/s-1-3.jpg"
+                    alt="vs service image"
+                  />
+                </a>
+              </div>
+              <div class="vs-service__content">
+                <div class="vs-service__header">
+                  <span class="vs-service__icon">
+                    <img
+                      src="assets/img/icons/service-icon-1-3.svg"
+                      alt="service icon"
+                    />
+                  </span>
+                </div>
+                <a
+                  class="vs-service__heading--link"
+                  href="service-details.html"
+                >
+                  <h3 class="vs-service__heading">Formal Tuition</h3>
+                </a>
+                <a href="service-details.html" class="vs-service__link">
+                  <svg
+                    width="22"
+                    height="21"
+                    viewBox="0 0 22 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 swiper-slide">
+            <div
+              class="vs-service wow animate__fadeInUp"
+              data-wow-delay="0.55s"
+            >
+              <div class="vs-service__figure">
+                <a href="service-details.html" class="vs-service__image--link">
+                  <img
+                    class="vs-service__image"
+                    src="assets/img/service/s-1-4.jpg"
+                    alt="vs service image"
+                  />
+                </a>
+              </div>
+              <div class="vs-service__content">
+                <div class="vs-service__header">
+                  <span class="vs-service__icon">
+                    <img
+                      src="assets/img/icons/service-icon-1-3.svg"
+                      alt="service icon"
+                    />
+                  </span>
+                </div>
+                <a
+                  class="vs-service__heading--link"
+                  href="service-details.html"
+                >
+                  <h3 class="vs-service__heading">Formal Tuition</h3>
+                </a>
+                <a href="service-details.html" class="vs-service__link">
+                  <svg
+                    width="22"
+                    height="21"
+                    viewBox="0 0 22 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div class="vs-hero__direction">
-          <div class="vs-swiper-button-next">
-            <i class="fa-solid fa-arrow-right"></i>
+      </div>
+      <div class="nav-prev-1">
+        <svg
+          width="57"
+          height="20"
+          viewBox="0 0 57 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            id="mask0_318_7638"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="57"
+            height="20"
+          >
+            <rect
+              width="57"
+              height="20"
+              transform="matrix(-1 0 0 1 57 0)"
+              fill="url(#pattern0_318_7638)"
+            />
+          </mask>
+          <g mask="url(#mask0_318_7638)">
+            <rect
+              width="84"
+              height="42"
+              transform="matrix(-1 0 0 1 70 -14)"
+              fill="currentColor"
+            />
+          </g>
+          <defs>
+            <pattern
+              id="pattern0_318_7638"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0_318_7638"
+                transform="scale(0.0175439 0.05)"
+              />
+            </pattern>
+            <image
+              id="image0_318_7638"
+              width="57"
+              height="20"
+              preserveAspectRatio="none"
+              xlink:href="data:image/png;base64,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"
+            />
+          </defs>
+        </svg>
+      </div>
+      <div class="nav-next-2">
+        <svg
+          width="57"
+          height="20"
+          viewBox="0 0 57 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            id="mask0_318_7635"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="57"
+            height="20"
+          >
+            <rect width="57" height="20" fill="url(#pattern0_318_7635)" />
+          </mask>
+          <g mask="url(#mask0_318_7635)">
+            <rect x="-13" y="-14" width="84" height="42" fill="currentColor" />
+          </g>
+          <defs>
+            <pattern
+              id="pattern0_318_7635"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0_318_7635"
+                transform="scale(0.0175439 0.05)"
+              />
+            </pattern>
+            <image
+              id="image0_318_7635"
+              width="57"
+              height="20"
+              preserveAspectRatio="none"
+              xlink:href="data:image/png;base64,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"
+            />
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Vs Service Area End -->
+<!-- About -->
+<section
+  class="vs-about--section space space-extra-bottom z-index-common parallax-wrap overflow-hidden"
+  data-bg-src="assets/img/about/vs-about-h1-bg.png"
+>
+  <img
+    src="assets/img/about/vs-about-h1-ele-4.png"
+    alt="elements"
+    class="vs-about--ele1 wow animate__fadeInUp"
+    data-wow-delay="0.35s"
+  />
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
+        <div class="vs-about--image">
+          <div
+            class="vs-about--image__figure1 wow animate__fadeInUp"
+            data-wow-delay="0.25s"
+          >
+            <img
+              src="assets/img/about/vs-about-h1-1.jpg"
+              alt="about image"
+              width="198"
+              height="214"
+              loading="lazy"
+            />
           </div>
-          <div class="vs-swiper-button-prev">
+          <div
+            class="vs-about--image__figure2 wow animate__fadeInUp"
+            data-wow-delay="0.35s"
+          >
+            <img
+              src="assets/img/about/vs-about-h1-2.jpg"
+              alt="about image"
+              width="400"
+              height="461"
+              loading="lazy"
+            />
+          </div>
+          <div class="vs-about--image__ele1 parallax-element" data-move="80">
+            <img src="assets/img/about/vs-about-h1-ele-1.svg" alt="elements" />
+          </div>
+          <div class="vs-about--image__ele2 parallax-element" data-move="50">
+            <img src="assets/img/about/vs-about-h1-ele-2.svg" alt="elements" />
+          </div>
+          <div
+            class="vs-about--image__ele3 wow animate__zoomIn"
+            data-wow-delay="0.55s"
+          ></div>
+          <div class="vs-about--yoe">
+            <span class="vs-about--yoe__number"> 21+ </span>
+            <span class="vs-about--yoe__text">years of experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.45s">
+        <div class="vs-about--right">
+          <div class="vs-title title-anime animation-style2">
+            <div class="title-anime__wrap">
+              <span class="vs-title__sub">School Facilities</span>
+              <h2 class="vs-title__main">
+                Learning <span>Opportunity</span> For Kids
+              </h2>
+            </div>
+          </div>
+          <div class="vs-about--story">
+            <div class="vs-about--story__tab mb-30">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="history-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#history-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="history-tab-pane"
+                    aria-selected="true"
+                  >
+                    our history
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="home-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#home-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="home-tab-pane"
+                    aria-selected="true"
+                  >
+                    school
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="profile-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#profile-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="profile-tab-pane"
+                    aria-selected="false"
+                  >
+                    Kids
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="history-tab-pane"
+                role="tabpanel"
+                aria-labelledby="history-tab"
+                tabindex="0"
+              >
+                <p class="vs-about__text vs-text">
+                  Pre-school has open door and also offer free trial sessios
+                  that child Creative Learning Opportunity For Kids Hised
+                  sedaugue felis Phasellus gravida lacus quis eros.
+                </p>
+                <ul class="vs-list pt-15 mb-35">
+                  <li>Learning Opportunity For Kids</li>
+                  <li>Your Child Will Take</li>
+                </ul>
+                <a href="contact.html" class="vs-btn"
+                  ><span class="vs-btn__border"></span>contact us</a
+                >
+              </div>
+              <div
+                class="tab-pane fade"
+                id="home-tab-pane"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+                tabindex="0"
+              >
+                <p class="vs-about__text vs-text">
+                  Pre-school has open door and also offer free trial sessios
+                  that child Creative Learning Opportunity For Kids Hised
+                  sedaugue felis Phasellus gravida lacus quis eros.
+                </p>
+                <ul class="vs-list pt-15 mb-35">
+                  <li>Learning Opportunity For Kids</li>
+                  <li>Your Child Will Take</li>
+                </ul>
+                <a href="contact.html" class="vs-btn"
+                  ><span class="vs-btn__border"></span>contact us</a
+                >
+              </div>
+              <div
+                class="tab-pane fade"
+                id="profile-tab-pane"
+                role="tabpanel"
+                aria-labelledby="profile-tab"
+                tabindex="0"
+              >
+                <p class="vs-about__text vs-text">
+                  Pre-school has open door and also offer free trial sessios
+                  that child Creative Learning Opportunity For Kids Hised
+                  sedaugue felis Phasellus gravida lacus quis eros.
+                </p>
+                <ul class="vs-list pt-15 mb-35">
+                  <li>Training Opportunity For Kids</li>
+                  <li>Your Child Will Take</li>
+                </ul>
+                <a href="contact.html" class="vs-btn"
+                  ><span class="vs-btn__border"></span>contact us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About End -->
+<!-- Vs Session Time Area -->
+<section
+  class="vs-session--area space space-extra-bottom bg-theme-color-1 z-index-common overflow-hidden"
+>
+  <div
+    class="vs-session--bg-image"
+    data-vs-gsap-parallax-speed="5"
+    data-vs-gsap-parallax-zoom
+  >
+    <img src="assets/img/session/session-bg.png" alt="session bg" />
+  </div>
+  <div
+    class="vs-session--ele1"
+    data-vs-gsap-parallax-speed="2"
+    data-vs-gsap-parallax-zoom
+  >
+    <img src="assets/img/session/session-ele-1.png" alt="session ele" />
+  </div>
+  <div
+    class="vs-session--ele2"
+    data-vs-gsap-parallax-speed="5"
+    data-vs-gsap-parallax-zoom
+  >
+    <img src="assets/img/session/session-ele-2.png" alt="session ele" />
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 wow animate__fadeInUp" data-wow-delay="0.15s">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub text-white">Session Times</span>
+            <h2 class="vs-title__main text-white px-xl-5">
+              Your kids Are 100% Safe at Our Care.
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="row gx-30">
+          <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.2s">
+            <div class="vs-session">
+              <img
+                class="vs-session__bg"
+                src="assets/img/elements/session-main-block.png"
+                alt=""
+              />
+              <div class="vs-session__content">
+                <h3 class="vs-session__title">Brain Train</h3>
+                <time class="vs-session__time" datetime="08:00"
+                  >8.00am - 10.00am</time
+                >
+              </div>
+              <span class="vs-session__icon">
+                <img
+                  src="assets/img/icons/session-icon-h1-1-1.svg"
+                  alt="session icon"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.3s">
+            <div class="vs-session">
+              <img
+                class="vs-session__bg"
+                src="assets/img/elements/session-main-block.png"
+                alt=""
+              />
+              <div class="vs-session__content">
+                <h3 class="vs-session__title">Drawing & Paintings</h3>
+                <time class="vs-session__time" datetime="08:00"
+                  >8.00am - 10.00am</time
+                >
+              </div>
+              <span class="vs-session__icon">
+                <img
+                  src="assets/img/icons/session-icon-h1-1-2.svg"
+                  alt="session icon"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.4s">
+            <div class="vs-session">
+              <img
+                class="vs-session__bg"
+                src="assets/img/elements/session-main-block.png"
+                alt=""
+              />
+              <div class="vs-session__content">
+                <h3 class="vs-session__title">Alphabet Matching</h3>
+                <time class="vs-session__time" datetime="08:00"
+                  >8.00am - 10.00am</time
+                >
+              </div>
+              <span class="vs-session__icon">
+                <img
+                  src="assets/img/icons/session-icon-h1-1-3.svg"
+                  alt="session icon"
+                />
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.5s">
+            <div class="vs-session">
+              <img
+                class="vs-session__bg"
+                src="assets/img/elements/session-main-block.png"
+                alt=""
+              />
+              <div class="vs-session__content">
+                <h3 class="vs-session__title">Playland & Caffe</h3>
+                <time class="vs-session__time" datetime="08:00"
+                  >8.00am - 10.00am</time
+                >
+              </div>
+              <span class="vs-session__icon">
+                <img
+                  src="assets/img/icons/session-icon-h1-1-4.svg"
+                  alt="session icon"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="vs-balls vs-balls--screen"
+    data-balls-top="-6px"
+    data-balls-color="#F8F8F8"
+  ></div>
+  <div
+    class="vs-balls vs-balls--screen"
+    data-balls-bottm="-6px"
+    data-balls-color="#F8F8F8"
+  ></div>
+</section>
+<!-- Vs Session Time Area End -->
+<!-- Vs Gallery Area -->
+<section class="vs-gallery--area space space-extra-bottom overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub">School Gallery</span>
+            <h2 class="vs-title__main">Our Gallery For Kids</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vs-gallery--row">
+      <div
+        class="vs-gallery vs-gallery--col1 wow animate__fadeInUp"
+        data-wow-delay="0.25s"
+      >
+        <div class="vs-gallery__figure">
+          <a class="vs-gallery__image--link" href="class-details.html">
+            <img
+              class="vs-gallery__image"
+              src="assets/img/gallery/gallery-h1-1-1.jpg"
+              alt="Gallery"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="vs-gallery__hover">
+          <a
+            href="assets/img/gallery/gallery-h1-1-1.jpg"
+            class="vs-gallery__icon popup-image"
+          >
+            <i class="fa-solid fa-eye"></i>
+          </a>
+          <a href="class-details.html" class="vs-gallery__cate"> School </a>
+          <a class="vs-gallery__heading--link" href="class-details.html">
+            <h4 class="vs-gallery__heading">Kids ground</h4>
+          </a>
+        </div>
+      </div>
+      <div
+        class="vs-gallery vs-gallery--col2 wow animate__fadeInUp"
+        data-wow-delay="0.35s"
+      >
+        <div class="vs-gallery__figure">
+          <a class="vs-gallery__image--link" href="class-details.html">
+            <img
+              class="vs-gallery__image"
+              src="assets/img/gallery/gallery-h1-1-2.jpg"
+              alt="Gallery"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="vs-gallery__hover">
+          <a
+            href="assets/img/gallery/gallery-h1-1-2.jpg"
+            class="vs-gallery__icon popup-image"
+          >
+            <i class="fa-solid fa-eye"></i>
+          </a>
+          <a href="class-details.html" class="vs-gallery__cate"> School </a>
+          <a class="vs-gallery__heading--link" href="class-details.html">
+            <h4 class="vs-gallery__heading">Kids ground</h4>
+          </a>
+        </div>
+      </div>
+      <div
+        class="vs-gallery vs-gallery--col3 wow animate__fadeInUp"
+        data-wow-delay="0.45s"
+      >
+        <div class="vs-gallery__figure">
+          <a class="vs-gallery__image--link" href="class-details.html">
+            <img
+              class="vs-gallery__image"
+              src="assets/img/gallery/gallery-h1-1-3.jpg"
+              alt="Gallery"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="vs-gallery__hover">
+          <a
+            href="assets/img/gallery/gallery-h1-1-3.jpg"
+            class="vs-gallery__icon popup-image"
+          >
+            <i class="fa-solid fa-eye"></i>
+          </a>
+          <a href="class-details.html" class="vs-gallery__cate"> School </a>
+          <a class="vs-gallery__heading--link" href="class-details.html">
+            <h4 class="vs-gallery__heading">Kids ground</h4>
+          </a>
+        </div>
+      </div>
+      <div
+        class="vs-gallery vs-gallery--col4 wow animate__fadeInUp"
+        data-wow-delay="0.55s"
+      >
+        <div class="vs-gallery__figure">
+          <a class="vs-gallery__image--link" href="class-details.html">
+            <img
+              class="vs-gallery__image"
+              src="assets/img/gallery/gallery-h1-1-4.jpg"
+              alt="Gallery"
+              loading="lazy"
+            />
+          </a>
+        </div>
+        <div class="vs-gallery__hover">
+          <a
+            href="assets/img/gallery/gallery-h1-1-4.jpg"
+            class="vs-gallery__icon popup-image"
+          >
+            <i class="fa-solid fa-eye"></i>
+          </a>
+          <a href="class-details.html" class="vs-gallery__cate"> School </a>
+          <a class="vs-gallery__heading--link" href="class-details.html">
+            <h4 class="vs-gallery__heading">Kids ground</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center pt-50">
+      <a href="gallery.html" class="vs-btn"
+        ><span class="vs-btn__border"></span>view more</a
+      >
+    </div>
+  </div>
+</section>
+<!-- Vs Gallery Area End -->
+<!-- VS Grade Programs -->
+<section
+  class="vs-pro--area position-relative parallax-wrap"
+  data-bg-src="assets/img/bg/program-bg.png"
+>
+  <div class="vs-pro--ele1 parallax-element" data-move="200">
+    <img src="assets/img/pro/pro-ele-1.png" alt="pro-ele-1" />
+  </div>
+  <div class="vs-pro--ele2 parallax-element" data-move="100">
+    <img src="assets/img/pro/pro-ele-2.png" alt="pro-ele-1" />
+  </div>
+  <div class="vs-pro--ele3 parallax-element" data-move="80">
+    <img src="assets/img/pro/pro-ele-3.png" alt="pro-ele-1" />
+  </div>
+  <div class="vs-pro--ele2"></div>
+  <div class="vs-pro--ele3"></div>
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-auto text-center text-lg-start">
+        <div class="vs-title title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub text-white">GRADE LEVEL</span>
+            <h2 class="vs-title__main text-white">Grade Programs</h2>
+          </div>
+          <p
+            class="text-white fw-bold text-capitalize font-title vs-text-bolder mb-0"
+          >
+            work and play come together ?
+          </p>
+        </div>
+        <div
+          class="vs-pro--slider__direction justify-content-center justify-content-lg-start mb-md-4"
+        >
+          <div class="vs-pro--slider__next">
             <i class="fa-solid fa-arrow-left"></i>
           </div>
+          <div class="vs-pro--slider__prev">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
         </div>
       </div>
-      <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#f6f1e4"></div>
-    </section>
-    <!-- Hero End -->
-    <!-- Vs Service Area -->
-    <section class="vs-service--area animation-active z-index-common space overflow-hidden" data-bg-src="assets/img/service/service-bg.png">
-      <img src="assets/img/elements/service-ele-1.svg" alt="elements1" class="vs-service--ele1 wow animate__fadeInLeft" data-wow-delay="0.25s">
-      <img src="assets/img/elements/service-ele-2.svg" alt="elements1" class="vs-service--ele2 wow animate__fadeInRight" data-wow-delay="0.45s">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="vs-title text-center title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub">Choose Us</span>
-                <h2 class="vs-title__main">Education <span>For Kids</span></h2>
+      <div class="col-lg-7 flex-grow-1">
+        <div
+          class="swiper vs-carousel"
+          data-xl="3"
+          data-space-xl="15"
+          data-md="3"
+          data-sm="2"
+          data-space-lg="5"
+          data-nav-next=".vs-pro--slider__next"
+          data-nav-prev=".vs-pro--slider__prev"
+        >
+          <div class="swiper-wrapper p-4">
+            <div
+              class="swiper-slide wow animate__fadeInUp"
+              data-wow-delay="0.25s"
+            >
+              <div class="vs-pro">
+                <span class="vs-pro__grade bg-color1">
+                  grade
+                  <span>1</span>
+                </span>
+                <h2 class="vs-pro__title">Grade 2</h2>
+                <span class="vs-pro__age">Age 03 - 04</span>
+              </div>
+            </div>
+            <div
+              class="swiper-slide wow animate__fadeInUp"
+              data-wow-delay="0.35s"
+            >
+              <div class="vs-pro">
+                <span class="vs-pro__grade bg-color2">
+                  grade
+                  <span>1</span>
+                </span>
+                <h2 class="vs-pro__title">Grade 2</h2>
+                <span class="vs-pro__age">Age 03 - 04</span>
+              </div>
+            </div>
+            <div
+              class="swiper-slide wow animate__fadeInUp"
+              data-wow-delay="0.45s"
+            >
+              <div class="vs-pro">
+                <span class="vs-pro__grade bg-color3">
+                  grade
+                  <span>1</span>
+                </span>
+                <h2 class="vs-pro__title">Grade 2</h2>
+                <span class="vs-pro__age">Age 03 - 04</span>
+              </div>
+            </div>
+            <div
+              class="swiper-slide wow animate__fadeInUp"
+              data-wow-delay="0.55s"
+            >
+              <div class="vs-pro">
+                <span class="vs-pro__grade bg-color4">
+                  grade
+                  <span>1</span>
+                </span>
+                <h2 class="vs-pro__title">Grade 2</h2>
+                <span class="vs-pro__age">Age 03 - 04</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="z-index-common">
-          <div class="row justify-content-center swiper vs-carousel vs-carousel--service z-index-common pl-0" data-xl="3" data-loop="true" data-autoplay-delay="6000" data-nav-next=".nav-next-2" data-nav-prev=".nav-prev-1">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- VS Grade Programs End -->
+<!-- Class -->
+<section
+  class="vs-class--area space-extra-top space-extra-bottom z-index-common overflow-hidden"
+  data-bg-src="assets/img/class/class-bg.png"
+>
+  <div class="vs-class--ele1 vs-x-anim">
+    <img src="assets/img/class/class-ele1.png" alt="class Element" />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub">School Facilities</span>
+            <h2 class="vs-title__main">Engaging & Spacious School</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-index-common">
+      <div
+        class="vs-carousel vs-carousel--class swiper"
+        data-xl="4"
+        data-lg="3"
+        data-autoplay="false"
+        data-loop="true"
+        data-autoplay-delay="6000"
+        data-nav-next="#swiper-button-next"
+        data-nav-prev="#swiper-button-prev"
+      >
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide wow animate__fadeInUp"
+            data-wow-delay="0.25s"
+          >
+            <div class="vs-class">
+              <div class="vs-class__figure">
+                <a class="vs-class__figure--link" href="class-details.html">
+                  <img
+                    class="vs-class__figure--img"
+                    src="assets/img/class/class-1-1.jpg"
+                    alt="Class Details"
+                  />
+                  <div class="vs-class__icon--wrap">
+                    <span class="vs-class__icon vs-class__icon--color1">
+                      <img
+                        src="assets/img/icons/h1-class-icon-1.svg"
+                        alt="Class Icon"
+                      />
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="vs-class__content">
+                <a class="vs-class__heading--link" href="class-details.html">
+                  <h3 class="vs-class__heading">Online Class</h3>
+                </a>
+                <p class="vs-class__text">
+                  Pre-school has open door is and also offer free trial session
+                  in child.
+                </p>
+              </div>
+              <div class="vs-class__bottom">
+                <a href="class-details.html" class="vs-class__link">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide wow animate__fadeInUp"
+            data-wow-delay="0.45s"
+          >
+            <div class="vs-class">
+              <div class="vs-class__figure">
+                <a class="vs-class__figure--link" href="class-details.html">
+                  <img
+                    class="vs-class__figure--img"
+                    src="assets/img/class/class-1-2.jpg"
+                    alt="Class Details"
+                  />
+                  <div class="vs-class__icon--wrap">
+                    <span class="vs-class__icon vs-class__icon--color2">
+                      <img
+                        src="assets/img/icons/h1-class-icon-2.svg"
+                        alt="Class Icon"
+                      />
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="vs-class__content">
+                <a class="vs-class__heading--link" href="class-details.html">
+                  <h3 class="vs-class__heading">pick & drop</h3>
+                </a>
+                <p class="vs-class__text">
+                  Pre-school has open door is and also offer free trial session
+                  in child.
+                </p>
+              </div>
+              <div class="vs-class__bottom">
+                <a href="class-details.html" class="vs-class__link">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide wow animate__fadeInUp"
+            data-wow-delay="0.65s"
+          >
+            <div class="vs-class">
+              <div class="vs-class__figure">
+                <a class="vs-class__figure--link" href="class-details.html">
+                  <img
+                    class="vs-class__figure--img"
+                    src="assets/img/class/class-1-3.jpg"
+                    alt="Class Details"
+                  />
+                  <div class="vs-class__icon--wrap">
+                    <span class="vs-class__icon vs-class__icon--color3">
+                      <img
+                        src="assets/img/icons/h1-class-icon-3.svg"
+                        alt="Class Icon"
+                      />
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="vs-class__content">
+                <a class="vs-class__heading--link" href="class-details.html">
+                  <h3 class="vs-class__heading">play ground</h3>
+                </a>
+                <p class="vs-class__text">
+                  Pre-school has open door is and also offer free trial session
+                  in child.
+                </p>
+              </div>
+              <div class="vs-class__bottom">
+                <a href="class-details.html" class="vs-class__link">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="swiper-slide wow animate__fadeInUp"
+            data-wow-delay="0.85s"
+          >
+            <div class="vs-class">
+              <div class="vs-class__figure">
+                <a class="vs-class__figure--link" href="class-details.html">
+                  <img
+                    class="vs-class__figure--img"
+                    src="assets/img/class/class-1-4.jpg"
+                    alt="Class Details"
+                  />
+                  <div class="vs-class__icon--wrap">
+                    <span class="vs-class__icon vs-class__icon--color4">
+                      <img
+                        src="assets/img/icons/h1-class-icon-4.svg"
+                        alt="Class Icon"
+                      />
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="vs-class__content">
+                <a class="vs-class__heading--link" href="class-details.html">
+                  <h3 class="vs-class__heading">Healthy Foods</h3>
+                </a>
+                <p class="vs-class__text">
+                  Pre-school has open door is and also offer free trial session
+                  in child.
+                </p>
+              </div>
+              <div class="vs-class__bottom">
+                <a href="class-details.html" class="vs-class__link">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="1.5s">
+            <div class="vs-class">
+              <div class="vs-class__figure">
+                <a class="vs-class__figure--link" href="class-details.html">
+                  <img
+                    class="vs-class__figure--img"
+                    src="assets/img/class/class-1-2.jpg"
+                    alt="Class Details"
+                  />
+                  <div class="vs-class__icon--wrap">
+                    <span class="vs-class__icon vs-class__icon--color5">
+                      <img
+                        src="assets/img/icons/h1-class-icon-2.svg"
+                        alt="Class Icon"
+                      />
+                    </span>
+                  </div>
+                </a>
+              </div>
+              <div class="vs-class__content">
+                <a class="vs-class__heading--link" href="class-details.html">
+                  <h3 class="vs-class__heading">Modern School</h3>
+                </a>
+                <p class="vs-class__text">
+                  Pre-school has open door is and also offer free trial session
+                  in child.
+                </p>
+              </div>
+              <div class="vs-class__bottom">
+                <a href="class-details.html" class="vs-class__link">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="swiper-button-prev" class="nav-prev-1">
+        <svg
+          width="57"
+          height="20"
+          viewBox="0 0 57 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            id="mask0_318_7638"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="57"
+            height="20"
+          >
+            <rect
+              width="57"
+              height="20"
+              transform="matrix(-1 0 0 1 57 0)"
+              fill="url(#pattern0_318_7638)"
+            ></rect>
+          </mask>
+          <g mask="url(#mask0_318_7638)">
+            <rect
+              width="84"
+              height="42"
+              transform="matrix(-1 0 0 1 70 -14)"
+              fill="currentColor"
+            ></rect>
+          </g>
+          <defs>
+            <pattern
+              id="pattern0_318_7638"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0_318_7638"
+                transform="scale(0.0175439 0.05)"
+              ></use>
+            </pattern>
+            <image
+              id="image0_318_7638"
+              width="57"
+              height="20"
+              preserveAspectRatio="none"
+              xlink:href="data:image/png;base64,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"
+            ></image>
+          </defs>
+        </svg>
+      </div>
+      <div id="swiper-button-next" class="nav-next-2">
+        <svg
+          width="57"
+          height="20"
+          viewBox="0 0 57 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <mask
+            id="mask0_318_7635"
+            style="mask-type: alpha"
+            maskUnits="userSpaceOnUse"
+            x="0"
+            y="0"
+            width="57"
+            height="20"
+          >
+            <rect width="57" height="20" fill="url(#pattern0_318_7635)"></rect>
+          </mask>
+          <g mask="url(#mask0_318_7635)">
+            <rect
+              x="-13"
+              y="-14"
+              width="84"
+              height="42"
+              fill="currentColor"
+            ></rect>
+          </g>
+          <defs>
+            <pattern
+              id="pattern0_318_7635"
+              patternContentUnits="objectBoundingBox"
+              width="1"
+              height="1"
+            >
+              <use
+                xlink:href="#image0_318_7635"
+                transform="scale(0.0175439 0.05)"
+              ></use>
+            </pattern>
+            <image
+              id="image0_318_7635"
+              width="57"
+              height="20"
+              preserveAspectRatio="none"
+              xlink:href="data:image/png;base64,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"
+            ></image>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Feature End -->
+<!-- FAQ Feedback -->
+<section class="bg-title z-index-common space overflow-hidden">
+  <img
+    src="assets/img/elements/sec-divider-ele1.svg"
+    alt="sec-divider-ele1"
+    class="sec-ele1 position-absolute start-0 end-0 bottom-0 z-index-n2"
+  />
+  <div
+    class="feedback-image"
+    data-bg-src="assets/img/feedback/feedback-image-1-1.jpg"
+  ></div>
+  <div
+    class="feedback-image--right"
+    data-bg-src="assets/img/feedback/feedback-image-1-2.png"
+  ></div>
+  <img
+    class="feedback--ele1 wow animate__fadeInRight"
+    data-wow-delay="0.35s"
+    src="assets/img/feedback/vs-feedback-ele-1.png"
+    alt="elements"
+  />
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col-lg-7">
+        <div class="feedback-wrapper">
+          <div
+            class="vs-title vs-title--style2 title-anime animation-style2 text-center text-lg-start"
+          >
+            <div class="title-anime__wrap">
+              <span class="vs-title__sub">faq feedback</span>
+              <h2 class="vs-title__main pe-xl-3">
+                Customer <span>Feedback</span> For school
+              </h2>
+            </div>
+          </div>
+          <div class="swiper feedback-slider">
             <div class="swiper-wrapper">
-              <div class="col-lg-4 col-md-6 swiper-slide">
-                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.25s">
-                  <div class="vs-service__figure">
-                    <a href="service-details.html" class="vs-service__image--link">
-                      <img class="vs-service__image" src="assets/img/service/s-1-1.jpg" alt="vs service image">
-                    </a>
-                  </div>
-                  <div class="vs-service__content">
-                    <div class="vs-service__header">
-                      <span class="vs-service__icon">
-                      <img src="assets/img/icons/service-icon-1-1.svg" alt="service icon">
-                    </span>
+              <div class="swiper-slide">
+                <div class="feedback-block">
+                  <div class="feedback-block__image">
+                    <img
+                      src="assets/img/feedback/feedback-man-1-1.jpg"
+                      alt="feedback man"
+                      width="145"
+                      height="145"
+                    />
+                    <div class="feedback-block__icon--quote">
+                      <img
+                        src="assets/img/icons/svg-quote-icon.svg"
+                        alt="svg-quote-icon"
+                      />
                     </div>
-                    <a class="vs-service__heading--link" href="service-details.html">
-                      <h3 class="vs-service__heading">Learn and Play</h3>
-                    </a>
-                    <a href="service-details.html" class="vs-service__link">
-                      <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
-                      </svg>
-                    </a>
                   </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 swiper-slide">
-                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.35s">
-                  <div class="vs-service__figure">
-                    <a href="service-details.html" class="vs-service__image--link">
-                      <img class="vs-service__image" src="assets/img/service/s-1-2.jpg" alt="vs service image">
-                    </a>
-                  </div>
-                  <div class="vs-service__content">
-                    <div class="vs-service__header">
-                      <span class="vs-service__icon">
-                      <img src="assets/img/icons/service-icon-1-2.svg" alt="service icon">
-                    </span>
+                  <div class="feedback-block__content">
+                    <h4 class="feedback-block__title">Rodja Hartmann</h4>
+                    <span class="feedback-block__title--sub">Vecuro, CEO</span>
+                    <div class="feedback-block__rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
                     </div>
-                    <a class="vs-service__heading--link" href="service-details.html">
-                      <h3 class="vs-service__heading">Online Class</h3>
-                    </a>
-                    <a href="service-details.html" class="vs-service__link">
-                      <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 swiper-slide">
-                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.45s">
-                  <div class="vs-service__figure">
-                    <a href="service-details.html" class="vs-service__image--link">
-                      <img class="vs-service__image" src="assets/img/service/s-1-3.jpg" alt="vs service image">
-                    </a>
-                  </div>
-                  <div class="vs-service__content">
-                    <div class="vs-service__header">
-                      <span class="vs-service__icon">
-                      <img src="assets/img/icons/service-icon-1-3.svg" alt="service icon">
-                    </span>
-                    </div>
-                    <a class="vs-service__heading--link" href="service-details.html">
-                      <h3 class="vs-service__heading">Formal Tuition</h3>
-                    </a>
-                    <a href="service-details.html" class="vs-service__link">
-                      <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 swiper-slide">
-                <div class="vs-service wow animate__fadeInUp" data-wow-delay="0.55s">
-                  <div class="vs-service__figure">
-                    <a href="service-details.html" class="vs-service__image--link">
-                      <img class="vs-service__image" src="assets/img/service/s-1-4.jpg" alt="vs service image">
-                    </a>
-                  </div>
-                  <div class="vs-service__content">
-                    <div class="vs-service__header">
-                      <span class="vs-service__icon">
-                      <img src="assets/img/icons/service-icon-1-3.svg" alt="service icon">
-                    </span>
-                    </div>
-                    <a class="vs-service__heading--link" href="service-details.html">
-                      <h3 class="vs-service__heading">Formal Tuition</h3>
-                    </a>
-                    <a href="service-details.html" class="vs-service__link">
-                      <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1.39045 17.9495L17.6245 3.81022L11.9467 3.41092C11.6162 3.39253 11.307 3.24133 11.0897 2.99157C10.3795 2.16137 11.0268 0.887081 12.116 0.97149L20.7679 1.567C21.4447 1.61318 21.9555 2.20013 21.9077 2.87686L21.3019 11.5281C21.2154 13.1944 18.7024 13.0128 18.8562 11.3514L19.2524 5.64459L3.0003 19.7995C2.48691 20.2625 1.69228 20.2096 1.24372 19.6835C0.800172 19.1667 0.86807 18.3864 1.39045 17.9495Z" fill="currentColor" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="nav-prev-1">
-            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <mask id="mask0_318_7638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
-                <rect width="57" height="20" transform="matrix(-1 0 0 1 57 0)" fill="url(#pattern0_318_7638)" />
-              </mask>
-              <g mask="url(#mask0_318_7638)">
-                <rect width="84" height="42" transform="matrix(-1 0 0 1 70 -14)" fill="currentColor" />
-              </g>
-              <defs>
-                <pattern id="pattern0_318_7638" patternContentUnits="objectBoundingBox" width="1" height="1">
-                  <use xlink:href="#image0_318_7638" transform="scale(0.0175439 0.05)" />
-                </pattern>
-                <image id="image0_318_7638" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
-              </defs>
-            </svg>
-          </div>
-          <div class="nav-next-2">
-            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <mask id="mask0_318_7635" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
-                <rect width="57" height="20" fill="url(#pattern0_318_7635)" />
-              </mask>
-              <g mask="url(#mask0_318_7635)">
-                <rect x="-13" y="-14" width="84" height="42" fill="currentColor" />
-              </g>
-              <defs>
-                <pattern id="pattern0_318_7635" patternContentUnits="objectBoundingBox" width="1" height="1">
-                  <use xlink:href="#image0_318_7635" transform="scale(0.0175439 0.05)" />
-                </pattern>
-                <image id="image0_318_7635" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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" />
-              </defs>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Vs Service Area End -->
-    <!-- About -->
-    <section class="vs-about--section space space-extra-bottom z-index-common parallax-wrap overflow-hidden" data-bg-src="assets/img/about/vs-about-h1-bg.png">
-      <img src="assets/img/about/vs-about-h1-ele-4.png" alt="elements" class="vs-about--ele1 wow animate__fadeInUp" data-wow-delay="0.35s">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.25s">
-            <div class="vs-about--image">
-              <div class="vs-about--image__figure1 wow animate__fadeInUp" data-wow-delay="0.25s">
-                <img src="assets/img/about/vs-about-h1-1.jpg" alt="about image" width="198" height="214" loading="lazy">
-              </div>
-              <div class="vs-about--image__figure2 wow animate__fadeInUp" data-wow-delay="0.35s">
-                <img src="assets/img/about/vs-about-h1-2.jpg" alt="about image" width="400" height="461" loading="lazy">
-              </div>
-              <div class="vs-about--image__ele1 parallax-element" data-move="80">
-                <img src="assets/img/about/vs-about-h1-ele-1.svg" alt="elements">
-              </div>
-              <div class="vs-about--image__ele2 parallax-element" data-move="50">
-                <img src="assets/img/about/vs-about-h1-ele-2.svg" alt="elements">
-              </div>
-              <div class="vs-about--image__ele3 wow animate__zoomIn" data-wow-delay="0.55s"></div>
-              <div class="vs-about--yoe">
-                <span class="vs-about--yoe__number">
-                21+
-              </span>
-                <span class="vs-about--yoe__text">years of experience</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 mb-30 wow animate__fadeInUp" data-wow-delay="0.45s">
-            <div class="vs-about--right">
-              <div class="vs-title title-anime animation-style2">
-                <div class="title-anime__wrap">
-                  <span class="vs-title__sub">School Facilities</span>
-                  <h2 class="vs-title__main">
-                    Learning <span>Opportunity</span> For Kids
-                  </h2>
-                </div>
-              </div>
-              <div class="vs-about--story">
-                <div class="vs-about--story__tab mb-30">
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="history-tab" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="true">
-                        our history
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
-                        school
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
-                        Kids
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
-                    <p class="vs-about__text vs-text">Pre-school has open door and also offer free trial sessios that
-                      child
-                      Creative Learning
-                      Opportunity For Kids Hised sedaugue felis Phasellus gravida lacus quis eros.</p>
-                    <ul class="vs-list pt-15 mb-35">
-                      <li>Learning Opportunity For Kids</li>
-                      <li>Your Child Will Take</li>
-                    </ul>
-                    <a href="contact.html" class="vs-btn"><span class="vs-btn__border"></span>contact us</a>
-                  </div>
-                  <div class="tab-pane fade" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                    <p class="vs-about__text vs-text">Pre-school has open door and also offer free trial sessios that
-                      child
-                      Creative Learning
-                      Opportunity For Kids Hised sedaugue felis Phasellus gravida lacus quis eros.</p>
-                    <ul class="vs-list pt-15 mb-35">
-                      <li>Learning Opportunity For Kids</li>
-                      <li>Your Child Will Take</li>
-                    </ul>
-                    <a href="contact.html" class="vs-btn"><span class="vs-btn__border"></span>contact us</a>
-                  </div>
-                  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                    <p class="vs-about__text vs-text">Pre-school has open door and also offer free trial sessios that
-                      child
-                      Creative Learning
-                      Opportunity For Kids Hised sedaugue felis Phasellus gravida lacus quis eros.</p>
-                    <ul class="vs-list pt-15 mb-35">
-                      <li>Training Opportunity For Kids</li>
-                      <li>Your Child Will Take</li>
-                    </ul>
-                    <a href="contact.html" class="vs-btn"><span class="vs-btn__border"></span>contact us</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- About End -->
-    <!-- Vs Session Time Area -->
-    <section class="vs-session--area space space-extra-bottom bg-theme-color-1 z-index-common overflow-hidden">
-      <div class="vs-session--bg-image" data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
-        <img src="assets/img/session/session-bg.png" alt="session bg">
-      </div>
-      <div class="vs-session--ele1" data-vs-gsap-parallax-speed="2" data-vs-gsap-parallax-zoom>
-        <img src="assets/img/session/session-ele-1.png" alt="session ele">
-      </div>
-      <div class="vs-session--ele2" data-vs-gsap-parallax-speed="5" data-vs-gsap-parallax-zoom>
-        <img src="assets/img/session/session-ele-2.png" alt="session ele">
-      </div>
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-7 wow animate__fadeInUp" data-wow-delay="0.15s">
-            <div class="vs-title text-center title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub text-white">Session Times</span>
-                <h2 class="vs-title__main text-white px-xl-5">Your kids Are 100% Safe
-                  at Our Care.</h2>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-10">
-            <div class="row gx-30">
-              <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.2s">
-                <div class="vs-session">
-                  <img class="vs-session__bg" src="assets/img/elements/session-main-block.png" alt="">
-                  <div class="vs-session__content">
-                    <h3 class="vs-session__title">Brain Train</h3>
-                    <time class="vs-session__time" datetime="08:00">8.00am - 10.00am</time>
-                  </div>
-                  <span class="vs-session__icon">
-                  <img src="assets/img/icons/session-icon-h1-1-1.svg" alt="session icon">
-                </span>
-                </div>
-              </div>
-              <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.3s">
-                <div class="vs-session">
-                  <img class="vs-session__bg" src="assets/img/elements/session-main-block.png" alt="">
-                  <div class="vs-session__content">
-                    <h3 class="vs-session__title">Drawing & Paintings</h3>
-                    <time class="vs-session__time" datetime="08:00">8.00am - 10.00am</time>
-                  </div>
-                  <span class="vs-session__icon">
-                  <img src="assets/img/icons/session-icon-h1-1-2.svg" alt="session icon">
-                </span>
-                </div>
-              </div>
-              <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.4s">
-                <div class="vs-session">
-                  <img class="vs-session__bg" src="assets/img/elements/session-main-block.png" alt="">
-                  <div class="vs-session__content">
-                    <h3 class="vs-session__title">Alphabet Matching</h3>
-                    <time class="vs-session__time" datetime="08:00">8.00am - 10.00am</time>
-                  </div>
-                  <span class="vs-session__icon">
-                  <img src="assets/img/icons/session-icon-h1-1-3.svg" alt="session icon">
-                </span>
-                </div>
-              </div>
-              <div class="col-lg-6 wow animate__fadeInUp" data-wow-delay="0.5s">
-                <div class="vs-session">
-                  <img class="vs-session__bg" src="assets/img/elements/session-main-block.png" alt="">
-                  <div class="vs-session__content">
-                    <h3 class="vs-session__title">Playland & Caffe</h3>
-                    <time class="vs-session__time" datetime="08:00">8.00am - 10.00am</time>
-                  </div>
-                  <span class="vs-session__icon">
-                  <img src="assets/img/icons/session-icon-h1-1-4.svg" alt="session icon">
-                </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vs-balls vs-balls--screen" data-balls-top="-6px" data-balls-color="#F8F8F8"></div>
-      <div class="vs-balls vs-balls--screen" data-balls-bottm="-6px" data-balls-color="#F8F8F8"></div>
-    </section>
-    <!-- Vs Session Time Area End -->
-    <!-- Vs Gallery Area -->
-    <section class="vs-gallery--area space space-extra-bottom overflow-hidden">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="vs-title text-center title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub">School Gallery</span>
-                <h2 class="vs-title__main">Our Gallery For Kids</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="vs-gallery--row">
-          <div class="vs-gallery vs-gallery--col1 wow animate__fadeInUp" data-wow-delay="0.25s">
-            <div class="vs-gallery__figure">
-              <a class="vs-gallery__image--link" href="class-details.html">
-                <img class="vs-gallery__image" src="assets/img/gallery/gallery-h1-1-1.jpg" alt="Gallery" loading="lazy">
-              </a>
-            </div>
-            <div class="vs-gallery__hover">
-              <a href="assets/img/gallery/gallery-h1-1-1.jpg" class="vs-gallery__icon popup-image">
-                <i class="fa-solid fa-eye"></i>
-              </a>
-              <a href="class-details.html" class="vs-gallery__cate">
-                School
-              </a>
-              <a class="vs-gallery__heading--link" href="class-details.html">
-                <h4 class="vs-gallery__heading">Kids ground</h4>
-              </a>
-            </div>
-          </div>
-          <div class="vs-gallery vs-gallery--col2 wow animate__fadeInUp" data-wow-delay="0.35s">
-            <div class="vs-gallery__figure">
-              <a class="vs-gallery__image--link" href="class-details.html">
-                <img class="vs-gallery__image" src="assets/img/gallery/gallery-h1-1-2.jpg" alt="Gallery" loading="lazy">
-              </a>
-            </div>
-            <div class="vs-gallery__hover">
-              <a href="assets/img/gallery/gallery-h1-1-2.jpg" class="vs-gallery__icon popup-image">
-                <i class="fa-solid fa-eye"></i>
-              </a>
-              <a href="class-details.html" class="vs-gallery__cate">
-                School
-              </a>
-              <a class="vs-gallery__heading--link" href="class-details.html">
-                <h4 class="vs-gallery__heading">Kids ground</h4>
-              </a>
-            </div>
-          </div>
-          <div class="vs-gallery vs-gallery--col3 wow animate__fadeInUp" data-wow-delay="0.45s">
-            <div class="vs-gallery__figure">
-              <a class="vs-gallery__image--link" href="class-details.html">
-                <img class="vs-gallery__image" src="assets/img/gallery/gallery-h1-1-3.jpg" alt="Gallery" loading="lazy">
-              </a>
-            </div>
-            <div class="vs-gallery__hover">
-              <a href="assets/img/gallery/gallery-h1-1-3.jpg" class="vs-gallery__icon popup-image">
-                <i class="fa-solid fa-eye"></i>
-              </a>
-              <a href="class-details.html" class="vs-gallery__cate">
-                School
-              </a>
-              <a class="vs-gallery__heading--link" href="class-details.html">
-                <h4 class="vs-gallery__heading">Kids ground</h4>
-              </a>
-            </div>
-          </div>
-          <div class="vs-gallery vs-gallery--col4 wow animate__fadeInUp" data-wow-delay="0.55s">
-            <div class="vs-gallery__figure">
-              <a class="vs-gallery__image--link" href="class-details.html">
-                <img class="vs-gallery__image" src="assets/img/gallery/gallery-h1-1-4.jpg" alt="Gallery" loading="lazy">
-              </a>
-            </div>
-            <div class="vs-gallery__hover">
-              <a href="assets/img/gallery/gallery-h1-1-4.jpg" class="vs-gallery__icon popup-image">
-                <i class="fa-solid fa-eye"></i>
-              </a>
-              <a href="class-details.html" class="vs-gallery__cate">
-                School
-              </a>
-              <a class="vs-gallery__heading--link" href="class-details.html">
-                <h4 class="vs-gallery__heading">Kids ground</h4>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-center pt-50">
-          <a href="gallery.html" class="vs-btn"><span class="vs-btn__border"></span>view more</a>
-        </div>
-      </div>
-    </section>
-    <!-- Vs Gallery Area End -->
-    <!-- VS Grade Programs -->
-    <section class="vs-pro--area position-relative parallax-wrap" data-bg-src="assets/img/bg/program-bg.png">
-      <div class="vs-pro--ele1 parallax-element" data-move="200">
-        <img src="assets/img/pro/pro-ele-1.png" alt="pro-ele-1">
-      </div>
-      <div class="vs-pro--ele2 parallax-element" data-move="100">
-        <img src="assets/img/pro/pro-ele-2.png" alt="pro-ele-1">
-      </div>
-      <div class="vs-pro--ele3 parallax-element" data-move="80">
-        <img src="assets/img/pro/pro-ele-3.png" alt="pro-ele-1">
-      </div>
-      <div class="vs-pro--ele2"></div>
-      <div class="vs-pro--ele3"></div>
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-auto text-center text-lg-start">
-            <div class="vs-title title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub text-white">GRADE LEVEL</span>
-                <h2 class="vs-title__main text-white">Grade Programs</h2>
-              </div>
-              <p class="text-white fw-bold text-capitalize font-title vs-text-bolder mb-0">work and play come together ?
-              </p>
-            </div>
-            <div class="vs-pro--slider__direction justify-content-center justify-content-lg-start mb-md-4">
-              <div class="vs-pro--slider__next">
-                <i class="fa-solid fa-arrow-left"></i>
-              </div>
-              <div class="vs-pro--slider__prev">
-                <i class="fa-solid fa-arrow-right"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-7 flex-grow-1">
-            <div class="swiper vs-carousel" data-xl="3" data-space-xl="15" data-md="3" data-sm="2" data-space-lg="5" data-nav-next=".vs-pro--slider__next" data-nav-prev=".vs-pro--slider__prev">
-              <div class="swiper-wrapper p-4">
-                <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.25s">
-                  <div class="vs-pro">
-                    <span class="vs-pro__grade bg-color1">
-                    grade
-                    <span>1</span>
-                    </span>
-                    <h2 class="vs-pro__title">Grade 2</h2>
-                    <span class="vs-pro__age">Age 03 - 04</span>
-                  </div>
-                </div>
-                <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.35s">
-                  <div class="vs-pro">
-                    <span class="vs-pro__grade bg-color2">
-                    grade
-                    <span>1</span>
-                    </span>
-                    <h2 class="vs-pro__title">Grade 2</h2>
-                    <span class="vs-pro__age">Age 03 - 04</span>
-                  </div>
-                </div>
-                <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.45s">
-                  <div class="vs-pro">
-                    <span class="vs-pro__grade bg-color3">
-                    grade
-                    <span>1</span>
-                    </span>
-                    <h2 class="vs-pro__title">Grade 2</h2>
-                    <span class="vs-pro__age">Age 03 - 04</span>
-                  </div>
-                </div>
-                <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.55s">
-                  <div class="vs-pro">
-                    <span class="vs-pro__grade bg-color4">
-                    grade
-                    <span>1</span>
-                    </span>
-                    <h2 class="vs-pro__title">Grade 2</h2>
-                    <span class="vs-pro__age">Age 03 - 04</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- VS Grade Programs End -->
-    <!-- Class -->
-    <section class="vs-class--area space-extra-top space-extra-bottom z-index-common overflow-hidden" data-bg-src="assets/img/class/class-bg.png">
-      <div class="vs-class--ele1 vs-x-anim">
-        <img src="assets/img/class/class-ele1.png" alt="class Element">
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="vs-title text-center title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub">School Facilities</span>
-                <h2 class="vs-title__main">Engaging & Spacious School</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="z-index-common">
-          <div class="vs-carousel vs-carousel--class swiper" data-xl="4" data-lg="3" data-autoplay="false" data-loop="true" data-autoplay-delay="6000" data-nav-next="#swiper-button-next" data-nav-prev="#swiper-button-prev">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.25s">
-                <div class="vs-class">
-                  <div class="vs-class__figure">
-                    <a class="vs-class__figure--link" href="class-details.html">
-                      <img class="vs-class__figure--img" src="assets/img/class/class-1-1.jpg" alt="Class Details">
-                      <div class="vs-class__icon--wrap">
-                        <span class="vs-class__icon vs-class__icon--color1">
-                        <img src="assets/img/icons/h1-class-icon-1.svg" alt="Class Icon">
-                      </span>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="vs-class__content">
-                    <a class="vs-class__heading--link" href="class-details.html">
-                      <h3 class="vs-class__heading">Online Class</h3>
-                    </a>
-                    <p class="vs-class__text">
-                      Pre-school has open door is and also offer free trial session in
-                      child.
+                    <p class="feedback-block__desc">
+                      “ We look forward to developing tha long-term relationship
+                      with children and parents and will welcome children into
+                      our ennce after-school Our afterschool service “
                     </p>
                   </div>
-                  <div class="vs-class__bottom">
-                    <a href="class-details.html" class="vs-class__link">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="feedback-block">
+                  <div class="feedback-block__image">
+                    <img
+                      src="assets/img/feedback/feedback-man-1-2.jpg"
+                      alt="feedback man"
+                      width="145"
+                      height="145"
+                    />
+                    <div class="feedback-block__icon--quote">
+                      <img
+                        src="assets/img/icons/svg-quote-icon.svg"
+                        alt="svg-quote-icon"
+                      />
+                    </div>
+                  </div>
+                  <div class="feedback-block__content">
+                    <h4 class="feedback-block__title">parker jonson</h4>
+                    <span class="feedback-block__title--sub">google CEO</span>
+                    <div class="feedback-block__rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="feedback-block__desc">
+                      “ We look forward to developing tha long-term relationship
+                      with children and parents and will welcome children into
+                      our ennce after-school Our afterschool service “
+                    </p>
                   </div>
                 </div>
               </div>
-              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.45s">
-                <div class="vs-class">
-                  <div class="vs-class__figure">
-                    <a class="vs-class__figure--link" href="class-details.html">
-                      <img class="vs-class__figure--img" src="assets/img/class/class-1-2.jpg" alt="Class Details">
-                      <div class="vs-class__icon--wrap">
-                        <span class="vs-class__icon vs-class__icon--color2">
-                        <img src="assets/img/icons/h1-class-icon-2.svg" alt="Class Icon">
-                      </span>
-                      </div>
-                    </a>
+              <div class="swiper-slide">
+                <div class="feedback-block">
+                  <div class="feedback-block__image">
+                    <img
+                      src="assets/img/feedback/feedback-man-1-3.jpg"
+                      alt="feedback man"
+                      width="145"
+                      height="145"
+                    />
+                    <div class="feedback-block__icon--quote">
+                      <img
+                        src="assets/img/icons/svg-quote-icon.svg"
+                        alt="svg-quote-icon"
+                      />
+                    </div>
                   </div>
-                  <div class="vs-class__content">
-                    <a class="vs-class__heading--link" href="class-details.html">
-                      <h3 class="vs-class__heading">pick & drop</h3>
-                    </a>
-                    <p class="vs-class__text">
-                      Pre-school has open door is and also offer free trial session in
-                      child.
+                  <div class="feedback-block__content">
+                    <h4 class="feedback-block__title">Mehadi Hassan</h4>
+                    <span class="feedback-block__title--sub"
+                      >InsightTheme CEO</span
+                    >
+                    <div class="feedback-block__rating">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="feedback-block__desc">
+                      “ We look forward to developing tha long-term relationship
+                      with children and parents and will welcome children into
+                      our ennce after-school Our afterschool service “
                     </p>
-                  </div>
-                  <div class="vs-class__bottom">
-                    <a href="class-details.html" class="vs-class__link">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.65s">
-                <div class="vs-class">
-                  <div class="vs-class__figure">
-                    <a class="vs-class__figure--link" href="class-details.html">
-                      <img class="vs-class__figure--img" src="assets/img/class/class-1-3.jpg" alt="Class Details">
-                      <div class="vs-class__icon--wrap">
-                        <span class="vs-class__icon vs-class__icon--color3">
-                        <img src="assets/img/icons/h1-class-icon-3.svg" alt="Class Icon">
-                      </span>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="vs-class__content">
-                    <a class="vs-class__heading--link" href="class-details.html">
-                      <h3 class="vs-class__heading">play ground</h3>
-                    </a>
-                    <p class="vs-class__text">
-                      Pre-school has open door is and also offer free trial session in
-                      child.
-                    </p>
-                  </div>
-                  <div class="vs-class__bottom">
-                    <a href="class-details.html" class="vs-class__link">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="0.85s">
-                <div class="vs-class">
-                  <div class="vs-class__figure">
-                    <a class="vs-class__figure--link" href="class-details.html">
-                      <img class="vs-class__figure--img" src="assets/img/class/class-1-4.jpg" alt="Class Details">
-                      <div class="vs-class__icon--wrap">
-                        <span class="vs-class__icon vs-class__icon--color4">
-                        <img src="assets/img/icons/h1-class-icon-4.svg" alt="Class Icon">
-                      </span>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="vs-class__content">
-                    <a class="vs-class__heading--link" href="class-details.html">
-                      <h3 class="vs-class__heading">Healthy Foods</h3>
-                    </a>
-                    <p class="vs-class__text">
-                      Pre-school has open door is and also offer free trial session in
-                      child.
-                    </p>
-                  </div>
-                  <div class="vs-class__bottom">
-                    <a href="class-details.html" class="vs-class__link">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide wow animate__fadeInUp" data-wow-delay="1.5s">
-                <div class="vs-class">
-                  <div class="vs-class__figure">
-                    <a class="vs-class__figure--link" href="class-details.html">
-                      <img class="vs-class__figure--img" src="assets/img/class/class-1-2.jpg" alt="Class Details">
-                      <div class="vs-class__icon--wrap">
-                        <span class="vs-class__icon vs-class__icon--color5">
-                        <img src="assets/img/icons/h1-class-icon-2.svg" alt="Class Icon">
-                      </span>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="vs-class__content">
-                    <a class="vs-class__heading--link" href="class-details.html">
-                      <h3 class="vs-class__heading">Modern School</h3>
-                    </a>
-                    <p class="vs-class__text">
-                      Pre-school has open door is and also offer free trial session in
-                      child.
-                    </p>
-                  </div>
-                  <div class="vs-class__bottom">
-                    <a href="class-details.html" class="vs-class__link">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </a>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="vs-feedback-pagination"></div>
           </div>
-          <div id="swiper-button-prev" class="nav-prev-1">
-            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <mask id="mask0_318_7638" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
-                <rect width="57" height="20" transform="matrix(-1 0 0 1 57 0)" fill="url(#pattern0_318_7638)"></rect>
-              </mask>
-              <g mask="url(#mask0_318_7638)">
-                <rect width="84" height="42" transform="matrix(-1 0 0 1 70 -14)" fill="currentColor"></rect>
-              </g>
-              <defs>
-                <pattern id="pattern0_318_7638" patternContentUnits="objectBoundingBox" width="1" height="1">
-                  <use xlink:href="#image0_318_7638" transform="scale(0.0175439 0.05)"></use>
-                </pattern>
-                <image id="image0_318_7638" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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">
-                </image>
-              </defs>
-            </svg>
-          </div>
-          <div id="swiper-button-next" class="nav-next-2">
-            <svg width="57" height="20" viewBox="0 0 57 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <mask id="mask0_318_7635" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="57" height="20">
-                <rect width="57" height="20" fill="url(#pattern0_318_7635)"></rect>
-              </mask>
-              <g mask="url(#mask0_318_7635)">
-                <rect x="-13" y="-14" width="84" height="42" fill="currentColor"></rect>
-              </g>
-              <defs>
-                <pattern id="pattern0_318_7635" patternContentUnits="objectBoundingBox" width="1" height="1">
-                  <use xlink:href="#image0_318_7635" transform="scale(0.0175439 0.05)"></use>
-                </pattern>
-                <image id="image0_318_7635" width="57" height="20" preserveAspectRatio="none" xlink:href="data:image/png;base64,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">
-                </image>
-              </defs>
-            </svg>
+        </div>
+        <!-- End Feedback Wrapper -->
+      </div>
+    </div>
+  </div>
+  <div
+    class="vs-balls vs-balls--screen"
+    data-balls-top="-6px"
+    data-balls-color="#FFEFE4"
+  ></div>
+  <div
+    class="vs-balls vs-balls--screen"
+    data-balls-bottm="-6px"
+    data-balls-color="#F8F8F8"
+  ></div>
+</section>
+<!-- FAQ Feedback End -->
+<!-- Blog Section -->
+<section
+  class="space space-extra-bottom z-index-common overflow-hidden"
+  data-bg-src="assets/img/blog/h1-bg-blog.png"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub"> our news </span>
+            <h2 class="vs-title__main">our News &amp; Article</h2>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Feature End -->
-    <!-- FAQ Feedback -->
-    <section class="bg-title z-index-common space overflow-hidden">
-      <img src="assets/img/elements/sec-divider-ele1.svg" alt="sec-divider-ele1" class="sec-ele1 position-absolute start-0 end-0 bottom-0 z-index-n2">
-      <div class="feedback-image" data-bg-src="assets/img/feedback/feedback-image-1-1.jpg"></div>
-      <div class="feedback-image--right" data-bg-src="assets/img/feedback/feedback-image-1-2.png"></div>
-      <img class="feedback--ele1 wow animate__fadeInRight" data-wow-delay="0.35s" src="assets/img/feedback/vs-feedback-ele-1.png" alt="elements">
-      <div class="container">
-        <div class="row justify-content-end">
-          <div class="col-lg-7">
-            <div class="feedback-wrapper">
-              <div class="vs-title vs-title--style2 title-anime animation-style2 text-center text-lg-start">
-                <div class="title-anime__wrap">
-                  <span class="vs-title__sub">faq feedback</span>
-                  <h2 class="vs-title__main pe-xl-3">
-                    Customer <span>Feedback</span> For school
-                  </h2>
+    </div>
+    <div class="row vs-carousel swiper" data-xl="3">
+      <div class="swiper-wrapper">
+        <div
+          class="col-lg-4 swiper-slide wow animate__fadeInUp"
+          data-wow-delay="0.25s"
+        >
+          <div class="vs-blog vs-blog--style2">
+            <div class="vs-blog__inner">
+              <div class="vs-blog__img">
+                <a href="blog-details.html">
+                  <img
+                    src="assets/img/blog/blog-h1-1.jpg"
+                    alt="Blog"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div class="vs-blog__content">
+                <div class="vs-blog__meta">
+                  <a class="vs-blog__meta--link" href="blog-details.html">
+                    <i class="fa-regular fa-calendar-days"></i>26. September
+                    2025
+                  </a>
                 </div>
-              </div>
-              <div class="swiper feedback-slider">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="feedback-block">
-                      <div class="feedback-block__image">
-                        <img src="assets/img/feedback/feedback-man-1-1.jpg" alt="feedback man" width="145" height="145">
-                        <div class="feedback-block__icon--quote">
-                          <img src="assets/img/icons/svg-quote-icon.svg" alt="svg-quote-icon">
-                        </div>
-                      </div>
-                      <div class="feedback-block__content">
-                        <h4 class="feedback-block__title">Rodja Hartmann</h4>
-                        <span class="feedback-block__title--sub">Vecuro, CEO</span>
-                        <div class="feedback-block__rating">
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="feedback-block__desc">
-                          “ We look forward to developing tha long-term
-                          relationship with children and parents and will welcome
-                          children into our ennce after-school Our afterschool
-                          service “
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="feedback-block">
-                      <div class="feedback-block__image">
-                        <img src="assets/img/feedback/feedback-man-1-2.jpg" alt="feedback man" width="145" height="145">
-                        <div class="feedback-block__icon--quote">
-                          <img src="assets/img/icons/svg-quote-icon.svg" alt="svg-quote-icon">
-                        </div>
-                      </div>
-                      <div class="feedback-block__content">
-                        <h4 class="feedback-block__title">parker jonson</h4>
-                        <span class="feedback-block__title--sub">google CEO</span>
-                        <div class="feedback-block__rating">
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="feedback-block__desc">
-                          “ We look forward to developing tha long-term
-                          relationship with children and parents and will welcome
-                          children into our ennce after-school Our afterschool
-                          service “
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="feedback-block">
-                      <div class="feedback-block__image">
-                        <img src="assets/img/feedback/feedback-man-1-3.jpg" alt="feedback man" width="145" height="145">
-                        <div class="feedback-block__icon--quote">
-                          <img src="assets/img/icons/svg-quote-icon.svg" alt="svg-quote-icon">
-                        </div>
-                      </div>
-                      <div class="feedback-block__content">
-                        <h4 class="feedback-block__title">Mehadi Hassan</h4>
-                        <span class="feedback-block__title--sub">InsightTheme CEO</span>
-                        <div class="feedback-block__rating">
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                          <i class="fa-solid fa-star"></i>
-                        </div>
-                        <p class="feedback-block__desc">
-                          “ We look forward to developing tha long-term
-                          relationship with children and parents and will welcome
-                          children into our ennce after-school Our afterschool
-                          service “
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="vs-feedback-pagination"></div>
-              </div>
-            </div>
-            <!-- End Feedback Wrapper -->
-          </div>
-        </div>
-      </div>
-      <div class="vs-balls vs-balls--screen" data-balls-top="-6px" data-balls-color="#FFEFE4"></div>
-      <div class="vs-balls vs-balls--screen" data-balls-bottm="-6px" data-balls-color="#F8F8F8"></div>
-    </section>
-    <!-- FAQ Feedback End -->
-    <!-- Blog Section -->
-    <section class="space space-extra-bottom z-index-common overflow-hidden" data-bg-src="assets/img/blog/h1-bg-blog.png">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 mx-auto">
-            <div class="vs-title text-center title-anime animation-style2">
-              <div class="title-anime__wrap">
-                <span class="vs-title__sub">
-                our news
-              </span>
-                <h2 class="vs-title__main">
-                  our News &amp;
-                  Article
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row vs-carousel swiper" data-xl="3">
-          <div class="swiper-wrapper">
-            <div class="col-lg-4 swiper-slide wow animate__fadeInUp" data-wow-delay="0.25s">
-              <div class="vs-blog vs-blog--style2">
-                <div class="vs-blog__inner">
-                  <div class="vs-blog__img">
-                    <a href="blog-details.html">
-                      <img src="assets/img/blog/blog-h1-1.jpg" alt="Blog" loading="lazy">
-                    </a>
-                  </div>
-                  <div class="vs-blog__content">
-                    <div class="vs-blog__meta">
-                      <a class="vs-blog__meta--link" href="blog-details.html">
-                        <i class="fa-regular fa-calendar-days"></i>26. September
-                        2025
-                      </a>
-                    </div>
-                    <a class="vs-blog__heading--link" href="blog-details.html">
-                      <h3 class="vs-blog__heading">Learn and Play</h3>
-                    </a>
-                    <p class="vs-blog__desc">
-                      Pre-school has open door andosol offer free trial session in
-                      child.
-                    </p>
-                    <div class="vs-blog__bottom">
-                      <a href="blog-details.html" class="vs-blog__link">
-                        Read more<i class="fa-solid fa-arrow-right"></i>
-                      </a>
-                      <div class="vs-blog__share">
+                <a class="vs-blog__heading--link" href="blog-details.html">
+                  <h3 class="vs-blog__heading">Learn and Play</h3>
+                </a>
+                <p class="vs-blog__desc">
+                  Pre-school has open door andosol offer free trial session in
+                  child.
+                </p>
+                <div class="vs-blog__bottom">
+                  <a href="blog-details.html" class="vs-blog__link">
+                    Read more<i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                  <div class="vs-blog__share">
+                    <ul>
+                      <li>
+                        <a href="javascript:void(0)"
+                          ><i class="fa-solid fa-share-nodes"></i
+                        ></a>
                         <ul>
                           <li>
-                            <a href="javascript:void(0)"><i class="fa-solid fa-share-nodes"></i></a>
-                            <ul>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="ht.html#" target="_blank">
-                                  <i class="fa-brands fa-instagram"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                              </li>
-                            </ul>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="ht.html#" target="_blank">
+                              <i class="fa-brands fa-instagram"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
                           </li>
                         </ul>
-                      </div>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 swiper-slide wow animate__fadeInUp" data-wow-delay="0.35s">
-              <div class="vs-blog vs-blog--style2">
-                <div class="vs-blog__inner">
-                  <div class="vs-blog__img">
-                    <a href="blog-details.html">
-                      <img src="assets/img/blog/blog-h1-2.jpg" alt="Blog" loading="lazy">
-                    </a>
-                  </div>
-                  <div class="vs-blog__content">
-                    <div class="vs-blog__meta">
-                      <a class="vs-blog__meta--link" href="blog-details.html">
-                        <i class="fa-regular fa-calendar-days"></i>26. September
-                        2025
-                      </a>
-                    </div>
-                    <a class="vs-blog__heading--link" href="blog-details.html">
-                      <h3 class="vs-blog__heading">Indoor Class Rooms</h3>
-                    </a>
-                    <p class="vs-blog__desc">
-                      Pre-school has open door andosol offer free trial session in
-                      child.
-                    </p>
-                    <div class="vs-blog__bottom">
-                      <a href="blog-details.html" class="vs-blog__link">
-                        Read more<i class="fa-solid fa-arrow-right"></i>
-                      </a>
-                      <div class="vs-blog__share">
+          </div>
+        </div>
+        <div
+          class="col-lg-4 swiper-slide wow animate__fadeInUp"
+          data-wow-delay="0.35s"
+        >
+          <div class="vs-blog vs-blog--style2">
+            <div class="vs-blog__inner">
+              <div class="vs-blog__img">
+                <a href="blog-details.html">
+                  <img
+                    src="assets/img/blog/blog-h1-2.jpg"
+                    alt="Blog"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div class="vs-blog__content">
+                <div class="vs-blog__meta">
+                  <a class="vs-blog__meta--link" href="blog-details.html">
+                    <i class="fa-regular fa-calendar-days"></i>26. September
+                    2025
+                  </a>
+                </div>
+                <a class="vs-blog__heading--link" href="blog-details.html">
+                  <h3 class="vs-blog__heading">Indoor Class Rooms</h3>
+                </a>
+                <p class="vs-blog__desc">
+                  Pre-school has open door andosol offer free trial session in
+                  child.
+                </p>
+                <div class="vs-blog__bottom">
+                  <a href="blog-details.html" class="vs-blog__link">
+                    Read more<i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                  <div class="vs-blog__share">
+                    <ul>
+                      <li>
+                        <a href="javascript:void(0)"
+                          ><i class="fa-solid fa-share-nodes"></i
+                        ></a>
                         <ul>
                           <li>
-                            <a href="javascript:void(0)"><i class="fa-solid fa-share-nodes"></i></a>
-                            <ul>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="ht.html#" target="_blank">
-                                  <i class="fa-brands fa-instagram"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                              </li>
-                            </ul>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="ht.html#" target="_blank">
+                              <i class="fa-brands fa-instagram"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
                           </li>
                         </ul>
-                      </div>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 swiper-slide wow animate__fadeInUp" data-wow-delay="0.45s">
-              <div class="vs-blog vs-blog--style2">
-                <div class="vs-blog__inner">
-                  <div class="vs-blog__img">
-                    <a href="blog-details.html">
-                      <img src="assets/img/blog/blog-h1-3.jpg" alt="Blog" loading="lazy">
-                    </a>
-                  </div>
-                  <div class="vs-blog__content">
-                    <div class="vs-blog__meta">
-                      <a class="vs-blog__meta--link" href="blog-details.html">
-                        <i class="fa-regular fa-calendar-days"></i>26. September
-                        2025
-                      </a>
-                    </div>
-                    <a class="vs-blog__heading--link" href="blog-details.html">
-                      <h3 class="vs-blog__heading">Filled Fun & Games</h3>
-                    </a>
-                    <p class="vs-blog__desc">
-                      Pre-school has open door andosol offer free trial session in
-                      child.
-                    </p>
-                    <div class="vs-blog__bottom">
-                      <a href="blog-details.html" class="vs-blog__link">
-                        Read more<i class="fa-solid fa-arrow-right"></i>
-                      </a>
-                      <div class="vs-blog__share">
+          </div>
+        </div>
+        <div
+          class="col-lg-4 swiper-slide wow animate__fadeInUp"
+          data-wow-delay="0.45s"
+        >
+          <div class="vs-blog vs-blog--style2">
+            <div class="vs-blog__inner">
+              <div class="vs-blog__img">
+                <a href="blog-details.html">
+                  <img
+                    src="assets/img/blog/blog-h1-3.jpg"
+                    alt="Blog"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div class="vs-blog__content">
+                <div class="vs-blog__meta">
+                  <a class="vs-blog__meta--link" href="blog-details.html">
+                    <i class="fa-regular fa-calendar-days"></i>26. September
+                    2025
+                  </a>
+                </div>
+                <a class="vs-blog__heading--link" href="blog-details.html">
+                  <h3 class="vs-blog__heading">Filled Fun & Games</h3>
+                </a>
+                <p class="vs-blog__desc">
+                  Pre-school has open door andosol offer free trial session in
+                  child.
+                </p>
+                <div class="vs-blog__bottom">
+                  <a href="blog-details.html" class="vs-blog__link">
+                    Read more<i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                  <div class="vs-blog__share">
+                    <ul>
+                      <li>
+                        <a href="javascript:void(0)"
+                          ><i class="fa-solid fa-share-nodes"></i
+                        ></a>
                         <ul>
                           <li>
-                            <a href="javascript:void(0)"><i class="fa-solid fa-share-nodes"></i></a>
-                            <ul>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-x-twitter"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="ht.html#" target="_blank">
-                                  <i class="fa-brands fa-instagram"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a href="#" target="_blank">
-                                  <i class="fa-brands fa-linkedin-in"></i>
-                                </a>
-                              </li>
-                            </ul>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="ht.html#" target="_blank">
+                              <i class="fa-brands fa-instagram"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
                           </li>
                         </ul>
-                      </div>
-                    </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -1087,5 +1648,7 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- Blog Section -->
+    </div>
+  </div>
+</section>
+<!-- Blog Section -->

@@ -36,7 +36,7 @@
 
   <script>
     $(function () {
-      $.getJSON("/assets/pdf/data.json", function (blogData) {
+      $.getJSON("/constants/data.json", function (blogData) {
         const $wrapper = $("#blog-wrapper");
         blogData.forEach(item => {
           $wrapper.append(`
@@ -61,7 +61,6 @@
         </div>
       `);
         });
-
       });
     });
 

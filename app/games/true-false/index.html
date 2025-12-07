@@ -1,0 +1,63 @@
+<section class="vs-hero vs-hero--style2 overflow-hidden min-vh-100 d-flex align-items-center bg-primary bg-gradient">
+  <div class="container text-center">
+    <p id="heroText" class="vs-hero__desc mb-4 text-white fs-5" style="transition: all 1.5s ease;">
+      Apakah ini adalah perbuatan yang benar?
+    </p>
+    <div class="d-flex justify-content-center mb-4">
+      <img id="heroImage" src="/assets/img/hero/hero-character-1.png" class="img-fluid" alt="hero" style="
+            max-height: 60vh;
+            transition: transform 1.5s ease;
+            transform-origin: center;
+          ">
+    </div>
+    <div class="row g-3 justify-content-center">
+      <div class="col-6 col-md-3">
+        <a id="btnTrue" class="vs-btn vs-hero__btn vs-hero__anim w-100 text-center d-block">
+          Benar
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a id="btnFalse" class="vs-btn vs-hero__btn vs-hero__anim w-100 text-center d-block">
+          Salah
+        </a>
+      </div>
+    </div>
+    <p id="scoreText" class="mt-4 text-white fw-bold"></p>
+  </div>
+</section>
+
+<script>
+  let gameData = [], i = 0, score = 0, zoom = false;
+
+  $.getJSON("/constants/true-false.json", data => {
+    gameData = data.sort(() => Math.random() - 0.5);
+    load();
+  });
+  function load() {
+    if (i < gameData.length) {
+      $("#heroText").text(gameData[i].question);
+      $("#heroImage").attr("src", gameData[i].image);
+    } else {
+      let nilai = Math.round(score / gameData.length * 100);
+      $("#heroText").html(`Nilai Akhir: <b>${nilai}%</b> (${score}/${gameData.length})`);
+      $("#heroImage").attr("src", "/assets/img/finish.png").css({
+        width: "100vw", height: "100vh", objectFit: "cover"
+      });
+      $("#btnTrue, #btnFalse").remove();
+    }
+  }
+  $("#btnTrue").click(() => jawab(true));
+  $("#btnFalse").click(() => jawab(false));
+  function jawab(pilihan) {
+    if (gameData[i].answer === pilihan) score++;
+    i++; load();
+  }
+  setInterval(() => {
+    zoom = !zoom;
+    $("#heroImage").css("transform", zoom ? "scale(1.12)" : "scale(1)");
+    $("#heroText").css({
+      opacity: zoom ? 0.7 : 1,
+      transform: zoom ? "scale(1.05)" : "scale(1)"
+    });
+  }, 1500);
+</script>

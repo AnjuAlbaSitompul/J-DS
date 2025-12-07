@@ -1,14 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="container py-5">
+  <h3 class="mb-4 text-center">Barcode Scanner</h3>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <!-- Scanner box -->
+  <div class="card shadow-sm p-3">
+    <div id="reader" style="width: 100%"></div>
+  </div>
 
-<body>
+  <!-- Result -->
+  <div class="alert alert-primary mt-4">
+    <b>Hasil Scan:</b> <span id="result"></span>
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script>
+    $(document).ready(function () {
+      const html5QrCode = new Html5Qrcode("reader");
 
-</body>
+      // Scan result
+      function onScanSuccess(decodedText) {
+        $("#result").text(decodedText);
 
-</html>
+        // Optional: stop setelah scan
+        html5QrCode.stop();
+      }
+
+      function onScanError(err) {
+        // ignor
+      }
+
+      // Get camera list
+      Html5Qrcode.getCameras().then((devices) => {
+        if (devices.length > 0) {
+          let cameraId = devices[0].id; // pakai kamera pertama
+
+          html5QrCode.start(
+            cameraId,
+            {
+              fps: 10,
+              qrbox: {
+                width: 300,
+                height: 120, // cocok untuk barcode horizontal
+              },
+            },
+            onScanSuccess,
+            onScanError
+          );
+        } else {
+          alert("Kamera tidak ditemukan");
+        }
+      });
+    });
+  </script>
+</div>

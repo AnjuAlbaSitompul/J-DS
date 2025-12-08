@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "question": "Apa itu Body Awareness?",
+    "answer": "Body awareness adalah kemampuan anak untuk mengenali dan menyebutkan bagian-bagian tubuh, termasuk membedakan area publik dan area privat."
+  },
+  {
+    "id": 2,
+    "question": "Apa yang dimaksud dengan Safe Touch dan Unsafe Touch?",
+    "answer": "Safe Touch adalah sentuhan yang aman dan pantas seperti berjabat tangan atau dipeluk orang tua. Unsafe Touch adalah sentuhan yang melanggar batas, menyentuh area privat, atau membuat anak merasa tidak nyaman."
+  },
+  {
+    "id": 3,
+    "question": "Apa itu Visual and Audio QR-Integrated Flashcard?",
+    "answer": "Flashcard yang berisi gambar tubuh, label teks besar, kode warna hijau/merah, dan QR Code yang memutar audio penjelasan aturan tubuh."
+  },
+  {
+    "id": 4,
+    "question": "Apa itu High-Fidelity Instruction?",
+    "answer": "Pemberian informasi secara konsisten dan tidak berubah. Pada penelitian ini, audio QR code memastikan setiap anak menerima penjelasan yang sama."
+  },
+  {
+    "id": 5,
+    "question": "Apa yang dimaksud dengan Verbal Protective Response?",
+    "answer": "Kemampuan anak untuk mengatakan 'No', 'Stop', atau 'Tell teacher' ketika menghadapi sentuhan tidak aman."
+  },
+  {
+    "id": 6,
+    "question": "Apa itu Cognitive and Communicative Barriers?",
+    "answer": "Hambatan proses belajar dan komunikasi pada anak Down Syndrome seperti pemrosesan bahasa lambat, kesulitan fokus, dan sulit memahami konsep abstrak."
+  },
+  {
+    "id": 7,
+    "question": "Apa yang dimaksud dengan Terminology Gap?",
+    "answer": "Kesenjangan pengetahuan istilah tubuh, terutama area privat, sehingga anak tidak mampu menjelaskan kejadian yang dialami."
+  },
+  {
+    "id": 8,
+    "question": "Apa itu Eternal Child Belief?",
+    "answer": "Keyakinan keliru bahwa penyandang disabilitas intelektual akan selamanya seperti anak kecil dan tidak memiliki kebutuhan seksual."
+  },
+  {
+    "id": 9,
+    "question": "Apa yang dimaksud dengan Accessible Sexuality and Relationship Education (SRE)?",
+    "answer": "Edukasi tentang tubuh, batasan, dan hubungan interpersonal yang ramah disabilitas, tidak tabu, dan mudah dipahami."
+  },
+  {
+    "id": 10,
+    "question": "Apa arti Quasi-Experimental Pretest–Posttest Design?",
+    "answer": "Desain penelitian yang mengukur kemampuan anak sebelum dan sesudah intervensi tanpa kelompok pembanding."
+  },
+  {
+    "id": 11,
+    "question": "Apa itu Body Part Recognition and Safety Understanding Assessment (BPR-SUA)?",
+    "answer": "Tes untuk menilai kemampuan anak mengenali bagian tubuh, mengklasifikasi aman/privat, dan memberikan respons perlindungan."
+  },
+  {
+    "id": 12,
+    "question": "Apa yang dimaksud Visual Learning Strength pada anak Down Syndrome?",
+    "answer": "Kecenderungan anak DS lebih kuat belajar melalui gambar, warna, simbol, dan pola visual dibandingkan pembelajaran verbal."
+  },
+  {
+    "id": 13,
+    "question": "Apa itu Effect Size (Cohen’s d)?",
+    "answer": "Ukuran statistik untuk menilai besar pengaruh intervensi. Pada penelitian ini diperoleh d = 2.7 yang berarti sangat besar."
+  },
+  {
+    "id": 14,
+    "question": "Apa yang dimaksud dengan High-Risk Population dalam konteks DS?",
+    "answer": "Kelompok anak yang berisiko tinggi mengalami pelecehan seksual karena keterbatasan komunikasi, ketergantungan pada caregiver, dan kurangnya edukasi tubuh."
+  },
+  {
+    "id": 15,
+    "question": "Apa itu Audio Distractor?",
+    "answer": "Kondisi ketika anak terlalu fokus pada audio dari QR code sehingga kehilangan fokus pada materi belajar."
+  },
+  {
+    "id": 16,
+    "question": "Apa yang dimaksud dengan Standardized Terminology?",
+    "answer": "Penggunaan istilah anatomi tubuh yang benar tanpa bahasa halus, agar anak dapat menyampaikan kejadian dengan jelas."
+  },
+  {
+    "id": 17,
+    "question": "Apa arti Self-Advocacy Skills?",
+    "answer": "Kemampuan anak untuk melindungi diri, menyuarakan ketidaknyamanan, dan meminta bantuan ketika terjadi sentuhan tidak aman."
+  },
+  {
+    "id": 18,
+    "question": "Apa itu Color Coding dalam flashcard?",
+    "answer": "Penggunaan warna hijau (aman) dan merah (privat) untuk membantu anak lebih mudah memahami aturan tubuh."
+  }
+]

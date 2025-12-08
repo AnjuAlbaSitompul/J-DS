@@ -1,15 +1,34 @@
+<style>
+	.breadcrumb-wrapper__bg::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.8);
+		/* ✔ tingkat kegelapan */
+		z-index: 2;
+		pointer-events: none;
+	}
+
+
+	.breadcrumb-wrapper .container,
+	.breadcrumb-wrapper .breadcrumb-wrapper__content {
+		position: relative;
+		z-index: 3;
+	}
+</style>
+
 <div class="breadcrumb-wrapper z-index-common overflow-hidden">
 	<div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff"></div>
 	<div class="breadcrumb-wrapper__bg wow animate__fadeInUp" data-wow-delay="0.15s" data-vs-gsap-parallax-speed="2"
 		data-vs-gsap-parallax-zoom>
-		<img src="assets/img/bg/breadcrumb-bg-3.jpg" alt="session bg" />
+		<img src="/assets/img/paralax/p19.jpeg" alt="session bg" />
 	</div>
 	<div class="container">
 		<div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
 			<h1 class="breadcrumb-wrapper__title">Our Developers</h1>
 			<div class="breadcrumb-wrapper__menu--wrap">
 				<ul class="breadcrumb-wrapper__menu">
-					<li class="breadcrumb-wrapper__menu--item" id="faqs"><a href="#">FaQ (?)</a></li>
+					<li class="breadcrumb-wrapper__menu--item nav-link"><a href="/">Home</a></li>
 					<li class="breadcrumb-wrapper__menu--item">Our Developers</li>
 				</ul>
 			</div>
@@ -23,20 +42,5 @@
 		</div>
 	</div>
 </section>
-
-<div class="modal fade" id="faqModal" tabindex="-1" aria-hidden="true">
-	<div class="modal-dialog modal-xl modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">FAQ Document</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-			</div>
-			<div class="modal-body p-0">
-				<iframe src="/assets/pdf/FAQ.pdf" width="100%" height="600px" style="border: none;">
-				</iframe>
-			</div>
-		</div>
-	</div>
-</div>
 
 <script src="/assets/js/developers.js"></script>

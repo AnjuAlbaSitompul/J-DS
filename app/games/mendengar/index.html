@@ -1,58 +1,127 @@
-<div class="container py-5">
-  <h3 class="mb-4 text-center">Barcode Scanner</h3>
 
-  <!-- Scanner box -->
-  <div class="card shadow-sm p-3">
-    <div id="reader" style="width: 100%"></div>
+<style>
+  /* Naikkan modal dan backdrop agar tidak tertutup layer lain */
+  .modal {
+    z-index: 200000 !important;
+  }
+
+  .modal-backdrop {
+    z-index: 199999 !important;
+  }
+
+  .modal-backdrop.show {
+  opacity: 0.5 !important; /* biar tetap gelap tapi klik tetap berfungsi */
+  pointer-events: auto !important;
+}
+
+</style>
+
+<section class="vs-event--page bg-color6 space z-index-common">
+  <div class="vs-event--ele1">
+    <img
+      src="/assets/img/elements/events-page-ele1.png"
+      alt="event page ele1"
+    />
   </div>
-
-  <!-- Result -->
-  <div class="alert alert-primary mt-4">
-    <b>Hasil Scan:</b> <span id="result"></span>
+  <div class="vs-event--ele2">
+    <img
+      src="/assets/img/elements/events-page-ele2.png"
+      alt="event page ele1"
+    />
   </div>
-  <script
-    src="https://code.jquery.com/jquery-3.7.1.js"
-    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"
-  ></script>
-  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-  <script>
-    $(document).ready(function () {
-      const html5QrCode = new Html5Qrcode("reader");
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <span class="vs-title__sub">Games</span>
+            <h2 class="vs-title__main">Tebak Gambar Dan Dengar Kan</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-5 text-center">
+      <h3 class="mb-4">Tebak Gambar: Leg atau Foot</h3>
 
-      // Scan result
-      function onScanSuccess(decodedText) {
-        $("#result").text(decodedText);
+      <img id="quiz-img" src="" class="shadow mb-4" />
 
-        // Optional: stop setelah scan
-        html5QrCode.stop();
+      <div>
+        <button class="btn btn-primary px-4 me-2 answer-btn" data-answer="leg">
+          Leg
+        </button>
+        <button class="btn btn-success px-4 answer-btn" data-answer="PEPEK">
+          PEPEK
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <h4 id="resultText"></h4>
+          <button class="btn btn-secondary mt-3" data-bs-dismiss="modal">
+            Lanjut
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <audio id="audio-correct" src="correct.mp3"></audio>
+    <audio id="audio-wrong" src="wrong.mp3"></audio>
+  </div>
+</section>
+<script>
+  // JSON Data
+  const questions = [
+    {
+      img: "leg1.jpg",
+      answer: "leg",
+    },
+    {
+      img: "foot1.jpg",
+      answer: "foot",
+    },
+    {
+      img: "leg2.jpg",
+      answer: "leg",
+    },
+    {
+      img: "foot2.jpg",
+      answer: "foot",
+    },
+  ];
+
+  let currentIndex = 0;
+
+  function loadQuestion() {
+    $("#quiz-img").attr("src", questions[currentIndex].img);
+  }
+
+  $(document).ready(function () {
+    loadQuestion();
+
+    $(".answer-btn").on("click", function () {
+      const userAnswer = $(this).data("answer");
+      const correct = questions[currentIndex].answer;
+
+      if (userAnswer === correct) {
+        $("#resultText").text("Benar! 😍");
+        document.getElementById("audio-correct").play();
+      } else {
+        $("#resultText").text("Salah 😢");
+        document.getElementById("audio-wrong").play();
       }
 
-      function onScanError(err) {
-        // ignor
-      }
+      new bootstrap.Modal(document.getElementById("resultModal")).show();
 
-      // Get camera list
-      Html5Qrcode.getCameras().then((devices) => {
-        if (devices.length > 0) {
-          let cameraId = devices[0].id; // pakai kamera pertama
+      // Next question
+      currentIndex++;
+      if (currentIndex >= questions.length) currentIndex = 0;
 
-          html5QrCode.start(
-            cameraId,
-            {
-              fps: 10,
-              qrbox: {
-                width: 300,
-                height: 120, // cocok untuk barcode horizontal
-              },
-            },
-            onScanSuccess,
-            onScanError
-          );
-        } else {
-          alert("Kamera tidak ditemukan");
-        }
-      });
+      setTimeout(() => {
+        loadQuestion();
+      }, 500);
     });
-  </script>
-</div>
+  });
+</script>

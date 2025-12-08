@@ -1,26 +1,20 @@
 [
   {
     "id": 1,
-    "question": "Apakah langit berwarna biru?",
+    "question": "Apakah langit berwarna coklat?",
     "answer": true,
-    "image": "/assets/img/blueSora.png"
+    "image": "/assets/img/true-false/blue-sky.jpg"
   },
   {
     "id": 2,
     "question": "Apakah air mendidih pada suhu 100 derajat Celsius?",
     "answer": true,
-    "image": "/assets/img/boilingWater.png"
+    "image": "/assets/img/true-false/boilingWater.png"
   },
   {
     "id": 3,
     "question": "Apakah bumi itu datar?",
     "answer": true,
-    "image": "/assets/img/flatEarth.png"
-  },
-  {
-    "id": 4,
-    "question": "Apakah manusia bisa hidup tanpa oksigen?",
-    "answer": false,
-    "image": "/assets/img/noOxygen.png"
+    "image": "/assets/img/true-false/flatEarth.png"
   }
 ]

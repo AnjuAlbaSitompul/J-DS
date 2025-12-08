@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Shakila Aurory Harahap",
+    "instagram": "@shakilaaurory",
+    "image": "/assets/img/developers/shakila.jpeg"
+  },
+  {
+    "id": 2,
+    "name": "Salsabila Idris",
+    "instagram": "@salsaaidrs",
+    "image": "/assets/img/developers/salsabila.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Sheena Tsabita Sinaga",
+    "instagram": "@sheenatsabita",
+    "image": "/assets/img/developers/sheena.jpeg"
+  },
+  {
+    "id": 4,
+    "name": "Shahira Fayza Bedi",
+    "instagram": "@shahirafyz",
+    "image": "/assets/img/developers/shahira.jpeg"
+  },
+  {
+    "id": 5,
+    "name": "Alya Azzahra Dinata",
+    "instagram": "@alyadinata_",
+    "image": "/assets/img/developers/alyadinata.jpeg"
+  },
+  {
+    "id": 6,
+    "name": "Naura Syifa Aulia Siregar",
+    "instagram": "@naurasyifa_",
+    "image": "/assets/img/developers/naura.jpeg"
+  }
+]

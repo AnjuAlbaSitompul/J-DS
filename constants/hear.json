@@ -1,0 +1,67 @@
+[
+  {
+    "questionImg": "/assets/img/games/mendengar/bahu.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/bahu.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/perut.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/perut.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/tangan.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/tangan.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/kepala.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/kepala.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/betis.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/betis.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/bokong.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/bokong.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/dada.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/dada.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/kelamin.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/kelamin.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/lengan.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/lengan.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/mulut.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/mulut.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/paha.png",
+    "answer": false,
+    "audio": "/assets/audio/mendengar/paha.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/punggung.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/punggung.mp3"
+  },
+  {
+    "questionImg": "/assets/img/games/mendengar/tangan.png",
+    "answer": true,
+    "audio": "/assets/audio/mendengar/tangan.mp3"
+  }
+]

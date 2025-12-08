@@ -1,6 +1,5 @@
-
 <style>
-  /* Naikkan modal dan backdrop agar tidak tertutup layer lain */
+  /* Modal tetap di atas */
   .modal {
     z-index: 200000 !important;
   }
@@ -10,11 +9,92 @@
   }
 
   .modal-backdrop.show {
-  opacity: 0.5 !important; /* biar tetap gelap tapi klik tetap berfungsi */
-  pointer-events: auto !important;
+    opacity: 0.5 !important;
+    pointer-events: auto !important;
+  }
+
+  /* ====================================================
+     RESPONSIVE QUESTION IMAGE
+     ==================================================== */
+  #quiz-img {
+    max-width: 100%;
+    height: 80vh;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  /* Pada layar kecil (HP) */
+  @media (max-width: 768px) {
+    #quiz-img {
+      max-width: fit-content;
+      max-height: 60vh;
+    }
+    
+    .container.py-5 {
+      padding-top: 1rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    .vs-btn {
+      width: 100%;
+      font-size: 18px;
+      padding: 12px 16px;
+    }
+  }
+
+  /* Pada layar sangat kecil */
+  @media (max-width: 480px) {
+    #quiz-img {
+      max-height: 55vh;
+    }
+  }
+
+  /* Desktop: gambar lebih besar tapi tetap proporsional */
+  @media (min-width: 769px) {
+    #quiz-img {
+      width: auto;
+      max-width: 80%;
+      max-height: 70vh;
+    }
+  }
+
+  /* Modal result image */
+  #resultModal .img img {
+    max-width: 40%;
+    height: auto;
+  }
+
+  /* Tombol modal biar rapi */
+  #resultModal .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+
+/* Animasi pop */
+.result-animate {
+  animation: pop 0.45s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.2); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Efek benar (hijau glow) */
+.result-correct {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
+}
+
+/* Efek salah (merah glow) */
+.result-wrong {
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
 }
 
 </style>
+
+
 
 <section class="vs-event--page bg-color6 space z-index-common">
   <div class="vs-event--ele1">
@@ -34,94 +114,137 @@
       <div class="col-lg-8 mx-auto">
         <div class="vs-title text-center title-anime animation-style2">
           <div class="title-anime__wrap">
-            <span class="vs-title__sub">Games</span>
-            <h2 class="vs-title__main">Tebak Gambar Dan Dengar Kan</h2>
+            <h5 class="vs-title__main">Aku Sayang Diriku, Jadi Aku Jaga Diriku</h5>
+            <span class="vs-title__sub">Kalau ada yang menyentuh bagian pribadiku, Aku harus bilang tidak</span>
+                                    <div class="vs-event__btn">
+              <button class="vs-btn btn-start"><span class="vs-btn__border"></span>Mulai!</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container py-5 text-center">
-      <h3 class="mb-4">Tebak Gambar: Leg atau Foot</h3>
-
+    <div class="container quiz-area py-5 text-center" style="display: none;">
       <img id="quiz-img" src="" class="shadow mb-4" />
-
       <div>
-        <button class="btn btn-primary px-4 me-2 answer-btn" data-answer="leg">
-          Leg
-        </button>
-        <button class="btn btn-success px-4 answer-btn" data-answer="PEPEK">
-          PEPEK
-        </button>
+                        <div class="vs-event__btn">
+              <button class="vs-btn answer-btn"><span class="vs-btn__border"></span>Apakah Boleh Disentuh?</button>
+            </div>
       </div>
     </div>
+    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center p-4">
-          <h4 id="resultText"></h4>
-          <button class="btn btn-secondary mt-3" data-bs-dismiss="modal">
-            Lanjut
-          </button>
+
+</section>
+<!-- Modal -->
+<div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4">
+
+      <div class="vs-title text-center title-anime animation-style2">
+        <div class="title-anime__wrap">
+            <h5 class="vs-title__main" id="modalTitle">Aku Sayang Diriku, Jadi Aku Jaga Diriku</h5>
+
         </div>
       </div>
+
+      <div class="img">
+        <img id="resultImage" src="" alt="result" class="img-fluid result-animate" />
+      </div>
+
+      <div class="vs-event__btn mt-3">
+        <button class="vs-btn btn-next" data-bs-dismiss="modal">
+          <span class="vs-btn__border"></span>Selanjutnya!
+        </button>
+      </div>
+
+      <audio id="audio-question" src=""></audio>
     </div>
-
-    <audio id="audio-correct" src="correct.mp3"></audio>
-    <audio id="audio-wrong" src="wrong.mp3"></audio>
   </div>
-</section>
-<script>
-  // JSON Data
-  const questions = [
-    {
-      img: "leg1.jpg",
-      answer: "leg",
-    },
-    {
-      img: "foot1.jpg",
-      answer: "foot",
-    },
-    {
-      img: "leg2.jpg",
-      answer: "leg",
-    },
-    {
-      img: "foot2.jpg",
-      answer: "foot",
-    },
-  ];
+</div>
 
-  let currentIndex = 0;
+  <script>
+  let questions = [];
+let shuffledQuestions = [];
+let currentIndex = 0;
+let gameStarted = false;
 
-  function loadQuestion() {
-    $("#quiz-img").attr("src", questions[currentIndex].img);
+// Shuffle
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
+}
 
-  $(document).ready(function () {
-    loadQuestion();
+function loadQuestion() {
+  const q = shuffledQuestions[currentIndex];
+  const image = $("#resultImage");
 
-    $(".answer-btn").on("click", function () {
-      const userAnswer = $(this).data("answer");
-      const correct = questions[currentIndex].answer;
+  $("#quiz-img").attr("src", q.questionImg);
+  $("#audio-question").attr("src", q.audio);
+ if(q.answer){
+    $("#resultModal .img img").attr("src", "/assets/gif/mendengar/check.gif");
+    image.addClass("result-correct");
+    image.removeClass("result-wrong");
+    $("#modalTitle").text("Boleh Disentuh ya!");
+ } else {
+    $("#resultModal .img img").attr("src", "/assets/gif/mendengar/cross.gif");
+    image.addClass("result-wrong");
+    image.removeClass("result-correct");
+    $("#modalTitle").text("Tidak Boleh Disentuh ya!");
+ }
 
-      if (userAnswer === correct) {
-        $("#resultText").text("Benar! 😍");
-        document.getElementById("audio-correct").play();
-      } else {
-        $("#resultText").text("Salah 😢");
-        document.getElementById("audio-wrong").play();
-      }
+}
 
-      new bootstrap.Modal(document.getElementById("resultModal")).show();
-
-      // Next question
-      currentIndex++;
-      if (currentIndex >= questions.length) currentIndex = 0;
-
-      setTimeout(() => {
-        loadQuestion();
-      }, 500);
-    });
+$(document).ready(function () {
+  // Load JSON
+  $.getJSON("/constants/hear.json", function (data) {
+    questions = data;
+    shuffledQuestions = shuffle([...questions]);
   });
-</script>
+
+$(".btn-next").on("click", function () {
+  loadQuestion();
+});
+// 🔥 MULAI PERMAINAN
+$(".btn-start").on("click", function () {
+  if (gameStarted) return;
+
+  gameStarted = true;
+
+  // Mulai dari pertanyaan pertama
+  currentIndex = 0;
+  loadQuestion(); // ⬅️ PENTING: load dulu
+
+  // Tampilkan area permainan
+  $(".quiz-area").fadeIn(300);
+  $(".btn-start").fadeOut(300);
+});
+
+$(".modal").on("shown.bs.modal", function () {
+      const audio = $("#audio-question")[0];
+  audio.currentTime = 0;
+  audio.play();
+})
+
+
+  // 🔥 JIKA TOMBOL JAWAB DIKLIK
+  $(".answer-btn").on("click", function () {
+    if (!gameStarted) return;
+
+    const modal = new bootstrap.Modal(document.getElementById("resultModal"));
+    modal.show();
+    
+    currentIndex++;
+
+    if (currentIndex >= shuffledQuestions.length) {
+      currentIndex = 0;
+      shuffle(shuffledQuestions);
+    }
+  });
+});
+
+  </script>
+
+

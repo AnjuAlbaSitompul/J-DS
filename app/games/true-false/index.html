@@ -1,133 +1,31 @@
-<style>
-  .modal {
-    z-index: 99999;
-  }
-</style>
+<link rel="stylesheet" href="/assets/css/true-false.css">
 
 <section class="vs-hero vs-hero--style2 overflow-hidden min-vh-100 d-flex align-items-center bg-primary bg-gradient">
   <div class="container text-center">
-    <p id="heroText" class="vs-hero__desc mb-4 text-white fs-5" style="transition: all 1.5s ease;">
-      Apakah ini adalah perbuatan yang benar?
-    </p>
+    <p id="heroText" class="vs-hero__desc mb-4 text-white fs-5"></p>
+
     <div class="d-flex justify-content-center mb-4">
-      <img id="heroImage" class="img-fluid" alt="hero" style="
-            max-height: 60vh;
-            transition: transform 1.5s ease;
-            transform-origin: center;
-          ">
+      <img id="heroImage" class="img-fluid" alt="hero">
     </div>
+
     <div class="row g-3 justify-content-center">
-      <div class="col-6 col-md-3">
-        <a id="btnTrue" class="vs-btn vs-hero__btn vs-hero__anim w-100 text-center d-block">
-          Benar
-        </a>
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <button id="btnTrue" class="cssbuttons-io"><span>Benar</span></button>
       </div>
-      <div class="col-6 col-md-3">
-        <a id="btnFalse" class="vs-btn vs-hero__btn vs-hero__anim w-100 text-center d-block">
-          Salah
-        </a>
+      <div class="col-6 col-md-3 d-flex justify-content-center">
+        <button id="btnFalse" class="cssbuttons-io"><span>Salah</span></button>
       </div>
     </div>
+
     <p id="scoreText" class="mt-4 text-white fw-bold"></p>
+
+    <div id="restartBox" class="mt-4 d-none">
+      <p class="text-white fw-bold fs-5 mb-3">Ingin bermain lagi?</p>
+      <div class="d-flex justify-content-center gap-3">
+        <button id="btnRestart" class="btn btn-success">Ya</button>
+        <button id="btnHome" class="btn btn-danger">Tidak</button>
+      </div>
+    </div>
   </div>
 </section>
-<div class="modal fade" id="answerModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-transparent border-0 text-center">
-      <img id="modalImage" class="img-fluid rounded" style="max-width:300px; width:100%;">
-    </div>
-  </div>
-</div>
-
-<script>
-  let gameData = [], i = 0, score = 0, zoom = false;
-
-  const audioCorrect = new Audio("/assets/audio/true-false/correct-answer.mp3");
-  const audioWrong = new Audio("/assets/audio/true-false/wrong-answer.mp3");
-
-  // ✅ BUAT POPUP MANUAL (SEKALI SAJA)
-  const popup = document.createElement("div");
-  popup.style.position = "fixed";
-  popup.style.top = "0";
-  popup.style.left = "0";
-  popup.style.width = "100vw";
-  popup.style.height = "100vh";
-  popup.style.background = "rgba(0,0,0,0.6)";
-  popup.style.display = "none";
-  popup.style.alignItems = "center";
-  popup.style.justifyContent = "center";
-  popup.style.zIndex = "999999";
-
-  const popupImg = document.createElement("img");
-  popupImg.style.width = "300px";
-  popupImg.style.maxWidth = "90%";
-
-  popup.appendChild(popupImg);
-  document.body.appendChild(popup);
-
-  $.getJSON("/constants/true-false.json", data => {
-    gameData = data.sort(() => Math.random() - 0.5);
-    load();
-  });
-
-  function load() {
-    if (i < gameData.length) {
-      $("#heroText").text(gameData[i].question);
-      $("#heroImage").attr("src", gameData[i].image);
-    } else {
-      let nilai = Math.round(score / gameData.length * 100);
-      $("#heroText").html(`Nilai Akhir: <b>${nilai}%</b> (${score}/${gameData.length})`);
-      $("#heroImage").attr("src", "/assets/img/finish.png").css({
-        width: "100vw",
-        height: "100vh",
-        objectFit: "cover"
-      });
-      $("#btnTrue, #btnFalse").remove();
-    }
-  }
-
-  $("#btnTrue").on("click", function (e) {
-    e.preventDefault();
-    jawab(true);
-  });
-
-  $("#btnFalse").on("click", function (e) {
-    e.preventDefault();
-    jawab(false);
-  });
-
-  function jawab(pilihan) {
-    let benar = gameData[i].answer === pilihan;
-    let imgPath = "";
-
-    if (benar) {
-      score++;
-      audioCorrect.currentTime = 0;
-      audioCorrect.play();
-      imgPath = "/assets/img/true-false/correct-answer.svg";
-    } else {
-      audioWrong.currentTime = 0;
-      audioWrong.play();
-      imgPath = "/assets/img/true-false/wrong-answer.svg";
-    }
-
-    // ✅ TAMPILKAN POPUP MANUAL
-    popupImg.src = imgPath + "?v=" + Date.now();
-    popup.style.display = "flex";
-
-    setTimeout(() => {
-      popup.style.display = "none";
-      i++;
-      load();
-    }, 1200);
-  }
-
-  setInterval(() => {
-    zoom = !zoom;
-    $("#heroImage").css("transform", zoom ? "scale(1.12)" : "scale(1)");
-    $("#heroText").css({
-      opacity: zoom ? 0.7 : 1,
-      transform: zoom ? "scale(1.05)" : "scale(1)"
-    });
-  }, 1500);
-</script>
+<script src="/assets/js/true-false.js"></script>

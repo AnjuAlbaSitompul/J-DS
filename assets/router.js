@@ -16,7 +16,9 @@ $(document).ready(function () {
     const url = `/app/${finalPage}/index.html`;
 
     $("#app").load(url, function (response, status) {
+      console.log("Page load status:", url);
       if (status === "success") {
+
         const tempDiv = $("<div>").html(response);
         const pageTitle = tempDiv.find("title").text();
 

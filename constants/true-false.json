@@ -1,20 +1,92 @@
 [
   {
     "id": 1,
-    "question": "Apakah langit berwarna coklat?",
+    "question": "Apakah matahari berwarna kuning?",
     "answer": true,
-    "image": "/assets/img/true-false/blue-sky.jpg"
+    "image": "/assets/img/true-false/q1-matahari.png"
   },
   {
     "id": 2,
-    "question": "Apakah air mendidih pada suhu 100 derajat Celsius?",
+    "question": "Apakah air bisa diminum?",
     "answer": true,
-    "image": "/assets/img/true-false/boilingWater.png"
+    "image": "/assets/img/true-false/q2-air.png"
   },
   {
     "id": 3,
-    "question": "Apakah bumi itu datar?",
+    "question": "Apakah kucing bisa terbang?",
+    "answer": false,
+    "image": "/assets/img/true-false/q3-kucing.png"
+  },
+  {
+    "id": 4,
+    "question": "Apakah ikan hidup di air?",
     "answer": true,
-    "image": "/assets/img/true-false/flatEarth.png"
+    "image": "/assets/img/true-false/q4-ikan.png"
+  },
+  {
+    "id": 5,
+    "question": "Apakah sepeda punya dua roda?",
+    "answer": true,
+    "image": "/assets/img/true-false/q5-sepeda.png"
+  },
+  {
+    "id": 6,
+    "question": "Apakah api itu dingin?",
+    "answer": false,
+    "image": "/assets/img/true-false/q6-api.png"
+  },
+  {
+    "id": 7,
+    "question": "Apakah ayam bisa terbang tinggi seperti pesawat?",
+    "answer": false,
+    "image": "/assets/img/true-false/q7-ayam.png"
+  },
+  {
+    "id": 8,
+    "question": "Apakah es itu dingin?",
+    "answer": true,
+    "image": "/assets/img/true-false/q8-es.png"
+  },
+  {
+    "id": 9,
+    "question": "Apakah hujan turun dari langit?",
+    "answer": true,
+    "image": "/assets/img/true-false/q9-hujan.png"
+  },
+  {
+    "id": 10,
+    "question": "Apakah mobil berjalan di rel?",
+    "answer": false,
+    "image": "/assets/img/true-false/q10-mobil.png"
+  },
+  {
+    "id": 11,
+    "question": "Apakah gajah lebih besar dari kucing?",
+    "answer": true,
+    "image": "/assets/img/true-false/q11-gajah.png"
+  },
+  {
+    "id": 12,
+    "question": "Apakah pisang berwarna biru?",
+    "answer": false,
+    "image": "/assets/img/true-false/q12-pisang.png"
+  },
+  {
+    "id": 13,
+    "question": "Apakah tangan dipakai untuk memegang?",
+    "answer": true,
+    "image": "/assets/img/true-false/q13-tangan.png"
+  },
+  {
+    "id": 14,
+    "question": "Apakah mata dipakai untuk melihat?",
+    "answer": true,
+    "image": "/assets/img/true-false/q14-mata.png"
+  },
+  {
+    "id": 15,
+    "question": "Apakah telinga dipakai untuk mencium?",
+    "answer": false,
+    "image": "/assets/img/true-false/q15-telinga.png"
   }
 ]

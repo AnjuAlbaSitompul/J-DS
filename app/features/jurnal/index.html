@@ -1,118 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Journal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/assets/css/journals.css">
 
-  <style>
-    .pdf-preview-wrapper {
-      width: 100%;
-      height: 180px;
-      overflow: hidden;
-      position: relative;
-      background: #f3f3f3;
-      border-radius: 10px;
-    }
-
-    .pdf-preview-frame {
-      width: 100%;
-      height: 260px;
-      border: none;
-      pointer-events: none;
-      position: absolute;
-      top: -40px;
-      left: 0;
-    }
-
-    .vs-blog {
-      position: relative;
-    }
-  </style>
-</head>
-
-<body>
-  <section class="space space-extra-bottom z-index-common overflow-hidden">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7 mx-auto text-center">
-          <span class="vs-title__sub">our news</span>
-          <h2 class="vs-title__main">our Article & Journal</h2>
-        </div>
+<section class="space space-extra-bottom z-index-common overflow-hidden">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto text-center">
+        <span class="vs-title__sub">our news</span>
+        <h2 class="vs-title__main">our Article & Journal</h2>
       </div>
-      <div class="row" id="blog-wrapper"></div>
     </div>
-  </section>
+    <div class="row" id="blog-wrapper"></div>
+  </div>
+</section>
 
-  <div class="modal fade" id="pdfModal" tabindex="-1">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="pdfTitle">PDF Viewer</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body p-0">
-          <iframe id="pdfFrame" width="100%" height="600" style="border:none;"></iframe>
-        </div>
+<div class="modal fade" id="pdfModal" tabindex="-1">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="pdfTitle">PDF Viewer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body p-0">
+        <iframe id="pdfFrame" width="100%" height="600" style="border:none;"></iframe>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    $(function () {
-      $.getJSON("/constants/data.json", function (blogData) {
-        const $wrapper = $("#blog-wrapper");
-        $wrapper.empty();
-        blogData.forEach(item => {
-          $wrapper.append(`
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="vs-blog vs-blog--style2 h-100">
-                <div class="vs-blog__inner h-100">
-                  <div class="vs-blog__image mb-3">
-                    <a href="#" class="open-pdf"
-                      data-title="${item.title}"
-                      data-pdf="${item.pdf}">
-                      <div class="pdf-preview-wrapper">
-                        <iframe 
-                          src="${item.pdf}#page=1&zoom=120&view=FitH"
-                          class="pdf-preview-frame">
-                        </iframe>
-                      </div>
-                    </a>
-                  </div>
-                  <div class="vs-blog__content">
-                    <a href="#" class="open-pdf"
-                      data-title="${item.title}"
-                      data-pdf="${item.pdf}">
-                      <h3 class="vs-blog__heading">${item.title}</h3>
-                    </a>
-                    <p class="vs-blog__desc">${item.desc}</p>
-                    <a href="#" class="vs-blog__link open-pdf"
-                      data-title="${item.title}"
-                      data-pdf="${item.pdf}">
-                      Read more →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `);
-        });
-      });
-    });
-
-    $(document).on("click", ".open-pdf", function (e) {
-      e.preventDefault();
-      $("#pdfTitle").text($(this).data("title"));
-      $("#pdfFrame").attr("src", $(this).data("pdf"));
-      $("#pdfModal").modal("show");
-    });
-
-    $("#pdfModal").on("hidden.bs.modal", function () {
-      $("#pdfFrame").attr("src", "");
-    });
-  </script>
-</body>
-
-</html>
+<script src="/assets/js/journals.js"></script>

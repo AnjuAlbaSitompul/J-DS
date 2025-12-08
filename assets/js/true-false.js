@@ -95,8 +95,8 @@ function jawab(pilihan) {
 
   const audio = benar ? audioCorrect : audioWrong;
   const img = benar
-    ? "/assets/img/true-false/correct-answer.png"
-    : "/assets/img/true-false/wrong-answer.png";
+    ? "/assets/gif/mendengar/check.gif"
+    : "/assets/gif/mendengar/cross.gif";
 
   if (benar) score++;
 
@@ -116,7 +116,7 @@ function jawab(pilihan) {
   setTimeout(() => {
     i++;
     load();
-  }, 1200);
+  }, 1600);
 }
 
 setInterval(() => {

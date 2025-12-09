@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "title": "Implementation of Layered User Verification",
-    "desc": "This study discusses Two-Factor Authentication (2FA).",
-    "pdf": "/assets/pdf/test.pdf"
+    "title": "Toward Prevention of Childhood Sexual Abuse",
+    "desc": "Studi ini meneliti pengetahuan anak prasekolah tentang bagian tubuh genital dan kaitannya dengan pencegahan kekerasan seksual pada anak. Hasilnya menunjukkan bahwa sebagian besar anak mengetahui nama bagian tubuh non-genital namun hanya sedikit yang mengetahui istilah anatomi genital. Penelitian menekankan pentingnya pendidikan istilah tubuh yang benar untuk meningkatkan kemampuan anak mengenali dan melaporkan pelecehan.",
+    "pdf": "/assets/pdf/toward_Prevention_Childhood_Sexual_Abuse.pdf"
   },
   {
     "id": 2,
-    "title": "Advancements in Quantum Computing",
-    "desc": "An overview of recent developments in quantum algorithms.",
-    "pdf": "/assets/pdf/quantum_computing.pdf"
+    "title": "Association of Intellectual Disability with Violent and Sexual Crime and Victimization",
+    "desc": "Penelitian kohort berbasis populasi ini memeriksa hubungan antara disabilitas intelektual dengan risiko kejahatan kekerasan, kejahatan seksual, serta viktimisasi. Hasilnya menunjukkan bahwa kombinasi disabilitas intelektual dan ADHD secara signifikan meningkatkan risiko melakukan maupun menjadi korban kekerasan. Sementara itu, disabilitas intelektual tanpa komorbiditas tetap menunjukkan risiko mandiri terhadap kejahatan seksual.",
+    "pdf": "/assets/pdf/association_intellectual_disability_crime_victimization.pdf"
   },
   {
     "id": 3,
-    "title": "Machine Learning in Healthcare",
-    "desc": "Exploring the applications of machine learning in medical diagnostics.",
-    "pdf": "/assets/pdf/machine_learning_healthcare.pdf"
+    "title": "Prevalence of Sexual Abuse in Adults with Intellectual Disability",
+    "desc": "Sebuah tinjauan sistematis dan meta-analisis mengenai prevalensi kekerasan seksual pada penyandang disabilitas intelektual dewasa. Studi ini menemukan prevalensi gabungan sebesar 32.9% dan lebih tinggi pada individu yang tinggal di lembaga/institusi. Analisis juga menunjukkan bahwa pelaku yang paling umum adalah rekan sesama penyandang disabilitas.",
+    "pdf": "/assets/pdf/prevalence_sexual_abuse_intellectual_disability.pdf"
   },
   {
     "id": 4,
-    "title": "Renewable Energy Technologies",
-    "desc": "A comprehensive review of modern renewable energy solutions.",
-    "pdf": "/assets/pdf/renewable_energy.pdf"
+    "title": "Cognitive and Behavioural Associations of Visual and Hearing Impairments in Down Syndrome",
+    "desc": "Tinjauan scoping ini meneliti hubungan antara gangguan pendengaran dan penglihatan dengan fungsi kognitif serta perilaku pada individu dengan Down Syndrome. Hasil menunjukkan bahwa gangguan sensorik yang tidak ditangani berkaitan dengan penurunan kemampuan bahasa, adaptasi, serta fungsi kognitif sepanjang hidup. Temuan menekankan pentingnya deteksi dini dan intervensi.",
+    "pdf": "/assets/pdf/cognitive_behavioural_associations_DS.pdf"
   },
   {
     "id": 5,
-    "title": "Cybersecurity Threats and Mitigations",
-    "desc": "Analyzing current cybersecurity threats and effective mitigation strategies.",
-    "pdf": "/assets/pdf/cybersecurity_threats.pdf"
+    "title": "Health Supervision for Children With Down Syndrome",
+    "desc": "Laporan klinis ini memberikan panduan menyeluruh untuk supervisi kesehatan anak dengan Down Syndrome. Dokumen mencakup rekomendasi terkait deteksi dini masalah medis seperti gangguan pendengaran, gangguan penglihatan, penyakit jantung bawaan, dan gangguan tiroid. Panduan ini juga membahas pendekatan perkembangan, edukasi, dan peran penting medical home.",
+    "pdf": "/assets/pdf/health_supervision_children_down_syndrome.pdf"
   }
 ]

@@ -1,14 +1,9 @@
 $(document).ready(function () {
-  $("#faqs").on("click", function (e) {
-    e.preventDefault();
-    $("#faqModal").modal("show");
-  });
-
-  $.getJSON("/constants/developers.json", function (data) {
-    const cards = data.map((dev, index) => {
-      const delay = 0.2 + index * 0.1;
-      const ig = dev.instagram.replace('@', '');
-      return `
+	$.getJSON("/constants/developers.json", function (data) {
+		const cards = data.map((dev, index) => {
+			const delay = 0.2 + index * 0.1;
+			const ig = dev.instagram.replace('@', '');
+			return `
 				<div class="col-lg-3 col-md-6 mb-4 wow animate__fadeInUp" data-wow-delay="${delay}s">
 					<div class="vs-team vs-team--style2">
 						<div class="vs-team__img">
@@ -28,7 +23,7 @@ $(document).ready(function () {
 					</div>
 				</div>
 			`;
-    }).join("");
-    $("#developers-list").html(cards);
-  });
+		}).join("");
+		$("#developers-list").html(cards);
+	});
 });

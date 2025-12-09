@@ -1,66 +1,66 @@
 [
   {
-    "questionImg": "/assets/img/games/mendengar/bahu.png",
+    "questionImg": "/assets/img/games/mendengar/bahu.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/bahu.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/perut.png",
+    "questionImg": "/assets/img/games/mendengar/perut.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/perut.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/tangan.png",
+    "questionImg": "/assets/img/games/mendengar/tangan.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/tangan.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/kepala.png",
+    "questionImg": "/assets/img/games/mendengar/kepala.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/kepala.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/betis.png",
+    "questionImg": "/assets/img/games/mendengar/betis.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/betis.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/bokong.png",
+    "questionImg": "/assets/img/games/mendengar/bokong.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/bokong.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/dada.png",
+    "questionImg": "/assets/img/games/mendengar/dada.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/dada.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/kelamin.png",
+    "questionImg": "/assets/img/games/mendengar/kelamin.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/kelamin.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/lengan.png",
+    "questionImg": "/assets/img/games/mendengar/lengan.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/lengan.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/mulut.png",
+    "questionImg": "/assets/img/games/mendengar/mulut.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/mulut.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/paha.png",
+    "questionImg": "/assets/img/games/mendengar/paha.PNG",
     "answer": false,
     "audio": "/assets/audio/mendengar/paha.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/punggung.png",
+    "questionImg": "/assets/img/games/mendengar/punggung.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/punggung.mp3"
   },
   {
-    "questionImg": "/assets/img/games/mendengar/tangan.png",
+    "questionImg": "/assets/img/games/mendengar/tangan.PNG",
     "answer": true,
     "audio": "/assets/audio/mendengar/tangan.mp3"
   }

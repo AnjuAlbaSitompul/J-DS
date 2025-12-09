@@ -1,0 +1,22 @@
+.pdf-preview-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+
+.pdf-preview-frame {
+  width: 100%;
+  height: 260px;
+  border: none;
+  pointer-events: none;
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.vs-blog {
+  position: relative;
+}

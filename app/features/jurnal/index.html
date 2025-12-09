@@ -1,6 +1,54 @@
 <link rel="stylesheet" href="/assets/css/journals.css">
 
-<div class="row" id="blog-wrapper"></div>
+<style>
+  .breadcrumb-wrapper__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    /* ✔ tingkat kegelapan */
+    z-index: 2;
+    pointer-events: none;
+  }
+
+
+  .breadcrumb-wrapper .container,
+  .breadcrumb-wrapper .breadcrumb-wrapper__content {
+    position: relative;
+    z-index: 3;
+  }
+</style>
+
+<div class="breadcrumb-wrapper z-index-common overflow-hidden">
+  <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff"></div>
+  <div class="breadcrumb-wrapper__bg wow animate__fadeInUp" data-wow-delay="0.15s" data-vs-gsap-parallax-speed="2"
+    data-vs-gsap-parallax-zoom>
+    <img src="/assets/img/paralax/p15.jpeg" alt="session bg" />
+  </div>
+  <div class="container">
+    <div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
+      <h1 class="breadcrumb-wrapper__title">Our Journals and News</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="vs-service--tab">
+    <div class="row gx-40">
+      <div class="col-lg-8 mb-30">
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
+            tabindex="0">
+            <h2 class="vs-service--tab__title--main">Jurnal dan Berita</h2>
+          </div>
+          <div class="accordion" id="faqVersion1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="blog-wrapper"></div>
+  </div>
+</div>
+
 
 <div class="modal fade" id="pdfModal" tabindex="-1">
   <div class="modal-dialog modal-xl modal-dialog-centered">

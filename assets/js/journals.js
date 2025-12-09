@@ -20,7 +20,7 @@ $(function () {
                 </a>
               </div>
               <div class="vs-blog__content">
-                <a href="#" class="open-pdf"
+                <a href="#" class="open-pdf vs-blog__title"
                   data-title="${item.title}"
                   data-pdf="${item.pdf}">
                   <h3 class="vs-blog__heading">${item.title}</h3>

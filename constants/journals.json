@@ -4,5 +4,29 @@
     "title": "Implementation of Layered User Verification",
     "desc": "This study discusses Two-Factor Authentication (2FA).",
     "pdf": "/assets/pdf/test.pdf"
+  },
+  {
+    "id": 2,
+    "title": "Advancements in Quantum Computing",
+    "desc": "An overview of recent developments in quantum algorithms.",
+    "pdf": "/assets/pdf/quantum_computing.pdf"
+  },
+  {
+    "id": 3,
+    "title": "Machine Learning in Healthcare",
+    "desc": "Exploring the applications of machine learning in medical diagnostics.",
+    "pdf": "/assets/pdf/machine_learning_healthcare.pdf"
+  },
+  {
+    "id": 4,
+    "title": "Renewable Energy Technologies",
+    "desc": "A comprehensive review of modern renewable energy solutions.",
+    "pdf": "/assets/pdf/renewable_energy.pdf"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity Threats and Mitigations",
+    "desc": "Analyzing current cybersecurity threats and effective mitigation strategies.",
+    "pdf": "/assets/pdf/cybersecurity_threats.pdf"
   }
 ]

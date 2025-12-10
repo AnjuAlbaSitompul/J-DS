@@ -241,9 +241,6 @@
       });
 
       $(".btn-back").on("click", function () {
-        if (html5QrCode) {
-          startScanner();
-        }
         $("#modalTitle").text("");
         $("#quiz-img").attr("src", "");
         $("#audio-question").attr("src", "");

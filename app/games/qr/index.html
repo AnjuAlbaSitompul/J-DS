@@ -30,11 +30,6 @@
                   </div>
                 </div>
               </div>
-              <div class="card-footer text-center">
-                <div>
-                  <h5 class="mb-0" id="result">Scan a QR code to see the result</h5>
-                </div>
-              </div>
             </div>
           </div>
           <div
@@ -42,11 +37,6 @@
             style="display: none"
           >
             <div class="d-flex justify-content-center align-items-center gap-4">
-              <!-- Tombol Sebelumnya -->
-              <div class="nav-btn btn-prev">
-                <i class="fa-solid fa-arrow-left"></i>
-              </div>
-
               <!-- Gambar di Tengah -->
               <div>
                 <img id="quiz-img" src="" class="mb-3" />
@@ -55,11 +45,6 @@
                     <span class="vs-btn__border"></span>Apakah Boleh Disentuh?
                   </button>
                 </div>
-              </div>
-
-              <!-- Tombol Selanjutnya -->
-              <div class="nav-btn btn-next-question">
-                <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -89,8 +74,8 @@
       </div>
 
       <div class="vs-event__btn mt-3">
-        <button class="vs-btn btn-next" data-bs-dismiss="modal">
-          <span class="vs-btn__border"></span>Selanjutnya!
+        <button class="vs-btn btn-back" data-bs-dismiss="modal">
+          <span class="vs-btn__border"></span>Kembali
         </button>
       </div>
 
@@ -114,7 +99,6 @@
     });
 
     function showResult(text) {
-        resultEl.text("Hasil Scan: " + text);
       if (!text) return;
       const baseUrl = "https://toddle.pixelionsolution.com?id=";
       if (!text.startsWith(baseUrl)) {
@@ -245,6 +229,14 @@
       const audio = $("#audio-question")[0];
       audio.currentTime = 0;
       audio.play();
+    });
+    $(".answer-btn").on("click", function () {
+      const modal = new bootstrap.Modal(document.getElementById("resultModal"));
+      modal.show();
+    });
+    $(".btn-back").on("click", function () {
+      $(".quiz-area").fadeOut(300);
+      $(".camera-area").fadeIn(300);
     });
 
     // refresh camera when back to tab

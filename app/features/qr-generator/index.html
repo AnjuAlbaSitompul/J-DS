@@ -8,7 +8,6 @@
     pointer-events: none;
   }
 
-
   .breadcrumb-wrapper .container,
   .breadcrumb-wrapper .breadcrumb-wrapper__content {
     position: relative;
@@ -112,7 +111,16 @@
       setTimeout(() => {
         const canvas = $("#qrHidden canvas")[0];
         if (!canvas) return alert("QR gagal dibuat");
-        const dataURL = canvas.toDataURL("image/png");
+        const margin = 60;
+        const newSize = canvas.width + margin * 2;
+        const newCanvas = document.createElement("canvas");
+        const ctx = newCanvas.getContext("2d");
+        newCanvas.width = newSize;
+        newCanvas.height = newSize;
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, newSize, newSize);
+        ctx.drawImage(canvas, margin, margin);
+        const dataURL = newCanvas.toDataURL("image/png");
         const a = document.createElement("a");
         a.href = dataURL;
         a.download = fileName;

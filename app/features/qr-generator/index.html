@@ -102,11 +102,12 @@
       const title = $(this).data("title") || "qr";
       const fileName = `${title}-${id}.png`;
       const url = `https://toddle.pixelionsolution.com?id=${id}`;
-      $("#qrHidden").empty();
       new QRCode(document.getElementById("qrHidden"), {
         text: url,
         width: 600,
-        height: 600
+        height: 600,
+        correctLevel: QRCode.CorrectLevel.H,
+        margin: 4
       });
       setTimeout(() => {
         const canvas = $("#qrHidden canvas")[0];

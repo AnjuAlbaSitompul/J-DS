@@ -122,7 +122,7 @@
     }
 
     function loadQuiz(data) {
-        alert("QR berhasil discan!" + data);
+        alert(JSON.stringify(data));
       $("#result-img").attr("src", function () {
         return data.answer
           ? "/assets/gif/mendengar/check.gif"

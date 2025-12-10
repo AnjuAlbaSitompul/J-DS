@@ -1,4 +1,27 @@
 <style>
+  .nav-btn {
+  width: 55px;
+  height: 55px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 22px;
+}
+
+.nav-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.05);
+}
+
+.nav-btn i {
+  color: #333;
+}
+
   /* Modal tetap di atas */
   .modal {
     z-index: 200000 !important;
@@ -29,7 +52,7 @@
       max-width: fit-content;
       max-height: 60vh;
     }
-    
+
     .container.py-5 {
       padding-top: 1rem !important;
       padding-bottom: 2rem !important;
@@ -45,7 +68,7 @@
   /* Pada layar sangat kecil */
   @media (max-width: 480px) {
     #quiz-img {
-      max-height: 55vh;
+      max-height: 40vh;
     }
   }
 
@@ -53,7 +76,7 @@
   @media (min-width: 769px) {
     #quiz-img {
       width: auto;
-      max-width: 80%;
+      max-width: 50%;
       max-height: 70vh;
     }
   }
@@ -70,31 +93,35 @@
     padding: 10px 20px;
   }
 
+  /* Animasi pop */
+  .result-animate {
+    animation: pop 0.45s ease-out;
+  }
 
-/* Animasi pop */
-.result-animate {
-  animation: pop 0.45s ease-out;
-}
+  @keyframes pop {
+    0% {
+      transform: scale(0.2);
+      opacity: 0;
+    }
+    70% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
-@keyframes pop {
-  0% { transform: scale(0.2); opacity: 0; }
-  70% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(1); }
-}
+  /* Efek benar (hijau glow) */
+  .result-correct {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
+  }
 
-/* Efek benar (hijau glow) */
-.result-correct {
-  filter: drop-shadow(0 0 10px rgba(0, 255, 120, 0.6));
-}
-
-/* Efek salah (merah glow) */
-.result-wrong {
-  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
-}
-
+  /* Efek salah (merah glow) */
+  .result-wrong {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.6));
+  }
 </style>
-
-
 
 <section class="vs-event--page bg-color6 space z-index-common">
   <div class="vs-event--ele1">
@@ -114,41 +141,69 @@
       <div class="col-lg-8 mx-auto">
         <div class="vs-title text-center title-anime animation-style2">
           <div class="title-anime__wrap">
-            <h5 class="vs-title__main">Aku Sayang Diriku, Jadi Aku Jaga Diriku</h5>
-            <span class="vs-title__sub">Kalau ada yang menyentuh bagian pribadiku, Aku harus bilang tidak</span>
-                                    <div class="vs-event__btn">
-              <button class="vs-btn btn-start"><span class="vs-btn__border"></span>Mulai!</button>
+            <h5 class="vs-title__main">
+              Aku Sayang Diriku, Jadi Aku Jaga Diriku
+            </h5>
+            <span class="vs-title__sub"
+              >Kalau ada yang menyentuh bagian pribadiku, Aku harus bilang
+              tidak</span
+            >
+            <div class="vs-event__btn">
+              <button class="vs-btn btn-start">
+                <span class="vs-btn__border"></span>Mulai!
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="container quiz-area py-5 text-center" style="display: none;">
-      <img id="quiz-img" src="" class="shadow mb-4" />
-      <div>
-                        <div class="vs-event__btn">
-              <button class="vs-btn answer-btn"><span class="vs-btn__border"></span>Apakah Boleh Disentuh?</button>
-            </div>
+<div class="container quiz-area py-5 text-center" style="display: none">
+  <div class="d-flex justify-content-center align-items-center gap-4">
+
+    <!-- Tombol Sebelumnya -->
+    <div class="nav-btn btn-prev">
+      <i class="fa-solid fa-arrow-left"></i>
+    </div>
+
+    <!-- Gambar di Tengah -->
+    <div>
+      <img id="quiz-img" src="" class="mb-3" />
+      <div class="vs-event__btn">
+        <button class="vs-btn answer-btn">
+          <span class="vs-btn__border"></span>Apakah Boleh Disentuh?
+        </button>
       </div>
     </div>
+
+    <!-- Tombol Selanjutnya -->
+    <div class="nav-btn btn-next-question">
+      <i class="fa-solid fa-arrow-right"></i>
     </div>
 
+  </div>
+</div>
 
+  </div>
 </section>
 <!-- Modal -->
 <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content text-center p-4">
-
       <div class="vs-title text-center title-anime animation-style2">
         <div class="title-anime__wrap">
-            <h5 class="vs-title__main" id="modalTitle">Aku Sayang Diriku, Jadi Aku Jaga Diriku</h5>
-
+          <h5 class="vs-title__main" id="modalTitle">
+            Aku Sayang Diriku, Jadi Aku Jaga Diriku
+          </h5>
         </div>
       </div>
 
       <div class="img">
-        <img id="resultImage" src="" alt="result" class="img-fluid result-animate" />
+        <img
+          id="resultImage"
+          src=""
+          alt="result"
+          class="img-fluid result-animate"
+        />
       </div>
 
       <div class="vs-event__btn mt-3">
@@ -162,89 +217,101 @@
   </div>
 </div>
 
-  <script>
+<script>
   let questions = [];
-let shuffledQuestions = [];
-let currentIndex = 0;
-let gameStarted = false;
+  let shuffledQuestions = [];
+  let currentIndex = 0;
+  let gameStarted = false;
 
-// Shuffle
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-function loadQuestion() {
-  const q = shuffledQuestions[currentIndex];
-  const image = $("#resultImage");
-
-  $("#quiz-img").attr("src", q.questionImg);
-  $("#audio-question").attr("src", q.audio);
- if(q.answer){
-    $("#resultModal .img img").attr("src", "/assets/gif/mendengar/check.gif");
-    image.addClass("result-correct");
-    image.removeClass("result-wrong");
-    $("#modalTitle").text("Boleh Disentuh ya!");
- } else {
-    $("#resultModal .img img").attr("src", "/assets/gif/mendengar/cross.gif");
-    image.addClass("result-wrong");
-    image.removeClass("result-correct");
-    $("#modalTitle").text("Tidak Boleh Disentuh ya!");
- }
-
-}
-
-$(document).ready(function () {
-  // Load JSON
-  $.getJSON("/constants/hear.json", function (data) {
-    questions = data;
-    shuffledQuestions = shuffle([...questions]);
-  });
-
-$(".btn-next").on("click", function () {
-  loadQuestion();
-});
-// 🔥 MULAI PERMAINAN
-$(".btn-start").on("click", function () {
-  if (gameStarted) return;
-
-  gameStarted = true;
-
-  // Mulai dari pertanyaan pertama
-  currentIndex = 0;
-  loadQuestion(); // ⬅️ PENTING: load dulu
-
-  // Tampilkan area permainan
-  $(".quiz-area").fadeIn(300);
-  $(".btn-start").fadeOut(300);
-});
-
-$(".modal").on("shown.bs.modal", function () {
-      const audio = $("#audio-question")[0];
-  audio.currentTime = 0;
-  audio.play();
-})
-
-
-  // 🔥 JIKA TOMBOL JAWAB DIKLIK
-  $(".answer-btn").on("click", function () {
-    if (!gameStarted) return;
-
-    const modal = new bootstrap.Modal(document.getElementById("resultModal"));
-    modal.show();
-    
-    currentIndex++;
-
-    if (currentIndex >= shuffledQuestions.length) {
-      currentIndex = 0;
-      shuffle(shuffledQuestions);
+  // Shuffle
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
+  }
+
+  function loadQuestion() {
+    const q = shuffledQuestions[currentIndex];
+
+    $("#resultImage").attr("src", function () {
+      return q.answer
+        ? "/assets/gif/mendengar/check.gif"
+        : "/assets/gif/mendengar/cross.gif";
+    });
+    $("#quiz-img").attr("src", q.questionImg);
+    $("#audio-question").attr("src", q.audio);
+  }
+
+  // =====================================
+  // EVENT LISTENER
+  // =====================================
+  $(document).ready(function () {
+    // Load JSON
+    $.getJSON("/constants/hear.json", function (data) {
+      questions = data;
+      shuffledQuestions = shuffle([...questions]);
+    });
+
+    // START
+    $(".btn-start").on("click", function () {
+      if (gameStarted) return;
+
+      gameStarted = true;
+      currentIndex = 0;
+      loadQuestion();
+
+      $(".quiz-area").fadeIn(300);
+      $(".btn-start").fadeOut(300);
+    });
+
+    // PLAY AUDIO WHEN MODAL OPEN
+    $(".modal").on("shown.bs.modal", function () {
+      const audio = $("#audio-question")[0];
+      audio.currentTime = 0;
+      audio.play();
+    });
+
+    // BUTTON JAWAB (SHOW MODAL)
+    $(".answer-btn").on("click", function () {
+      if (!gameStarted) return;
+
+      const modal = new bootstrap.Modal(document.getElementById("resultModal"));
+      modal.show();
+    });
+
+    // NEXT QUESTION (inside modal)
+    $("#resultModal .btn-next").on("click", function () {
+      currentIndex++;
+
+      if (currentIndex >= shuffledQuestions.length) {
+        currentIndex = 0;
+      }
+
+      loadQuestion();
+    });
+
+    // =====================================
+    // NEW: BUTTON NEXT OUTSIDE MODAL
+    // =====================================
+    $(".btn-next-question").on("click", function () {
+      currentIndex++;
+
+      if (currentIndex >= shuffledQuestions.length) currentIndex = 0;
+
+      loadQuestion();
+    });
+
+    // =====================================
+    // NEW: BUTTON PREVIOUS OUTSIDE MODAL
+    // =====================================
+    $(".btn-prev").on("click", function () {
+      currentIndex--;
+
+      if (currentIndex < 0) currentIndex = shuffledQuestions.length - 1;
+
+      loadQuestion();
+    });
   });
-});
-
-  </script>
-
-
+</script>

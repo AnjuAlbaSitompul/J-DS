@@ -285,7 +285,13 @@
         $(".camera-area").fadeIn(300);
 
         restartScanner();
-        startScanner();
+        if(!paramId) {
+            startScanner();
+        } else {
+            if(paramUsed) {
+                scanCameras();
+            }
+        }
       });
     });
 

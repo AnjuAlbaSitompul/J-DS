@@ -113,7 +113,6 @@
         alert("ID tidak ditemukan dalam QR code.");
         return;
       }
-      alert(JSON.stringify(scannedId), text);
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
         alert("Data untuk ID ini tidak ditemukan.");
@@ -124,8 +123,7 @@
     }
 
     function loadQuiz(data) {
-        alert(JSON.stringify(data));
-      $("#result-img").attr("src", function () {
+      $("#resultImage").attr("src", function () {
         return data.answer
           ? "/assets/gif/mendengar/check.gif"
           : "/assets/gif/mendengar/cross.gif";

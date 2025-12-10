@@ -112,7 +112,7 @@
         alert("ID tidak ditemukan dalam QR code.");
         return;
       }
-      alert(JSON.stringify(scannedId), JSON.stringify(urlParams));
+      alert(JSON.stringify(scannedId), text);
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
         alert("Data untuk ID ini tidak ditemukan.");

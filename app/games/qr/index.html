@@ -118,18 +118,23 @@
         return;
       }
       q = found;
-      loadQuiz();
+      loadQuiz(found);
     }
 
-    function loadQuiz() {
+    function loadQuiz(data) {
+      if (html5QrCode) {
+        html5QrCode.stop();
+        html5QrCode.clear();
+      }
+
       $("#result-img").attr("src", function () {
-        return q.answer
+        return data.answer
           ? "/assets/gif/mendengar/check.gif"
           : "/assets/gif/mendengar/cross.gif";
       });
-      $("#modalTitle").text(q.answer ? "Boleh Disentuh" : "Jangan Disentuh");
-      $("#quiz-img").attr("src", q.questionImg);
-      $("#audio-question").attr("src", q.audio);
+      $("#modalTitle").text(data.answer ? "Boleh Disentuh" : "Jangan Disentuh");
+      $("#quiz-img").attr("src", data.questionImg);
+      $("#audio-question").attr("src", data.audio);
       $(".quiz-area").fadeIn(300);
       $(".camera-area").fadeOut(300);
     }
@@ -225,18 +230,31 @@
 
     // INITIAL
     scanCameras();
-    $(".modal").on("shown.bs.modal", function () {
-      const audio = $("#audio-question")[0];
-      audio.currentTime = 0;
-      audio.play();
-    });
-    $(".answer-btn").on("click", function () {
-      const modal = new bootstrap.Modal(document.getElementById("resultModal"));
-      modal.show();
-    });
-    $(".btn-back").on("click", function () {
-      $(".quiz-area").fadeOut(300);
-      $(".camera-area").fadeIn(300);
+
+    $(document).ready(function () {
+      $(".modal").on("shown.bs.modal", function () {
+        const audio = $("#audio-question")[0];
+        audio.currentTime = 0;
+        audio.play();
+      });
+      
+      $(".answer-btn").on("click", function () {
+        const modal = new bootstrap.Modal(
+          document.getElementById("resultModal")
+        );
+        modal.show();
+      });
+
+      $(".btn-back").on("click", function () {
+        if (html5QrCode) {
+          startScanner();
+        }
+        $("#modalTitle").text("");
+        $("#quiz-img").attr("src", "");
+        $("#audio-question").attr("src", "");
+        $(".quiz-area").fadeOut(300);
+        $(".camera-area").fadeIn(300);
+      });
     });
 
     // refresh camera when back to tab

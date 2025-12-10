@@ -42,11 +42,10 @@ $(document).ready(function () {
   if (id) {
     history.replaceState({}, "", `/games/qr?id=${id}`);
     loadPage("games/qr");
-    return;
+  } else {
+    // Load halaman awal tanpa ID
+    loadPage(getPageFromURL());
   }
-
-  // Load page pertama kali (tanpa ID)
-  loadPage(getPageFromURL());
 
   // Klik navigasi
   $(document).on("click", ".nav-link", function (e) {

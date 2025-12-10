@@ -102,8 +102,25 @@
     let q;
     let scannedOnce = false;
 
+    // Ambil param ID dari URL
+    let paramId = new URLSearchParams(window.location.search).get("id");
+
+    // Load JSON dulu
     $.getJSON("/constants/hear.json", function (data) {
       questionData = data;
+
+      // Jika URL ada param id → langsung load quiz
+      if (paramId) {
+        const found = questionData.find((item) => item.id == paramId);
+        if (found) {
+          q = found;
+          loadQuiz(found);
+          return; // jangan jalankan scanner
+        }
+      }
+
+      // Jika tidak ada param id → jalankan scanner
+      scanCameras();
     });
 
     function showResult(text) {
@@ -113,7 +130,7 @@
       const baseUrl = "https://toddle.pixelionsolution.com?id=";
 
       if (!text.startsWith(baseUrl)) {
-        alert("QR code tidak valid untuk aplikasi ini.");
+        alert("QR code tidak valid.");
         restartScanner();
         return;
       }
@@ -122,14 +139,14 @@
       const scannedId = urlParams.searchParams.get("id");
 
       if (!scannedId) {
-        alert("ID tidak ditemukan dalam QR code.");
+        alert("ID tidak ditemukan.");
         restartScanner();
         return;
       }
 
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
-        alert("Data untuk ID ini tidak ditemukan.");
+        alert("Data tidak ditemukan.");
         restartScanner();
         return;
       }
@@ -139,20 +156,18 @@
     }
 
     function loadQuiz(data) {
-      $("#resultImage").attr("src", data.answer
-        ? "/assets/gif/mendengar/check.gif"
-        : "/assets/gif/mendengar/cross.gif"
+      $("#resultImage").attr("src",
+        data.answer
+          ? "/assets/gif/mendengar/check.gif"
+          : "/assets/gif/mendengar/cross.gif"
       );
 
       $("#modalTitle").text(data.answer ? "Boleh Disentuh" : "Jangan Disentuh");
       $("#quiz-img").attr("src", data.questionImg);
       $("#audio-question").attr("src", data.audio);
+
       $(".quiz-area").fadeIn(300);
       $(".camera-area").fadeOut(300);
-    }
-
-    function handleError(err) {
-      console.error(err);
     }
 
     function restartScanner() {
@@ -160,14 +175,10 @@
     }
 
     function isMobile() {
-      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(
-        navigator.userAgent
-      );
+      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
     }
 
-    // ===========================
     // GET CAMERA LIST
-    // ===========================
     function scanCameras() {
       Html5Qrcode.getCameras()
         .then((cams) => {
@@ -175,25 +186,19 @@
           currentCameraIndex = 0;
           startScanner();
         })
-        .catch(handleError);
+        .catch(console.error);
     }
 
-    // ===========================
-    // START CAMERA SCANNER
-    // ===========================
+    // START CAMERA
     async function startScanner() {
       try {
         const cameraId = camerasList[currentCameraIndex]?.id;
         if (!cameraId) return;
 
-        // Stop scanner if already running
+        // Stop if already running
         if (html5QrCode) {
-          try {
-            await html5QrCode.stop();
-          } catch (e) {}
-          try {
-            html5QrCode.clear();
-          } catch (e) {}
+          try { await html5QrCode.stop(); } catch (e) {}
+          try { html5QrCode.clear(); } catch (e) {}
         }
 
         html5QrCode = new Html5Qrcode("reader");
@@ -201,7 +206,7 @@
         const config = {
           fps: 10,
           qrbox: { width: 300, height: 300 },
-          experimentalFeatures: { useBarCodeDetectorIfSupported: true },
+          experimentalFeatures: { useBarCodeDetectorIfSupported: true }
         };
 
         await html5QrCode.start(
@@ -217,9 +222,7 @@
       }
     }
 
-    // ===========================
-    // FLIP CAMERA (MOBILE ONLY)
-    // ===========================
+    // FLIP CAMERA FOR MOBILE
     if (isMobile()) {
       const flipBtn = $(`
         <button id="flipCameraBtn" 
@@ -244,17 +247,11 @@
         if (!camerasList.length) return;
 
         currentCameraIndex = (currentCameraIndex + 1) % camerasList.length;
-
         await startScanner();
       });
     }
 
-    // INITIAL START
-    scanCameras();
-
-    // ===========================
-    // MODAL & AUDIO HANDLING
-    // ===========================
+    // MODAL & AUDIO
     $(document).ready(function () {
       $(".modal").on("shown.bs.modal", function () {
         const audio = $("#audio-question")[0];
@@ -279,18 +276,21 @@
         $(".camera-area").fadeIn(300);
 
         restartScanner();
-        startScanner();
+
+        // kalau URL ada ID → jangan start scanner
+        if (!paramId) startScanner();
       });
     });
 
-    // ===========================
     // RESUME SCANNER WHEN TAB ACTIVE
-    // ===========================
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "visible") {
-        restartScanner();
-        scanCameras();
+        if (!paramId) {
+          restartScanner();
+          scanCameras();
+        }
       }
     });
   });
 </script>
+

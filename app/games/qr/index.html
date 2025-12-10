@@ -1,0 +1,228 @@
+<div class="vh-full p-3">
+  <div class="card scanner-card bg-dark text-light">
+    <div class="card-body p-0">
+      <div class="row g-0">
+        <div class="col-12 col-lg-7">
+          <div id="reader" class="bg-black"></div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="p-3 d-flex flex-column h-100">
+            <h5 class="mb-2">QR / Barcode Scanner</h5>
+            <p class="small-muted">
+              Buka izin kamera dan pilih kamera depan/belakang jika tersedia.
+            </p>
+
+            <div class="mb-2">
+              <label for="cameraSelect" class="form-label small-muted"
+                >Pilih Kamera</label
+              >
+              <select id="cameraSelect" class="form-select"></select>
+            </div>
+
+            <div class="d-flex flex-wrap controls-row mb-2">
+              <button id="startBtn" class="btn btn-success">Mulai</button>
+              <button id="stopBtn" class="btn btn-danger">Berhenti</button>
+              <button id="toggleTorch" class="btn btn-outline-light">
+                Toggle Senter
+              </button>
+              <button id="copyBtn" class="btn btn-outline-secondary">
+                Salin Hasil
+              </button>
+            </div>
+
+            <div class="mt-2 mb-2">
+              <div class="fw-semibold">Hasil:</div>
+              <div
+                id="result"
+                class="result-area small p-2 bg-body-secondary text-dark rounded"
+              >
+                -
+              </div>
+            </div>
+
+            <div class="mt-auto small-muted">
+              <div>Catatan:</div>
+              <ul>
+                <li>
+                  Butuh HTTPS (atau localhost) agar kamera berjalan di browser
+                  mobile/desktop.
+                </li>
+                <li>
+                  Jika tidak muncul kamera, periksa izin atau coba jalankan di
+                  Chrome/Firefox terbaru.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    const resultEl = $("#result");
+    const cameraSelect = $("#cameraSelect");
+    const startBtn = $("#startBtn");
+    const stopBtn = $("#stopBtn");
+    const copyBtn = $("#copyBtn");
+    const toggleTorchBtn = $("#toggleTorch");
+
+    let html5QrCode = null;
+    let currentCameraId = null;
+    let isTorchOn = false;
+
+    function showResult(text) {
+      resultEl.text(text || "-");
+    }
+
+    function handleError(err) {
+      console.error(err);
+      showResult("Error: " + (err && err.message ? err.message : err));
+    }
+
+    // Populate cameras
+    function scanCameras() {
+      Html5Qrcode.getCameras()
+        .then((cameras) => {
+          cameraSelect.empty();
+          if (cameras && cameras.length) {
+            cameras.forEach((cam) => {
+              cameraSelect.append(
+                $("<option>")
+                  .val(cam.id)
+                  .text(cam.label || cam.id)
+              );
+            });
+            currentCameraId = cameras[0].id;
+          } else {
+            cameraSelect.append($("<option>").val("").text("No camera found"));
+          }
+        })
+        .catch((err) => {
+          handleError(err);
+        });
+    }
+
+    // Start scanning with selected camera
+    async function startScanner() {
+      try {
+        if (!currentCameraId) {
+          currentCameraId = cameraSelect.val();
+        }
+        if (!currentCameraId) {
+          showResult("Tidak ada kamera.");
+          return;
+        }
+
+        if (html5QrCode) {
+          await html5QrCode.stop();
+          html5QrCode.clear();
+        }
+
+        html5QrCode = new Html5Qrcode("reader", /* verbose= */ false);
+
+        const config = {
+          fps: 10,
+          qrbox: { width: 300, height: 300 },
+          experimentalFeatures: { useBarCodeDetectorIfSupported: true },
+        };
+
+        await html5QrCode.start(
+          currentCameraId,
+          config,
+          (decodedText, decodedResult) => {
+            // success callback
+            showResult(decodedText);
+          },
+          (err) => {
+            // failure callback (scanning failure)
+            // console.log('scan failed', err);
+          }
+        );
+        // If camera supports torch, show toggle
+        try {
+          const capabilities = await Html5Qrcode.getCameraCapabilities(
+            currentCameraId
+          );
+          if (!capabilities || !capabilities.torch) {
+            toggleTorchBtn.hide();
+          } else {
+            toggleTorchBtn.show();
+          }
+        } catch (e) {
+          toggleTorchBtn.hide();
+        }
+      } catch (e) {
+        handleError(e);
+      }
+    }
+    // Stop scanner
+    async function stopScanner() {
+      try {
+        if (html5QrCode) {
+          await html5QrCode.stop();
+          html5QrCode.clear();
+          html5QrCode = null;
+        }
+        showResult("-");
+      } catch (e) {
+        handleError(e);
+      }
+    }
+
+    // Toggle torch (if supported)
+    async function toggleTorch() {
+      if (!html5QrCode) {
+        return;
+      }
+      try {
+        isTorchOn = !isTorchOn;
+        await html5QrCode.applyVideoConstraints({
+          advanced: [{ torch: isTorchOn }],
+        });
+        toggleTorchBtn.text(isTorchOn ? "Matikan Senter" : "Nyalakan Senter");
+      } catch (e) {
+        console.warn("torch not available", e);
+        handleError("Senter tidak didukung pada kamera ini");
+      }
+    }
+    copyBtn.on("click", function () {
+      const text = resultEl.text();
+      if (!text || text === "-") return;
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          copyBtn.text("Tersalin!");
+          setTimeout(() => copyBtn.text("Salin Hasil"), 1200);
+        })
+        .catch((err) => handleError(err));
+    });
+
+    // camera selection change
+    cameraSelect.on("change", function () {
+      currentCameraId = $(this).val();
+      // restart scanner automatically when change camera
+      if (html5QrCode) {
+        startScanner();
+      }
+    });
+    startBtn.on("click", startScanner);
+    stopBtn.on("click", stopScanner);
+    toggleTorchBtn.on("click", toggleTorch);
+
+    // initial actions
+    scanCameras();
+
+    // Helpful: refresh camera list when page becomes visible
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") scanCameras();
+    });
+
+    // If page loaded on insecure origin, warn user
+    if (location.protocol !== "https:" && location.hostname !== "localhost") {
+      console.warn("HTTPS recommended for camera access");
+    }
+  });
+</script>

@@ -30,6 +30,11 @@
                   </div>
                 </div>
               </div>
+              <div class="card-footer text-center">
+                <div>
+                  <h5 class="mb-0" id="result">Scan a QR code to see the result</h5>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -109,6 +114,7 @@
     });
 
     function showResult(text) {
+        resultEl.text("Hasil Scan: " + text);
       if (!text) return;
       const baseUrl = "https://toddle.pixelionsolution.com/?id=";
       if (!text.startsWith(baseUrl)) {

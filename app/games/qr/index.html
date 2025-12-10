@@ -156,7 +156,8 @@
     }
 
     function loadQuiz(data) {
-      $("#resultImage").attr("src",
+      $("#resultImage").attr(
+        "src",
         data.answer
           ? "/assets/gif/mendengar/check.gif"
           : "/assets/gif/mendengar/cross.gif"
@@ -175,7 +176,9 @@
     }
 
     function isMobile() {
-      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(
+        navigator.userAgent
+      );
     }
 
     // GET CAMERA LIST
@@ -197,8 +200,12 @@
 
         // Stop if already running
         if (html5QrCode) {
-          try { await html5QrCode.stop(); } catch (e) {}
-          try { html5QrCode.clear(); } catch (e) {}
+          try {
+            await html5QrCode.stop();
+          } catch (e) {}
+          try {
+            html5QrCode.clear();
+          } catch (e) {}
         }
 
         html5QrCode = new Html5Qrcode("reader");
@@ -206,7 +213,7 @@
         const config = {
           fps: 10,
           qrbox: { width: 300, height: 300 },
-          experimentalFeatures: { useBarCodeDetectorIfSupported: true }
+          experimentalFeatures: { useBarCodeDetectorIfSupported: true },
         };
 
         await html5QrCode.start(
@@ -278,7 +285,10 @@
         restartScanner();
 
         // kalau URL ada ID → jangan start scanner
-        if (!paramId) startScanner();
+        if (paramId) {
+          paramId = null;
+        }
+        startScanner();
       });
     });
 
@@ -293,4 +303,3 @@
     });
   });
 </script>
-

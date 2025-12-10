@@ -116,7 +116,7 @@
     function showResult(text) {
         resultEl.text("Hasil Scan: " + text);
       if (!text) return;
-      const baseUrl = "https://toddle.pixelionsolution.com/?id=";
+      const baseUrl = "https://toddle.pixelionsolution.com?id=";
       if (!text.startsWith(baseUrl)) {
         alert("QR code tidak valid untuk aplikasi ini.");
         return;

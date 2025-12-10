@@ -86,48 +86,64 @@
 
 <script>
   $(function () {
-    const resultEl = $("#result");
+    // ==============================
+    // FIX DUPLICATE ID #reader
+    // ==============================
+    $("#reader").each(function (index) {
+      if (index > 0) {
+        $(this).attr("id", "reader-" + index);
+      }
+    });
 
     let html5QrCode = null;
     let camerasList = [];
     let currentCameraIndex = 0;
     let questionData = [];
     let q;
-    let paramId = new URLSearchParams(window.location.search).get("id");
+    let scannedOnce = false;
 
     $.getJSON("/constants/hear.json", function (data) {
       questionData = data;
     });
 
     function showResult(text) {
-      if (!text) return;
+      if (!text || scannedOnce) return;
+      scannedOnce = true;
+
       const baseUrl = "https://toddle.pixelionsolution.com?id=";
+
       if (!text.startsWith(baseUrl)) {
         alert("QR code tidak valid untuk aplikasi ini.");
+        restartScanner();
         return;
       }
+
       const urlParams = new URL(text);
       const scannedId = urlParams.searchParams.get("id");
 
       if (!scannedId) {
         alert("ID tidak ditemukan dalam QR code.");
+        restartScanner();
         return;
       }
+
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
         alert("Data untuk ID ini tidak ditemukan.");
+        restartScanner();
         return;
       }
+
       q = found;
       loadQuiz(found);
     }
 
     function loadQuiz(data) {
-      $("#resultImage").attr("src", function () {
-        return data.answer
-          ? "/assets/gif/mendengar/check.gif"
-          : "/assets/gif/mendengar/cross.gif";
-      });
+      $("#resultImage").attr("src", data.answer
+        ? "/assets/gif/mendengar/check.gif"
+        : "/assets/gif/mendengar/cross.gif"
+      );
+
       $("#modalTitle").text(data.answer ? "Boleh Disentuh" : "Jangan Disentuh");
       $("#quiz-img").attr("src", data.questionImg);
       $("#audio-question").attr("src", data.audio);
@@ -137,7 +153,10 @@
 
     function handleError(err) {
       console.error(err);
-      showResult("Error: " + (err?.message || err));
+    }
+
+    function restartScanner() {
+      scannedOnce = false;
     }
 
     function isMobile() {
@@ -147,13 +166,12 @@
     }
 
     // ===========================
-    // SCAN CAMERA LIST
+    // GET CAMERA LIST
     // ===========================
     function scanCameras() {
       Html5Qrcode.getCameras()
         .then((cams) => {
           camerasList = cams || [];
-          // otomatis set kamera pertama + index
           currentCameraIndex = 0;
           startScanner();
         })
@@ -161,16 +179,21 @@
     }
 
     // ===========================
-    // START SCANNER
+    // START CAMERA SCANNER
     // ===========================
     async function startScanner() {
       try {
         const cameraId = camerasList[currentCameraIndex]?.id;
         if (!cameraId) return;
 
+        // Stop scanner if already running
         if (html5QrCode) {
-          await html5QrCode.stop();
-          html5QrCode.clear();
+          try {
+            await html5QrCode.stop();
+          } catch (e) {}
+          try {
+            html5QrCode.clear();
+          } catch (e) {}
         }
 
         html5QrCode = new Html5Qrcode("reader");
@@ -187,8 +210,10 @@
           (decodedText) => showResult(decodedText),
           () => {}
         );
+
+        scannedOnce = false;
       } catch (e) {
-        handleError(e);
+        console.error(e);
       }
     }
 
@@ -197,70 +222,75 @@
     // ===========================
     if (isMobile()) {
       const flipBtn = $(`
-    <button id="flipCameraBtn" 
-      class="btn btn-outline-light position-absolute d-flex justify-content-center align-items-center"
-      style="
-        bottom: 10px;
-        right: 10px;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        backdrop-filter: blur(5px);
-        background: rgba(255,255,255,0.15);
-        z-index: 9999;
-      ">
-      <i class="bi bi-arrow-clockwise"></i>
-    </button>
-  `);
+        <button id="flipCameraBtn" 
+          class="btn btn-outline-light position-absolute d-flex justify-content-center align-items-center"
+          style="
+            bottom: 10px;
+            right: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            background: rgba(255,255,255,0.15);
+            z-index: 9999;
+          ">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+      `);
 
       $(".btn-area").append(flipBtn);
 
-      flipBtn.on("click", function () {
+      flipBtn.on("click", async function () {
         if (!camerasList.length) return;
 
         currentCameraIndex = (currentCameraIndex + 1) % camerasList.length;
 
-        startScanner();
+        await startScanner();
       });
     }
 
-    // INITIAL
+    // INITIAL START
     scanCameras();
 
+    // ===========================
+    // MODAL & AUDIO HANDLING
+    // ===========================
     $(document).ready(function () {
-        $(paramId).on("load", function () {
-            if (paramId) {
-                const found = questionData.find((item) => item.id == paramId);
-                if (found) {
-                    loadQuiz(found);
-                }
-            }
-        });
       $(".modal").on("shown.bs.modal", function () {
         const audio = $("#audio-question")[0];
         audio.currentTime = 0;
         audio.play();
       });
 
-      $(".answer-btn").on("click", function () {
+      $(".answer-btn").click(function () {
+        scannedOnce = true;
         const modal = new bootstrap.Modal(
           document.getElementById("resultModal")
         );
         modal.show();
       });
 
-      $(".btn-back").on("click", function () {
+      $(".btn-back").click(function () {
         $("#modalTitle").text("");
         $("#quiz-img").attr("src", "");
         $("#audio-question").attr("src", "");
+
         $(".quiz-area").fadeOut(300);
         $(".camera-area").fadeIn(300);
+
+        restartScanner();
+        startScanner();
       });
     });
 
-    // refresh camera when back to tab
+    // ===========================
+    // RESUME SCANNER WHEN TAB ACTIVE
+    // ===========================
     document.addEventListener("visibilitychange", function () {
-      if (document.visibilityState === "visible") scanCameras();
+      if (document.visibilityState === "visible") {
+        restartScanner();
+        scanCameras();
+      }
     });
   });
 </script>

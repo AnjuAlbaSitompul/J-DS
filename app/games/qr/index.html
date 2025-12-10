@@ -101,6 +101,7 @@
     let questionData = [];
     let q;
     let scannedOnce = false;
+    let paramUsed = false;
 
     // Ambil param ID dari URL
     let paramId = new URLSearchParams(window.location.search).get("id");
@@ -110,7 +111,8 @@
       questionData = data;
 
       // Jika URL ada param id → langsung load quiz
-      if (paramId) {
+      if (paramId && !paramUsed) {
+        paramUsed = true;
         const found = questionData.find((item) => item.id == paramId);
         if (found) {
           q = found;
@@ -283,11 +285,6 @@
         $(".camera-area").fadeIn(300);
 
         restartScanner();
-
-        // kalau URL ada ID → jangan start scanner
-        if (paramId) {
-          paramId = null;
-        }
         startScanner();
       });
     });

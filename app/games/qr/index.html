@@ -118,16 +118,19 @@
       if (!text) return;
       const baseUrl = "https://toddle.pixelionsolution.com/?id=";
       if (!text.startsWith(baseUrl)) {
+        alert("QR code tidak valid untuk aplikasi ini.");
         return;
       }
       const urlParams = new URL(text);
       const scannedId = urlParams.searchParams.get("id");
 
       if (!scannedId) {
+        alert("ID tidak ditemukan dalam QR code.");
         return;
       }
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
+        alert("Data untuk ID ini tidak ditemukan.");
         return;
       }
       q = found;

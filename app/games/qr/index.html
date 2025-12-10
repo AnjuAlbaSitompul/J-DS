@@ -1,39 +1,51 @@
-<div class="vh-full p-3">
-  <div class="card scanner-card bg-dark text-light">
-    <div class="card-body p-0">
-      <div class="row g-0">
-        <div class="col-12 col-lg-7">
-          <div id="reader" class="bg-black">
-            <div id="reader" class="bg-black position-relative">
-            </div>
+
+<section class="vs-event--page bg-color6 space z-index-common">
+  <div class="vs-event--ele1">
+    <img
+      src="/assets/img/elements/events-page-ele1.png"
+      alt="event page ele1"
+    />
+  </div>
+  <div class="vs-event--ele2">
+    <img
+      src="/assets/img/elements/events-page-ele2.png"
+      alt="event page ele1"
+    />
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="vs-title text-center title-anime animation-style2">
+          <div class="title-anime__wrap">
+            <h5 class="vs-title__main">Scan Untuk Bermain!</h5>
+            <span class="vs-title__sub">Boleh di sentuh atau tidak?</span>
           </div>
-        </div>
-        <div class="col-12 col-lg-5">
-          <div class="p-3 d-flex flex-column h-100">
-            <h5 class="mb-2">Scan Qr Untuk Mulai Game</h5>
-            <p class="small-muted">
-              Buka izin kamera dan pilih kamera depan/belakang jika tersedia.
-            </p>
+          <div class="vh-full p-3">
+            <div class="card scanner-card bg-dark text-light">
+              <div class="card-body p-0">
+                <div class="col-12 g-0">
+                  <div class="col-12">
+                    <div id="reader" class="bg-black btn-area">
+                      <div id="reader" class="bg-black position-relative"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <script>
   $(function () {
     const resultEl = $("#result");
-    const cameraSelect = $("#cameraSelect");
-    const startBtn = $("#startBtn");
-    const stopBtn = $("#stopBtn");
-    const copyBtn = $("#copyBtn");
-    const toggleTorchBtn = $("#toggleTorch");
 
     let html5QrCode = null;
     let camerasList = [];
     let currentCameraIndex = 0;
-    let isTorchOn = false;
 
     function showResult(text) {
       resultEl.text(text || "-");
@@ -57,26 +69,8 @@
       Html5Qrcode.getCameras()
         .then((cams) => {
           camerasList = cams || [];
-          cameraSelect.empty();
-
-          if (!camerasList.length) {
-            cameraSelect.append("<option>No camera found</option>");
-            return;
-          }
-
-          camerasList.forEach((cam) => {
-            cameraSelect.append(
-              $("<option>")
-                .val(cam.id)
-                .text(cam.label || cam.id)
-            );
-          });
-
           // otomatis set kamera pertama + index
           currentCameraIndex = 0;
-          cameraSelect.val(camerasList[currentCameraIndex].id);
-
-          // auto-start
           startScanner();
         })
         .catch(handleError);
@@ -109,100 +103,43 @@
           (decodedText) => showResult(decodedText),
           () => {}
         );
-
-        // Torch capability
-        try {
-          const capabilities = await Html5Qrcode.getCameraCapabilities(
-            cameraId
-          );
-          if (capabilities?.torch) toggleTorchBtn.show();
-          else toggleTorchBtn.hide();
-        } catch {
-          toggleTorchBtn.hide();
-        }
       } catch (e) {
         handleError(e);
-      }
-    }
-
-    // ===========================
-    // STOP SCANNER
-    // ===========================
-    async function stopScanner() {
-      if (!html5QrCode) return;
-      try {
-        await html5QrCode.stop();
-        html5QrCode.clear();
-        html5QrCode = null;
-        showResult("-");
-      } catch (e) {
-        handleError(e);
-      }
-    }
-
-    // ===========================
-    // TORCH
-    // ===========================
-    async function toggleTorch() {
-      if (!html5QrCode) return;
-      try {
-        isTorchOn = !isTorchOn;
-        await html5QrCode.applyVideoConstraints({
-          advanced: [{ torch: isTorchOn }],
-        });
-        toggleTorchBtn.text(isTorchOn ? "Matikan Senter" : "Nyalakan Senter");
-      } catch {
-        handleError("Senter tidak didukung pada kamera ini");
       }
     }
 
     // ===========================
     // FLIP CAMERA (MOBILE ONLY)
     // ===========================
-    if (isMobile()) {
-      const flipBtn = $(`
-        <button id="flipCameraBtn" class="btn btn-secondary mt-2 w-100">
-          Flip Camera
-        </button>
-      `);
+if (isMobile()) {
+  const flipBtn = $(`
+    <button id="flipCameraBtn" 
+      class="btn btn-outline-light position-absolute d-flex justify-content-center align-items-center"
+      style="
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        backdrop-filter: blur(5px);
+        background: rgba(255,255,255,0.15);
+        z-index: 9999;
+      ">
+      <i class="fa-solid fa-camera-rotate"></i>
+    </button>
+  `);
 
-      $(".scanner-card").append(flipBtn);
+  $("#reader").append(flipBtn);
 
-      flipBtn.on("click", function () {
-        if (!camerasList.length) return;
+  flipBtn.on("click", function () {
+    if (!camerasList.length) return;
 
-        currentCameraIndex = (currentCameraIndex + 1) % camerasList.length;
+    currentCameraIndex = (currentCameraIndex + 1) % camerasList.length;
 
-        cameraSelect.val(camerasList[currentCameraIndex].id);
+    startScanner();
+  });
+}
 
-        startScanner();
-      });
-    }
-
-    // ===========================
-    // COPY RESULT
-    // ===========================
-    copyBtn.on("click", function () {
-      const text = resultEl.text();
-      if (!text || text === "-") return;
-
-      navigator.clipboard.writeText(text).then(() => {
-        copyBtn.text("Tersalin!");
-        setTimeout(() => copyBtn.text("Salin Hasil"), 1200);
-      });
-    });
-
-    // Ganti kamera manual (opsional)
-    cameraSelect.on("change", function () {
-      const id = $(this).val();
-      const foundIndex = camerasList.findIndex((c) => c.id === id);
-      if (foundIndex !== -1) currentCameraIndex = foundIndex;
-      startScanner();
-    });
-
-    startBtn.on("click", startScanner);
-    stopBtn.on("click", stopScanner);
-    toggleTorchBtn.on("click", toggleTorch);
 
     // INITIAL
     scanCameras();

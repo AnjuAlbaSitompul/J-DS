@@ -240,6 +240,9 @@
         ? "/assets/gif/mendengar/check.gif"
         : "/assets/gif/mendengar/cross.gif";
     });
+    $("#modalTitle").text(
+      q.answer ? "Boleh Disentuh" : "Jangan Disentuh"
+    );
     $("#quiz-img").attr("src", q.questionImg);
     $("#audio-question").attr("src", q.audio);
   }

@@ -80,6 +80,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
   $(function () {
+    let generating = false;
+    function waitForCanvas(timeout = 2000, interval = 50) {
+      return new Promise((resolve, reject) => {
+        const start = Date.now();
+        (function check() {
+          const canvas = $("#qrHidden canvas")[0];
+          if (canvas) return resolve(canvas);
+          if (Date.now() - start >= timeout) return reject(new Error("timeout"));
+          setTimeout(check, interval);
+        })();
+      });
+    }
     $.getJSON("/constants/hear.json", function (items) {
       const row = $(".row-items");
       items.forEach(item => {
@@ -93,42 +105,53 @@
                   style="font-size: 100px; color: #fff; width: 100%; display:block; text-align:center;">
                 </i>
                 <h4 class="mt-2 text-white text-capitalize">${item.title}</h4>
-                </div>
+              </div>
             </div>
           </div>
         `);
       });
     });
     $(document).on("click", ".card-qrcode", function () {
+      if (generating) return;
+      generating = true;
       const id = $(this).data("id");
       const title = $(this).data("title") || "qr";
       const fileName = `${title}-${id}.png`;
       const url = `https://toddle.pixelionsolution.com?id=${id}`;
+      $("#qrHidden").empty();
       new QRCode(document.getElementById("qrHidden"), {
         text: url,
         width: 600,
         height: 600,
-        correctLevel: QRCode.CorrectLevel.H,
-        margin: 4
+        correctLevel: QRCode.CorrectLevel.H
       });
-      setTimeout(() => {
-        const canvas = $("#qrHidden canvas")[0];
-        if (!canvas) return alert("QR gagal dibuat");
-        const margin = 60;
-        const newSize = canvas.width + margin * 2;
-        const newCanvas = document.createElement("canvas");
-        const ctx = newCanvas.getContext("2d");
-        newCanvas.width = newSize;
-        newCanvas.height = newSize;
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(0, 0, newSize, newSize);
-        ctx.drawImage(canvas, margin, margin);
-        const dataURL = newCanvas.toDataURL("image/png");
-        const a = document.createElement("a");
-        a.href = dataURL;
-        a.download = fileName;
-        a.click();
-      }, 300);
+      waitForCanvas(2000, 50)
+        .then(canvas => {
+          const margin = 60;
+          const newSize = canvas.width + margin * 2;
+          const newCanvas = document.createElement("canvas");
+          const ctx = newCanvas.getContext("2d");
+          newCanvas.width = newSize;
+          newCanvas.height = newSize;
+          ctx.fillStyle = "#FFFFFF";
+          ctx.fillRect(0, 0, newSize, newSize);
+          ctx.drawImage(canvas, margin, margin);
+          const dataURL = newCanvas.toDataURL("image/png");
+          const a = document.createElement("a");
+          a.href = dataURL;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          $("#qrHidden").empty();
+          generating = false;
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Gagal membuat QR. Coba lagi.");
+          $("#qrHidden").empty();
+          generating = false;
+        });
     });
   });
 </script>

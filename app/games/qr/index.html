@@ -111,6 +111,7 @@
     // ===========================
     // FLIP CAMERA (MOBILE ONLY)
     // ===========================
+    console.log(isMobile(), "check")
 if (isMobile()) {
   const flipBtn = $(`
     <button id="flipCameraBtn" 
@@ -125,11 +126,11 @@ if (isMobile()) {
         background: rgba(255,255,255,0.15);
         z-index: 9999;
       ">
-      <i class="fa-solid fa-camera-rotate"></i>
+      <i class="bi bi-arrow-clockwise"></i>
     </button>
   `);
 
-  $("#reader").append(flipBtn);
+  $(".btn-area").append(flipBtn);
 
   flipBtn.on("click", function () {
     if (!camerasList.length) return;

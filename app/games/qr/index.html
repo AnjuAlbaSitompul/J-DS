@@ -30,11 +30,6 @@
                   </div>
                 </div>
               </div>
-              <div class="card-footer text-center">
-                <div>
-                  <h5 class="mb-0" id="result">Scan a QR code to see the result</h5>
-                </div>
-              </div>
             </div>
           </div>
           <div
@@ -42,11 +37,6 @@
             style="display: none"
           >
             <div class="d-flex justify-content-center align-items-center gap-4">
-              <!-- Tombol Sebelumnya -->
-              <div class="nav-btn btn-prev">
-                <i class="fa-solid fa-arrow-left"></i>
-              </div>
-
               <!-- Gambar di Tengah -->
               <div>
                 <img id="quiz-img" src="" class="mb-3" />
@@ -55,11 +45,6 @@
                     <span class="vs-btn__border"></span>Apakah Boleh Disentuh?
                   </button>
                 </div>
-              </div>
-
-              <!-- Tombol Selanjutnya -->
-              <div class="nav-btn btn-next-question">
-                <i class="fa-solid fa-arrow-right"></i>
               </div>
             </div>
           </div>
@@ -89,8 +74,8 @@
       </div>
 
       <div class="vs-event__btn mt-3">
-        <button class="vs-btn btn-next" data-bs-dismiss="modal">
-          <span class="vs-btn__border"></span>Selanjutnya!
+        <button class="vs-btn btn-back" data-bs-dismiss="modal">
+          <span class="vs-btn__border"></span>Kembali
         </button>
       </div>
 
@@ -114,7 +99,7 @@
     });
 
     function showResult(text) {
-        resultEl.text("Hasil Scan: " + text);
+        alert(text);
       if (!text) return;
       const baseUrl = "https://toddle.pixelionsolution.com?id=";
       if (!text.startsWith(baseUrl)) {
@@ -128,24 +113,26 @@
         alert("ID tidak ditemukan dalam QR code.");
         return;
       }
+      alert(JSON.stringify(scannedId), text);
       const found = questionData.find((item) => item.id == scannedId);
       if (!found) {
         alert("Data untuk ID ini tidak ditemukan.");
         return;
       }
       q = found;
-      loadQuiz();
+      loadQuiz(found);
     }
 
-    function loadQuiz() {
+    function loadQuiz(data) {
+        alert(JSON.stringify(data));
       $("#result-img").attr("src", function () {
-        return q.answer
+        return data.answer
           ? "/assets/gif/mendengar/check.gif"
           : "/assets/gif/mendengar/cross.gif";
       });
-      $("#modalTitle").text(q.answer ? "Boleh Disentuh" : "Jangan Disentuh");
-      $("#quiz-img").attr("src", q.questionImg);
-      $("#audio-question").attr("src", q.audio);
+      $("#modalTitle").text(data.answer ? "Boleh Disentuh" : "Jangan Disentuh");
+      $("#quiz-img").attr("src", data.questionImg);
+      $("#audio-question").attr("src", data.audio);
       $(".quiz-area").fadeIn(300);
       $(".camera-area").fadeOut(300);
     }
@@ -241,10 +228,28 @@
 
     // INITIAL
     scanCameras();
-    $(".modal").on("shown.bs.modal", function () {
-      const audio = $("#audio-question")[0];
-      audio.currentTime = 0;
-      audio.play();
+
+    $(document).ready(function () {
+      $(".modal").on("shown.bs.modal", function () {
+        const audio = $("#audio-question")[0];
+        audio.currentTime = 0;
+        audio.play();
+      });
+
+      $(".answer-btn").on("click", function () {
+        const modal = new bootstrap.Modal(
+          document.getElementById("resultModal")
+        );
+        modal.show();
+      });
+
+      $(".btn-back").on("click", function () {
+        $("#modalTitle").text("");
+        $("#quiz-img").attr("src", "");
+        $("#audio-question").attr("src", "");
+        $(".quiz-area").fadeOut(300);
+        $(".camera-area").fadeIn(300);
+      });
     });
 
     // refresh camera when back to tab

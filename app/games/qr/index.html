@@ -227,16 +227,15 @@
     // INITIAL
     scanCameras();
 
-    if(paramId) {
-        alert(paramId);
-      const found = questionData.find((item) => item.id == paramId);
-      if (found) {
-        q = found;
-        loadQuiz(found);
-      }
-    }
-
     $(document).ready(function () {
+        $(paramId).on("load", function () {
+            if (paramId) {
+                const found = questionData.find((item) => item.id == paramId);
+                if (found) {
+                    loadQuiz(found);
+                }
+            }
+        });
       $(".modal").on("shown.bs.modal", function () {
         const audio = $("#audio-question")[0];
         audio.currentTime = 0;

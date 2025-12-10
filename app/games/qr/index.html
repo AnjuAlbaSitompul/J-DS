@@ -19,11 +19,11 @@
             <h5 class="vs-title__main">Scan Untuk Bermain!</h5>
             <span class="vs-title__sub">Boleh di sentuh atau tidak?</span>
           </div>
-          <div class="vh-full p-3">
+          <div class="vh-full p-3 camera-area">
             <div class="card scanner-card bg-dark text-light">
               <div class="card-body p-0">
                 <div class="col-12 g-0">
-                  <div class="col-12  btn-area">
+                  <div class="col-12 btn-area">
                     <div id="reader" class="bg-black">
                       <div id="reader" class="bg-black position-relative"></div>
                     </div>
@@ -32,11 +32,67 @@
               </div>
             </div>
           </div>
+          <div
+            class="container quiz-area py-5 text-center"
+            style="display: none"
+          >
+            <div class="d-flex justify-content-center align-items-center gap-4">
+              <!-- Tombol Sebelumnya -->
+              <div class="nav-btn btn-prev">
+                <i class="fa-solid fa-arrow-left"></i>
+              </div>
+
+              <!-- Gambar di Tengah -->
+              <div>
+                <img id="quiz-img" src="" class="mb-3" />
+                <div class="vs-event__btn">
+                  <button class="vs-btn answer-btn">
+                    <span class="vs-btn__border"></span>Apakah Boleh Disentuh?
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tombol Selanjutnya -->
+              <div class="nav-btn btn-next-question">
+                <i class="fa-solid fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4">
+      <div class="vs-title text-center title-anime animation-style2">
+        <div class="title-anime__wrap">
+          <h5 class="vs-title__main" id="modalTitle">
+            Aku Sayang Diriku, Jadi Aku Jaga Diriku
+          </h5>
+        </div>
+      </div>
+
+      <div class="img">
+        <img
+          id="resultImage"
+          src=""
+          alt="result"
+          class="img-fluid result-animate"
+        />
+      </div>
+
+      <div class="vs-event__btn mt-3">
+        <button class="vs-btn btn-next" data-bs-dismiss="modal">
+          <span class="vs-btn__border"></span>Selanjutnya!
+        </button>
+      </div>
+
+      <audio id="audio-question" src=""></audio>
+    </div>
+  </div>
+</div>
 
 <script>
   $(function () {
@@ -45,9 +101,44 @@
     let html5QrCode = null;
     let camerasList = [];
     let currentCameraIndex = 0;
+    let questionData = [];
+    let q;
+
+    $.getJSON("/constants/hear.json", function (data) {
+      questionData = data;
+    });
 
     function showResult(text) {
-      resultEl.text(text || "-");
+      if (!text) return;
+      const baseUrl = "https://toddle.pixelionsolution.com/?id=";
+      if (!text.startsWith(baseUrl)) {
+        return;
+      }
+      const urlParams = new URL(text);
+      const scannedId = urlParams.searchParams.get("id");
+
+      if (!scannedId) {
+        return;
+      }
+      const found = questionData.find((item) => item.id == scannedId);
+      if (!found) {
+        return;
+      }
+      q = found;
+      loadQuiz();
+    }
+
+    function loadQuiz() {
+      $("#result-img").attr("src", function () {
+        return q.answer
+          ? "/assets/gif/mendengar/check.gif"
+          : "/assets/gif/mendengar/cross.gif";
+      });
+      $("#modalTitle").text(q.answer ? "Boleh Disentuh" : "Jangan Disentuh");
+      $("#quiz-img").attr("src", q.questionImg);
+      $("#audio-question").attr("src", q.audio);
+      $(".quiz-area").fadeIn(300);
+      $(".camera-area").fadeOut(300);
     }
 
     function handleError(err) {
@@ -141,6 +232,11 @@
 
     // INITIAL
     scanCameras();
+    $(".modal").on("shown.bs.modal", function () {
+      const audio = $("#audio-question")[0];
+      audio.currentTime = 0;
+      audio.play();
+    });
 
     // refresh camera when back to tab
     document.addEventListener("visibilitychange", function () {

@@ -3,56 +3,17 @@
     <div class="card-body p-0">
       <div class="row g-0">
         <div class="col-12 col-lg-7">
-          <div id="reader" class="bg-black"></div>
+          <div id="reader" class="bg-black">
+            <div id="reader" class="bg-black position-relative">
+            </div>
+          </div>
         </div>
         <div class="col-12 col-lg-5">
           <div class="p-3 d-flex flex-column h-100">
-            <h5 class="mb-2">QR / Barcode Scanner</h5>
+            <h5 class="mb-2">Scan Qr Untuk Mulai Game</h5>
             <p class="small-muted">
               Buka izin kamera dan pilih kamera depan/belakang jika tersedia.
             </p>
-
-            <div class="mb-2">
-              <label for="cameraSelect" class="form-label small-muted"
-                >Pilih Kamera</label
-              >
-              <select id="cameraSelect" class="form-select"></select>
-            </div>
-
-            <div class="d-flex flex-wrap controls-row mb-2">
-              <button id="startBtn" class="btn btn-success">Mulai</button>
-              <button id="stopBtn" class="btn btn-danger">Berhenti</button>
-              <button id="toggleTorch" class="btn btn-outline-light">
-                Toggle Senter
-              </button>
-              <button id="copyBtn" class="btn btn-outline-secondary">
-                Salin Hasil
-              </button>
-            </div>
-
-            <div class="mt-2 mb-2">
-              <div class="fw-semibold">Hasil:</div>
-              <div
-                id="result"
-                class="result-area small p-2 bg-body-secondary text-dark rounded"
-              >
-                -
-              </div>
-            </div>
-
-            <div class="mt-auto small-muted">
-              <div>Catatan:</div>
-              <ul>
-                <li>
-                  Butuh HTTPS (atau localhost) agar kamera berjalan di browser
-                  mobile/desktop.
-                </li>
-                <li>
-                  Jika tidak muncul kamera, periksa izin atau coba jalankan di
-                  Chrome/Firefox terbaru.
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
@@ -70,7 +31,8 @@
     const toggleTorchBtn = $("#toggleTorch");
 
     let html5QrCode = null;
-    let currentCameraId = null;
+    let camerasList = [];
+    let currentCameraIndex = 0;
     let isTorchOn = false;
 
     function showResult(text) {
@@ -79,49 +41,61 @@
 
     function handleError(err) {
       console.error(err);
-      showResult("Error: " + (err && err.message ? err.message : err));
+      showResult("Error: " + (err?.message || err));
     }
 
-    // Populate cameras
+    function isMobile() {
+      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(
+        navigator.userAgent
+      );
+    }
+
+    // ===========================
+    // SCAN CAMERA LIST
+    // ===========================
     function scanCameras() {
       Html5Qrcode.getCameras()
-        .then((cameras) => {
+        .then((cams) => {
+          camerasList = cams || [];
           cameraSelect.empty();
-          if (cameras && cameras.length) {
-            cameras.forEach((cam) => {
-              cameraSelect.append(
-                $("<option>")
-                  .val(cam.id)
-                  .text(cam.label || cam.id)
-              );
-            });
-            currentCameraId = cameras[0].id;
-          } else {
-            cameraSelect.append($("<option>").val("").text("No camera found"));
+
+          if (!camerasList.length) {
+            cameraSelect.append("<option>No camera found</option>");
+            return;
           }
+
+          camerasList.forEach((cam) => {
+            cameraSelect.append(
+              $("<option>")
+                .val(cam.id)
+                .text(cam.label || cam.id)
+            );
+          });
+
+          // otomatis set kamera pertama + index
+          currentCameraIndex = 0;
+          cameraSelect.val(camerasList[currentCameraIndex].id);
+
+          // auto-start
+          startScanner();
         })
-        .catch((err) => {
-          handleError(err);
-        });
+        .catch(handleError);
     }
 
-    // Start scanning with selected camera
+    // ===========================
+    // START SCANNER
+    // ===========================
     async function startScanner() {
       try {
-        if (!currentCameraId) {
-          currentCameraId = cameraSelect.val();
-        }
-        if (!currentCameraId) {
-          showResult("Tidak ada kamera.");
-          return;
-        }
+        const cameraId = camerasList[currentCameraIndex]?.id;
+        if (!cameraId) return;
 
         if (html5QrCode) {
           await html5QrCode.stop();
           html5QrCode.clear();
         }
 
-        html5QrCode = new Html5Qrcode("reader", /* verbose= */ false);
+        html5QrCode = new Html5Qrcode("reader");
 
         const config = {
           fps: 10,
@@ -130,99 +104,112 @@
         };
 
         await html5QrCode.start(
-          currentCameraId,
+          cameraId,
           config,
-          (decodedText, decodedResult) => {
-            // success callback
-            showResult(decodedText);
-          },
-          (err) => {
-            // failure callback (scanning failure)
-            // console.log('scan failed', err);
-          }
+          (decodedText) => showResult(decodedText),
+          () => {}
         );
-        // If camera supports torch, show toggle
+
+        // Torch capability
         try {
           const capabilities = await Html5Qrcode.getCameraCapabilities(
-            currentCameraId
+            cameraId
           );
-          if (!capabilities || !capabilities.torch) {
-            toggleTorchBtn.hide();
-          } else {
-            toggleTorchBtn.show();
-          }
-        } catch (e) {
+          if (capabilities?.torch) toggleTorchBtn.show();
+          else toggleTorchBtn.hide();
+        } catch {
           toggleTorchBtn.hide();
         }
       } catch (e) {
         handleError(e);
       }
     }
-    // Stop scanner
+
+    // ===========================
+    // STOP SCANNER
+    // ===========================
     async function stopScanner() {
+      if (!html5QrCode) return;
       try {
-        if (html5QrCode) {
-          await html5QrCode.stop();
-          html5QrCode.clear();
-          html5QrCode = null;
-        }
+        await html5QrCode.stop();
+        html5QrCode.clear();
+        html5QrCode = null;
         showResult("-");
       } catch (e) {
         handleError(e);
       }
     }
 
-    // Toggle torch (if supported)
+    // ===========================
+    // TORCH
+    // ===========================
     async function toggleTorch() {
-      if (!html5QrCode) {
-        return;
-      }
+      if (!html5QrCode) return;
       try {
         isTorchOn = !isTorchOn;
         await html5QrCode.applyVideoConstraints({
           advanced: [{ torch: isTorchOn }],
         });
         toggleTorchBtn.text(isTorchOn ? "Matikan Senter" : "Nyalakan Senter");
-      } catch (e) {
-        console.warn("torch not available", e);
+      } catch {
         handleError("Senter tidak didukung pada kamera ini");
       }
     }
+
+    // ===========================
+    // FLIP CAMERA (MOBILE ONLY)
+    // ===========================
+    if (isMobile()) {
+      const flipBtn = $(`
+        <button id="flipCameraBtn" class="btn btn-secondary mt-2 w-100">
+          Flip Camera
+        </button>
+      `);
+
+      $(".scanner-card").append(flipBtn);
+
+      flipBtn.on("click", function () {
+        if (!camerasList.length) return;
+
+        currentCameraIndex = (currentCameraIndex + 1) % camerasList.length;
+
+        cameraSelect.val(camerasList[currentCameraIndex].id);
+
+        startScanner();
+      });
+    }
+
+    // ===========================
+    // COPY RESULT
+    // ===========================
     copyBtn.on("click", function () {
       const text = resultEl.text();
       if (!text || text === "-") return;
-      navigator.clipboard
-        .writeText(text)
-        .then(() => {
-          copyBtn.text("Tersalin!");
-          setTimeout(() => copyBtn.text("Salin Hasil"), 1200);
-        })
-        .catch((err) => handleError(err));
+
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.text("Tersalin!");
+        setTimeout(() => copyBtn.text("Salin Hasil"), 1200);
+      });
     });
 
-    // camera selection change
+    // Ganti kamera manual (opsional)
     cameraSelect.on("change", function () {
-      currentCameraId = $(this).val();
-      // restart scanner automatically when change camera
-      if (html5QrCode) {
-        startScanner();
-      }
+      const id = $(this).val();
+      const foundIndex = camerasList.findIndex((c) => c.id === id);
+      if (foundIndex !== -1) currentCameraIndex = foundIndex;
+      startScanner();
     });
+
     startBtn.on("click", startScanner);
     stopBtn.on("click", stopScanner);
     toggleTorchBtn.on("click", toggleTorch);
 
-    // initial actions
+    // INITIAL
     scanCameras();
 
-    // Helpful: refresh camera list when page becomes visible
+    // refresh camera when back to tab
     document.addEventListener("visibilitychange", function () {
       if (document.visibilityState === "visible") scanCameras();
     });
-
-    // If page loaded on insecure origin, warn user
-    if (location.protocol !== "https:" && location.hostname !== "localhost") {
-      console.warn("HTTPS recommended for camera access");
-    }
   });
 </script>

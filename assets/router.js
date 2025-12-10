@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
 
   function normalizePath(path) {
     path = path.replace(/^\/+/, "");
@@ -13,19 +15,21 @@ $(document).ready(function () {
 
   function loadPage(page) {
     const finalPage = normalizePath(page);
-    const url = `/app/${finalPage}/index.html`;
+
+    // Sertakan param ID jika ada
+    const url = id
+      ? `/app/${finalPage}/index.html?id=${id}`
+      : `/app/${finalPage}/index.html`;
 
     $("#app").load(url, function (response, status) {
       console.log("Page load status:", url);
       if (status === "success") {
-
         const tempDiv = $("<div>").html(response);
         const pageTitle = tempDiv.find("title").text();
 
-        const finalTitle =
-          pageTitle && pageTitle.trim() !== ""
-            ? pageTitle
-            : finalPage.charAt(0).toUpperCase() + finalPage.slice(1);
+        const finalTitle = pageTitle && pageTitle.trim() !== ""
+          ? pageTitle
+          : finalPage.charAt(0).toUpperCase() + finalPage.slice(1);
 
         document.title = finalTitle;
       } else {
@@ -34,25 +38,34 @@ $(document).ready(function () {
     });
   }
 
-  // Load page first time
+  // Jika ada ID, redirect ke /games/qr sambil membawa parameter
+  if (id) {
+    history.replaceState({}, "", `/games/qr?id=${id}`);
+    loadPage("games/qr");
+    return;
+  }
+
+  // Load page pertama kali (tanpa ID)
   loadPage(getPageFromURL());
 
   // Klik navigasi
   $(document).on("click", ".nav-link", function (e) {
     const page = $(this).attr("href");
 
-    // Prevent jika link hanya '#...' (tidak perlu routing)
-    if (!page || page.startsWith("#")) {
-      return; // biarkan event default jalan kalau mau
-    }
+    if (!page || page.startsWith("#")) return;
 
     e.preventDefault();
 
-    history.pushState({}, "", `/${normalizePath(page)}`);
+    // Tetap sertakan ID saat pindah halaman
+    const newURL = id
+      ? `/${normalizePath(page)}?id=${id}`
+      : `/${normalizePath(page)}`;
+
+    history.pushState({}, "", newURL);
     loadPage(page);
   });
 
-  // Back/forward
+  // Back/Forward
   window.onpopstate = function () {
     loadPage(getPageFromURL());
   };

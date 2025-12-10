@@ -122,11 +122,6 @@
     }
 
     function loadQuiz(data) {
-      if (html5QrCode) {
-        html5QrCode.stop();
-        html5QrCode.clear();
-      }
-
       $("#result-img").attr("src", function () {
         return data.answer
           ? "/assets/gif/mendengar/check.gif"
@@ -237,7 +232,7 @@
         audio.currentTime = 0;
         audio.play();
       });
-      
+
       $(".answer-btn").on("click", function () {
         const modal = new bootstrap.Modal(
           document.getElementById("resultModal")

@@ -1,0 +1,394 @@
+<style>
+    /* Backdrop lebih gelap */
+    .modal-backdrop.show {
+        opacity: 0.7 !important;
+        /* semakin besar semakin gelap */
+        background-color: #000 !important;
+    }
+
+    /* Konten modal transparan tanpa kotak putih */
+    #mediaModal .modal-content {
+        background: rgba(0, 0, 0, 0.0) !important;
+        /* transparan */
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Supaya media tetap fokus */
+    #mediaContainer img,
+    #mediaContainer video {
+        max-width: 100%;
+        max-height: 90vh;
+        border-radius: 10px;
+        z-index: 9999;
+    }
+</style>
+
+<section class="vs-hero overflow-hidden z-index-common parallax-wrap">
+    <div class="vs-hero__ele1">
+        <img class="parallax-element" src="assets/img/hero/h1-ele-1-1.svg" alt="ele" />
+    </div>
+    <div class="swiper vs-hero__active--zoom">
+        <div class="swiper-wrapper" id="hero-slides"></div>
+
+        <div class="vs-hero__direction">
+            <div class="vs-swiper-button-next">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="vs-swiper-button-prev">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="vs-section space space-extra-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="vs-blog">
+                    <img src="/assets/img/elements/vs-blog-ele1.svg" alt="blog elements" class="vs-blog__ele1">
+                    <div class="vs-blog__img--figure">
+                        <a class="vs-blog__img--link" href="blog-details.html">
+                            <img src="/assets/img/blog/vs-blog-b1-1.jpg" alt="vs blog" class="vs-blog__img">
+                        </a>
+                    </div>
+                    <div class="vs-blog__content">
+                        <div class="vs-blog__meta">
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-user"></i>Admin
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-calendar-days"></i>26. September 2025
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-tag"></i>kindergarten
+                            </a>
+                        </div>
+                        <a class="vs-blog__heading--link" href="blog-details.html">
+                            <h3 class="vs-blog__heading">Baby school and other secrets</h3>
+                        </a>
+                        <p class="vs-blog__desc">
+                            Kids Hised sedaugue felis Phasellus gravida lacus quis eros.
+                            aenean sapien tornt sed diam className efficitur mus morbi eros
+                            dictum quam augue ac laor eet liglero comiodo consequat justo duis
+                            turpis lorem elit tornt sed diam consectetur.
+                        </p>
+                        <a href="blog-details.html" class="vs-blog__link">
+                            Read more<i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="vs-blog">
+                    <img src="/assets/img/elements/vs-blog-ele1.svg" alt="blog elements" class="vs-blog__ele1">
+                    <div class="vs-blog__img--figure">
+                        <a class="vs-blog__img--link" href="blog-details.html">
+                            <img src="/assets/img/blog/vs-blog-b1-2.jpg" alt="vs blog" class="vs-blog__img">
+                        </a>
+                    </div>
+                    <div class="vs-blog__content">
+                        <div class="vs-blog__meta">
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-user"></i>Admin
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-calendar-days"></i>26. September 2025
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-tag"></i>kindergarten
+                            </a>
+                        </div>
+                        <a class="vs-blog__heading--link" href="blog-details.html">
+                            <h3 class="vs-blog__heading">Couldn’t Help But Splurge These</h3>
+                        </a>
+                        <p class="vs-blog__desc">
+                            Kids Hised sedaugue felis Phasellus gravida lacus quis eros.
+                            aenean sapien tornt sed diam className efficitur mus morbi eros
+                            dictum quam augue ac laor eet liglero comiodo consequat justo duis
+                            turpis lorem elit tornt sed diam consectetur.
+                        </p>
+                        <a href="blog-details.html" class="vs-blog__link">
+                            Read more<i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="vs-blog">
+                    <img src="/assets/img/elements/vs-blog-ele1.svg" alt="blog elements" class="vs-blog__ele1">
+                    <div class="vs-blog__img--figure">
+                        <a class="vs-blog__img--link" href="blog-details.html">
+                            <img src="/assets/img/blog/vs-blog-b1-3.jpg" alt="vs blog" class="vs-blog__img">
+                        </a>
+                    </div>
+                    <div class="vs-blog__content">
+                        <div class="vs-blog__meta">
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-user"></i>Admin
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-calendar-days"></i>26. September 2025
+                            </a>
+                            <a class="vs-blog__meta--link" href="#">
+                                <i class="fa-regular fa-tag"></i>kindergarten
+                            </a>
+                        </div>
+                        <a class="vs-blog__heading--link" href="blog-details.html">
+                            <h3 class="vs-blog__heading">Easy steps for choosing</h3>
+                        </a>
+                        <p class="vs-blog__desc">
+                            Kids Hised sedaugue felis Phasellus gravida lacus quis eros.
+                            aenean sapien tornt sed diam className efficitur mus morbi eros
+                            dictum quam augue ac laor eet liglero comiodo consequat justo duis
+                            turpis lorem elit tornt sed diam consectetur.
+                        </p>
+                        <a href="blog-details.html" class="vs-blog__link">
+                            Read more<i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="vs-pagination">
+                    <a href="#" class="pagi-btn"><i class="fa-solid fa-angles-left"></i></a>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">5</a></li>
+                    </ul>
+                    <a href="#" class="pagi-btn pagi-btn--next">
+                        <i class="fa-solid fa-angles-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar-area">
+                    <div class="widget widget--search">
+                        <form action="#" class="wp-block-search">
+                            <label class="wp-block-search__label">
+                                <img src="/assets/img/icons/widget-icon-1.svg" alt="icons">
+                                Search
+                            </label>
+                            <div class="wp-block-search__inside-wrapper">
+                                <input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="Search"
+                                    type="search" name="s">
+                                <button aria-label="Search" class="wp-block-search__button" type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="widget">
+                        <div class="widget_categories">
+                            <h2 class="wp-block-heading">
+                                <img src="/assets/img/icons/widget-icon-2.svg" alt="icons">
+                                category
+                            </h2>
+                            <ul>
+                                <li>
+                                    <a href="blog-details.html">Wall Sticker</a>
+                                </li>
+                                <li>
+                                    <a href="blog-details.html">after school</a>
+                                </li>
+                                <li>
+                                    <a href="blog-details.html">Online class</a>
+                                </li>
+                                <li>
+                                    <a href="blog-details.html">play room</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h2 class="wp-block-heading">
+                            <img src="/assets/img/icons/widget-icon-2.svg" alt="icons">
+                            Recent Post
+                        </h2>
+                        <div class="recent-post-wrap">
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html">
+                                        <img src="/assets/img/blog/blog-rcp-1-1.jpg"
+                                            alt="Toddly Blog Recent Post Image">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog-details.html">
+                                            <i class="far fa-calendar-alt "></i>
+                                            April 27, 2025
+                                        </a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="blog-details.html">Baby's school and secrets</a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html">
+                                        <img src="/assets/img/blog/blog-rcp-1-2.jpg"
+                                            alt="Toddly Blog Recent Post Image">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog-details.html">
+                                            <i class="far fa-calendar-alt "></i>
+                                            April 28, 2025
+                                        </a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="blog-details.html">steps for choosing
+                                            to earning</a>
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html">
+                                        <img src="/assets/img/blog/blog-rcp-1-1.jpg"
+                                            alt="Toddly Blog Recent Post Image">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog-details.html">
+                                            <i class="far fa-calendar-alt "></i>
+                                            April 29, 2025
+                                        </a>
+                                    </div>
+                                    <h4 class="post-title">
+                                        <a href="blog-details.html">Father`s Day Sunda
+                                            & Shaving!</a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h2 class="wp-block-heading">
+                            <img src="/assets/img/icons/widget-icon-2.svg" alt="icons">
+                            tag Post
+                        </h2>
+                        <div class="tagcloud">
+                            <a href="#" class="tag-cloud-link">game</a>
+                            <a href="#" class="tag-cloud-link">earning</a>
+                            <a href="#" class="tag-cloud-link">who</a>
+                            <a href="#" class="tag-cloud-link">play to earn</a>
+                            <a href="#" class="tag-cloud-link">free</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-banner" data-bg-src="/assets/img/blog/blog-sidebar-bg.png">
+                        <span class="sidebar-banner__icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </span>
+                        <span class="sidebar-banner__title--sub">Subscribe</span>
+                        <h4 class="sidebar-banner__title--main">our newsletter</h4>
+                        <input class="sidebar-banner__field" type="text" placeholder="Enter your email">
+                        <div class="d-flex">
+                            <a href="contact.html" class="vs-btn sidebar-banner__btn w-100">
+                                <span class="vs-btn__border"></span>
+                                admission
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="mediaModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+        <div class="modal-content text-center p-0">
+            <div id="mediaContainer"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $.getJSON("/constants/paralaxNews.json", function (data) {
+            let slides = "";
+            data.forEach((item) => {
+
+                const isVideo = item.bg.toLowerCase().endsWith(".mp4");
+
+                slides += `
+            <div class="swiper-slide" style="width: 100%; height: 50vh;">
+              <div class="vs-hero" style="width: 100%; height: 100%;">
+                ${isVideo
+                        ? `<video 
+                          src="${item.bg}" 
+                          class="open-media"
+                          data-src="${item.bg}"
+                          muted
+                          loop
+                          style="width:100%; height:100%; object-fit:cover; cursor:pointer;">
+                       </video>`
+                        : `<img 
+                          src="${item.bg}" 
+                          alt="parallax image"
+                          class="open-media" 
+                          data-src="${item.bg}"
+                          style="object-fit: cover; width: 100%; height: 100%; cursor:pointer;" 
+                       />`
+                    }
+              </div>
+
+              <div class="vs-hero__content" style="height: 70vh; width: 100%;"></div>
+            </div>`;
+            });
+
+            $("#hero-slides").html(slides);
+
+            new Swiper(".vs-hero__active--zoom", {
+                loop: true,
+                speed: 1000,
+                effect: "slide",
+                navigation: {
+                    nextEl: ".vs-swiper-button-next",
+                    prevEl: ".vs-swiper-button-prev",
+                },
+            });
+        });
+
+
+        // OPEN MODAL
+        $(document).on("click", ".open-media", function () {
+            const src = $(this).data("src");
+
+            const container = $("#mediaContainer");
+            container.empty();
+
+            const isVideo = src.match(/\.(mp4|webm|ogg)$/i);
+
+            if (isVideo) {
+                container.append(`
+                <video id="modalVideo" controls autoplay style="max-width:100%; max-height:90vh;">
+                    <source src="${src}">
+                </video>
+            `);
+            } else {
+                container.append(`<img src="${src}" style="max-width:100%; max-height:90vh;">`);
+            }
+
+            let modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+            modal.show();
+        });
+
+
+        // CLOSE MODAL → STOP VIDEO
+        $("#mediaModal").on("hidden.bs.modal", function () {
+            let vid = document.getElementById("modalVideo");
+            if (vid) {
+                vid.pause();
+                vid.currentTime = 0;
+            }
+            $("#mediaContainer").empty();
+        });
+
+    });
+</script>

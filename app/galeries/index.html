@@ -1,0 +1,106 @@
+<div class="breadcrumb-wrapper z-index-common overflow-hidden">
+    <div class="vs-balls vs-balls--screen" data-balls-bottom="-6px" data-balls-color="#ffffff"></div>
+    <div class="breadcrumb-wrapper__bg wow animate__fadeInUp" data-wow-delay="0.15s" data-vs-gsap-parallax-speed="2"
+        data-vs-gsap-parallax-zoom>
+        <img src="/assets/img/bg/breadcrumb-bg-3.jpg" alt="session bg" />
+    </div>
+    <div class="container">
+        <div class="breadcrumb-wrapper__content wow animate__fadeInUp" data-wow-delay="0.45s">
+            <h1 class="breadcrumb-wrapper__title">Our Gallery</h1>
+            <div class="breadcrumb-wrapper__menu--wrap">
+                <ul class="breadcrumb-wrapper__menu">
+                    <li class="breadcrumb-wrapper__menu--item nav_link"><a href="/">Home</a></li>
+                    <li class="breadcrumb-wrapper__menu--item">Our Gallery</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="vs-class--area bg-color6 space space-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="vs-title text-center title-anime animation-style2">
+                    <div class="title-anime__wrap">
+                        <span class="vs-title__sub">Gallery Kami</span>
+                        <h2 class="vs-title__main">Gallery Kami Untuk Anak-anak</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container py-5">
+            <div class="row g-4" id="galleryWrapper">
+                <!-- Gallery items injected here -->
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center pt-50 nav_link">
+            <a href="." class="vs-btn"><span class="vs-btn__border"></span>Home</a>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-body p-0 text-center">
+                <img id="modalImage" src="" class="img-fluid rounded" alt="Preview">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        const $wrapper = $('#galleryWrapper');
+
+        $.getJSON('constants/gallery.json', function (data) {
+
+            $.each(data, function (index, item) {
+                const isVideo = item.file.endsWith('.mp4');
+                const media = isVideo
+                    ? `
+    <video class="img-fluid rounded"
+           src="/assets/img/paralax/${item.file}"
+           muted
+           loop
+           playsinline></video>
+  `
+                    : `
+    <img class="img-fluid rounded gallery-image"
+         src="/assets/img/paralax/${item.file}"
+         alt="${item.title}"
+         data-src="/assets/img/paralax/${item.file}"
+         style="cursor:pointer; object-fit: cover;" />
+  `;
+
+                const template = `
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="position-relative">
+              ${media}
+              <div class="position-absolute top-0 start-0 p-2">
+                <span class="badge bg-primary">${item.category}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+                $wrapper.append(template);
+            });
+
+        }).fail(function () {
+            console.error('Gagal memuat constants/gallery.json');
+        });
+    });
+</script>
+<script>
+    $(document).on('click', '.gallery-image', function () {
+        const src = $(this).data('src');
+
+        $('#modalImage').attr('src', src);
+        $('#galleryModal').modal('show');
+    });
+</script>
